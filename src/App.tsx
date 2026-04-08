@@ -21,7 +21,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <AppContent />
+        <Routes>
+          <Route path="/" element={<Index />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/why-it-matters" element={<WhyItMatters />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/:id" element={<ProjectDetail />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/request" element={<ToyRequest />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>{" "}
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
@@ -31,21 +40,21 @@ function AppContent() {
   const addr = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   }, [addr]);
 
   return (
     <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/why-it-matters" element={<WhyItMatters />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/request" element={<ToyRequest />} />
-          <Route path="*" element={<NotFound />} />
+      <Route path="/" element={<Index />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/why-it-matters" element={<WhyItMatters />} />
+      <Route path="/projects" element={<Projects />} />
+      <Route path="/projects/:id" element={<ProjectDetail />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/request" element={<ToyRequest />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
-  )
+  );
 }
 
 export default App;
