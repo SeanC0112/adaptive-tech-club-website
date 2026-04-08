@@ -1,71 +1,28 @@
 import Layout from "@/components/Layout";
 import { useState, FormEvent } from "react";
-import { Send, Sparkles } from "lucide-react";
+import { Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const { toast } = useToast();
-
-  // Device request form
-  const [deviceForm, setDeviceForm] = useState({
-    parentName: "",
-    childName: "",
-    childAge: "",
-    deviceDescription: "",
-    email: "",
-  });
-
-  // Contact form
-  const [contactForm, setContactForm] = useState({
+  const [form, setForm] = useState({
     name: "",
     email: "",
+    subject: "",
     message: "",
   });
+  const [submitting, setSubmitting] = useState(false);
 
-  const [deviceSubmitting, setDeviceSubmitting] = useState(false);
-  const [contactSubmitting, setContactSubmitting] = useState(false);
-
-  const handleDeviceSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setDeviceSubmitting(true);
-
-    // To connect to Google Sheets, replace this URL with your Google Apps Script web app URL
-    const GOOGLE_SHEET_URL = "";
-
-    if (GOOGLE_SHEET_URL) {
-      try {
-        await fetch(GOOGLE_SHEET_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(deviceForm),
-        });
-      } catch {
-        // no-cors mode won't give us a readable response
-      }
-    }
-
-    toast({
-      title: "Request Submitted!",
-      description: "We've received your device request. We'll be in touch soon!",
-    });
-    setDeviceForm({ parentName: "", childName: "", childAge: "", deviceDescription: "", email: "" });
-    setDeviceSubmitting(false);
-  };
-
-  const handleContactSubmit = async (e: FormEvent) => {
-    e.preventDefault();
-    setContactSubmitting(true);
-
-    // Simulate submission
+    setSubmitting(true);
     await new Promise((r) => setTimeout(r, 500));
-
     toast({
       title: "Message Sent!",
       description: "Thanks for reaching out. We'll get back to you soon.",
     });
-    setContactForm({ name: "", email: "", message: "" });
-    setContactSubmitting(false);
+    setForm({ name: "", email: "", subject: "", message: "" });
+    setSubmitting(false);
   };
 
   const inputClasses =
@@ -75,124 +32,64 @@ const Contact = () => {
     <Layout>
       <section className="container mx-auto py-16 md:py-24">
         <div className="text-center mb-16">
-          <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">Get in Touch</h1>
+          <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">Contact Us</h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Request an adapted device or send us a message — we'd love to hear from you.
+            Questions, partnerships, or interested in starting a branch at your school? We'd love to hear from you.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
-          {/* Device Request Form */}
-          <div className="bg-card rounded-2xl p-8" style={{ boxShadow: "var(--card-shadow)" }}>
-            <div className="flex items-center gap-2 mb-6">
-              <Sparkles className="w-5 h-5 text-secondary" />
-              <h2 className="font-display font-bold text-xl">Request a Device</h2>
-            </div>
-            <p className="text-sm text-muted-foreground mb-6">
-              Tell us about the toy or device you'd like us to adapt. All requests are free!
-            </p>
-            <form onSubmit={handleDeviceSubmit} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Parent/Guardian Name"
-                required
-                className={inputClasses}
-                value={deviceForm.parentName}
-                onChange={(e) => setDeviceForm({ ...deviceForm, parentName: e.target.value })}
-              />
-              <input
-                type="text"
-                placeholder="Child's Name"
-                required
-                className={inputClasses}
-                value={deviceForm.childName}
-                onChange={(e) => setDeviceForm({ ...deviceForm, childName: e.target.value })}
-              />
-              <input
-                type="text"
-                placeholder="Child's Age"
-                required
-                className={inputClasses}
-                value={deviceForm.childAge}
-                onChange={(e) => setDeviceForm({ ...deviceForm, childAge: e.target.value })}
-              />
-              <textarea
-                placeholder="Describe the toy or device and any specific needs..."
-                required
-                rows={4}
-                className={inputClasses + " resize-none"}
-                value={deviceForm.deviceDescription}
-                onChange={(e) => setDeviceForm({ ...deviceForm, deviceDescription: e.target.value })}
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                required
-                className={inputClasses}
-                value={deviceForm.email}
-                onChange={(e) => setDeviceForm({ ...deviceForm, email: e.target.value })}
-              />
-              <button
-                type="submit"
-                disabled={deviceSubmitting}
-                className="w-full py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold hover:opacity-90 transition-opacity disabled:opacity-50"
-              >
-                {deviceSubmitting ? "Submitting..." : "Submit Request"}
-              </button>
-            </form>
-          </div>
-
-          {/* Contact Us Form */}
+        <div className="max-w-lg mx-auto">
           <div className="bg-card rounded-2xl p-8" style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="flex items-center gap-2 mb-6">
               <Send className="w-5 h-5 text-primary" />
-              <h2 className="font-display font-bold text-xl">Contact Us</h2>
+              <h2 className="font-display font-bold text-xl">Send Us a Message</h2>
             </div>
-            <p className="text-sm text-muted-foreground mb-6">
-              Questions, partnerships, or just want to say hi? Drop us a line.
-            </p>
-            <form onSubmit={handleContactSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <input
                 type="text"
                 placeholder="Your Name"
                 required
                 className={inputClasses}
-                value={contactForm.name}
-                onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
               />
               <input
                 type="email"
                 placeholder="Your Email"
                 required
                 className={inputClasses}
-                value={contactForm.email}
-                onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
               />
+              <select
+                required
+                className={inputClasses}
+                value={form.subject}
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}
+              >
+                <option value="" disabled>Select a topic...</option>
+                <option value="general">General Question</option>
+                <option value="partnership">Partnership Inquiry</option>
+                <option value="branch">Start a Branch at My School</option>
+                <option value="volunteer">Volunteering</option>
+                <option value="other">Other</option>
+              </select>
               <textarea
                 placeholder="Your message..."
                 required
                 rows={6}
                 className={inputClasses + " resize-none"}
-                value={contactForm.message}
-                onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
               />
               <button
                 type="submit"
-                disabled={contactSubmitting}
+                disabled={submitting}
                 className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity disabled:opacity-50"
               >
-                {contactSubmitting ? "Sending..." : "Send Message"}
+                {submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
-          </div>
-        </div>
-
-        {/* Google Sheets Note */}
-        <div className="max-w-5xl mx-auto mt-8">
-          <div className="bg-muted rounded-xl p-4 text-center">
-            <p className="text-xs text-muted-foreground">
-              📋 The device request form can be connected to a Google Sheet. Add your Google Apps Script URL in the Contact page code to enable this.
-            </p>
           </div>
         </div>
       </section>
