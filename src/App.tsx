@@ -21,16 +21,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/why-it-matters" element={<WhyItMatters />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/request" element={<ToyRequest />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>{" "}
+        <AppContent />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
