@@ -2,12 +2,10 @@ import Layout from "@/components/Layout";
 import { Users, GraduationCap, Wrench, Heart } from "lucide-react";
 
 const teamMembers = [
-  { name: "Alex Rivera", role: "Club President", emoji: "🔧" },
-  { name: "Jordan Chen", role: "Vice President", emoji: "⚡" },
-  { name: "Sam Patel", role: "Lead Engineer", emoji: "🛠️" },
-  { name: "Taylor Kim", role: "Outreach Coordinator", emoji: "🤝" },
-  { name: "Morgan Davis", role: "Documentation Lead", emoji: "📝" },
-  { name: "Casey Johnson", role: "Faculty Advisor", emoji: "🎓" },
+  { name: "Avery Belenson", role: "Co-lead", emoji: "🔧" },
+  { name: "Sean Coleman", role: "Co-lead", emoji: "⚡" },
+  { name: "Ilana Zimmerman", role: "Co-lead", emoji: "🛠️" },
+  { name: "Andrew Kleindolph", role: "Faculty Advisor", emoji: "🎓" },
 ];
 
 const About = () => (
@@ -102,7 +100,7 @@ const About = () => (
         <h2 className="font-display font-extrabold text-3xl text-center mb-10">
           Meet the Team
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
           {teamMembers.map((member) => (
             <div
               key={member.name}
