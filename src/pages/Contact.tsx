@@ -16,7 +16,26 @@ const Contact = () => {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setSubmitting(true);
-    await new Promise((r) => setTimeout(r, 500));
+
+    const formData = new FormData();
+    formData.append("entry.1054715418", form.name);
+    formData.append("entry.14403666", form.email);
+    formData.append("entry.647776707", form.subject);
+    formData.append("entry.586486080", form.message);
+
+    try {
+      await fetch(
+        "https://docs.google.com/forms/d/e/1FAIpQLSc4Cs-fPUYiXNFHvGM5Az7GItIZFJDjbn-vidUPmnKuNQshqQ/formResponse",
+        {
+          method: "POST",
+          body: formData,
+          mode: "no-cors",
+        },
+      );
+    } catch (error) {
+      console.error("Form submission error:", error);
+    }
+
     toast({
       title: "Message Sent!",
       description: "Thanks for reaching out. We'll get back to you soon.",
@@ -55,6 +74,7 @@ const Contact = () => {
               <input
                 type="text"
                 placeholder="Your Name"
+                name="entry.1054715418"
                 required
                 className={inputClasses}
                 value={form.name}
@@ -63,6 +83,7 @@ const Contact = () => {
               <input
                 type="email"
                 placeholder="Your Email"
+                name="entry.14403666"
                 required
                 className={inputClasses}
                 value={form.email}
@@ -70,20 +91,24 @@ const Contact = () => {
               />
               <select
                 required
+                name="entry.647776707"
                 className={inputClasses}
                 value={form.subject}
                 onChange={(e) => setForm({ ...form, subject: e.target.value })}>
                 <option value="" disabled>
                   Select a topic...
                 </option>
-                <option value="general">General Question</option>
-                <option value="partnership">Partnership Inquiry</option>
-                <option value="branch">Start a Branch at My School</option>
-                <option value="volunteer">Volunteering</option>
-                <option value="other">Other</option>
+                <option value="General Question">General Question</option>
+                <option value="Partnership Inquiry">Partnership Inquiry</option>
+                <option value="Branch Inquiry">
+                  Start a Branch at My School
+                </option>
+                <option value="Volunteer Inquiry">Volunteering</option>
+                <option value="Other">Other</option>
               </select>
               <textarea
                 placeholder="Your message..."
+                name="entry.586486080"
                 required
                 rows={6}
                 className={inputClasses + " resize-none"}
