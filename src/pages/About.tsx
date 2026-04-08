@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import { Users, GraduationCap, Wrench, Heart } from "lucide-react";
+import { Users, GraduationCap, Handshake, Wrench, NotebookPen, CircleDollarSign, Heart } from "lucide-react";
 
 const teamMembers = [
   { name: "Avery Belenson", role: "Co-lead", emoji: "🔧" },
@@ -33,22 +33,57 @@ const About = () => (
           </div>
           <h3 className="font-display font-bold text-xl mb-3">Our Mission</h3>
           <p className="text-muted-foreground leading-relaxed">
-            To make play and daily activities more accessible by adapting toys
-            and devices, while giving students hands-on experience in
-            engineering, problem-solving, and community service.
+            The Adaptive Tech Club adapts technology for kids with disabilities.
+            Our free toys and other adapted technologies negate the costs of expensive
+            products, providing access to education and fun for children with disabilities.
           </p>
         </div>
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
-          <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-4">
-            <GraduationCap className="w-6 h-6 text-secondary" />
+          <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center mb-4">
+            <Handshake className="w-6 h-6 text-secondary" />
+          </div>
+          <h3 className="font-display font-bold text-xl mb-3">How We Operate</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            ATC meets weekly for 1.5 hour weekly work sessions at Lick-Wilmerding High
+            School. During these meetings, members gather to adapt toys and create
+            assistive technologies, communicating with experts to learn the specific
+            needs of children in our communities. In addition to designing and implementing
+            solutions to address these challenges, we adapt toys to be accessible for kids
+            with physical disabilities.
+          </p>
+        </div>
+        <div
+          className="bg-card rounded-2xl p-8"
+          style={{ boxShadow: "var(--card-shadow)" }}>
+          <div className="w-12 h-12 rounded-xl bg-tertiary/20 flex items-center justify-center mb-4">
+            <NotebookPen className="w-6 h-6 text-tertiary" />
           </div>
           <h3 className="font-display font-bold text-xl mb-3">What We Learn</h3>
           <p className="text-muted-foreground leading-relaxed">
             Members develop skills in soldering, 3D printing, circuit design,
-            woodworking, and assistive technology — all while making a real
-            impact in our community.
+            and human centered design allowing club members to benefit from hands-on
+            technological experience designing and creating genuinely impactful
+            technologies, all while working in a welcoming community.
+          </p>
+        </div>
+        <div
+          className="bg-card rounded-2xl p-8"
+          style={{ boxShadow: "var(--card-shadow)" }}>
+          <div className="w-12 h-12 rounded-xl bg-quaternary/30 flex items-center justify-center mb-4">
+            <CircleDollarSign className="w-6 h-6 text-quaternary" />
+          </div>
+          <h3 className="font-display font-bold text-xl mb-3">Removing Financial Barriers</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            Often, kids with disabilities who need the most support come from
+            low income families and are unable to pay the absurd prices necessary
+            for assistive technology and accessible toys. Similarly, public school
+            districts are frequently underfunded, making it very difficult for them
+            to commit the necesary recources to kids with disabilities. Additionally,
+            play is often seen as an unnecessary. To fight this inequality, our club
+            provides free assistive technology to any child with a disability bring
+            them more joy and improve their quality of life.
           </p>
         </div>
       </div>
