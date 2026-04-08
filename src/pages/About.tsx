@@ -19,7 +19,7 @@ const About = () => (
           The Adaptive Tech Club is a student-led organization dedicated to
           modifying toys and building assistive devices for children with
           disabilities. We believe that every child deserves access to play,
-          creativity, and independence.
+          education, and independence.
         </p>
       </div>
 
