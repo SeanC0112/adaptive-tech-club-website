@@ -3,7 +3,7 @@ import Layout from "@/components/Layout";
 const ToyRequest = () => {
   return (
     <Layout>
-      <section className="container mx-auto py-16 md:py-24">
+      <section className="container mx-auto py-16">
         <div className="text-center mb-16">
           <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">
             Request a Device

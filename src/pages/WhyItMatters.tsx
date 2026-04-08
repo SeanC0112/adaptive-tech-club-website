@@ -30,22 +30,36 @@ const reasons = [
 ];
 
 const stats = [
-  { number: "1 in 6", label: "children in the U.S. have a developmental disability" },
-  { number: "93%", label: "of commercial toys are inaccessible without modification" },
-  { number: "$0", label: "is what families pay for our adapted devices" },
-  { number: "15 min", label: "is all some adaptations take to change a child's world" },
+  {
+    number: "1 in 6",
+    label: "children in the U.S. have a developmental disability",
+  },
+  {
+    number: "93%",
+    label: "of commercial toys are inaccessible without modification",
+  },
+  {
+    number: "$0",
+    label: "is what families pay for our adapted devices",
+  },
+  {
+    number: "15 min",
+    label: "is all some adaptations take to change a child's world",
+  },
 ];
 
 const WhyItMatters = () => (
   <Layout>
-    <section className="container mx-auto py-16 md:py-24">
+    <section className="container mx-auto py-16">
       {/* Hero */}
       <div className="max-w-3xl mx-auto text-center mb-20">
         <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-6">
           Why Adapting Toys Matters
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed">
-          A simple modification — a bigger button, an adaptive switch, a custom grip — can transform a child's world. Here's why this work is so important.
+          A simple modification — a bigger button, an adaptive switch, a custom
+          grip — can transform a child's world. Here's why this work is so
+          important.
         </p>
       </div>
 
@@ -55,9 +69,10 @@ const WhyItMatters = () => (
           <div
             key={stat.label}
             className="bg-card rounded-2xl p-6 text-center"
-            style={{ boxShadow: "var(--card-shadow)" }}
-          >
-            <div className="font-display font-extrabold text-3xl text-primary mb-2">{stat.number}</div>
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <div className="font-display font-extrabold text-3xl text-primary mb-2">
+              {stat.number}
+            </div>
             <p className="text-sm text-muted-foreground">{stat.label}</p>
           </div>
         ))}
@@ -69,13 +84,16 @@ const WhyItMatters = () => (
           <div
             key={reason.title}
             className="bg-card rounded-2xl p-8"
-            style={{ boxShadow: "var(--card-shadow)" }}
-          >
+            style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <reason.icon className="w-6 h-6 text-primary" />
             </div>
-            <h3 className="font-display font-bold text-xl mb-3">{reason.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{reason.description}</p>
+            <h3 className="font-display font-bold text-xl mb-3">
+              {reason.title}
+            </h3>
+            <p className="text-muted-foreground leading-relaxed">
+              {reason.description}
+            </p>
           </div>
         ))}
       </div>
@@ -85,36 +103,46 @@ const WhyItMatters = () => (
         <h2 className="font-display font-extrabold text-3xl text-center mb-8">
           What Is Switch Adaptation?
         </h2>
-        <div className="bg-card rounded-2xl p-8" style={{ boxShadow: "var(--card-shadow)" }}>
+        <div
+          className="bg-card rounded-2xl p-8"
+          style={{ boxShadow: "var(--card-shadow)" }}>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Switch adaptation is the most common modification we perform. It involves soldering a standard 3.5mm audio jack onto a battery-operated toy so that it can be activated by an external adaptive switch instead of (or in addition to) its built-in button.
+            Switch adaptation is the most common modification we perform. It
+            involves soldering a standard 3.5mm audio jack onto a
+            battery-operated toy so that it can be activated by an external
+            adaptive switch instead of (or in addition to) its built-in button.
           </p>
           <p className="text-muted-foreground leading-relaxed mb-4">
-            Adaptive switches come in many forms — big buttons, sip-and-puff devices, head switches, and more — each designed for different abilities. By adding a jack, we make any toy compatible with whatever switch a child already uses.
+            Adaptive switches come in many forms — big buttons, sip-and-puff
+            devices, head switches, and more — each designed for different
+            abilities. By adding a jack, we make any toy compatible with
+            whatever switch a child already uses.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            The process typically takes 15–30 minutes and costs under $1 in parts. It's a small change with a massive impact.
+            The process typically takes 15–30 minutes and costs under $1 in
+            parts. It's a small change with a massive impact.
           </p>
         </div>
       </div>
 
       {/* CTA */}
       <div className="text-center">
-        <h2 className="font-display font-extrabold text-2xl mb-4">Ready to Make a Difference?</h2>
+        <h2 className="font-display font-extrabold text-2xl mb-4">
+          Ready to Make a Difference?
+        </h2>
         <p className="text-muted-foreground mb-6">
-          Request an adapted toy for a child, or reach out to start a chapter at your school.
+          Request an adapted toy for a child, or reach out to start a chapter at
+          your school.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/request"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold hover:opacity-90 transition-opacity"
-          >
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold hover:opacity-90 transition-opacity">
             Request a Toy <ArrowRight className="w-4 h-4" />
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity"
-          >
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity">
             Contact Us <ArrowRight className="w-4 h-4" />
           </Link>
         </div>

@@ -30,19 +30,26 @@ const Contact = () => {
 
   return (
     <Layout>
-      <section className="container mx-auto py-16 md:py-24">
+      <section className="container mx-auto py-16">
         <div className="text-center mb-16">
-          <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">Contact Us</h1>
+          <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">
+            Contact Us
+          </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Questions, partnerships, or interested in starting a branch at your school? We'd love to hear from you.
+            Questions, partnerships, or interested in starting a branch at your
+            school? We'd love to hear from you.
           </p>
         </div>
 
         <div className="max-w-lg mx-auto">
-          <div className="bg-card rounded-2xl p-8" style={{ boxShadow: "var(--card-shadow)" }}>
+          <div
+            className="bg-card rounded-2xl p-8"
+            style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="flex items-center gap-2 mb-6">
               <Send className="w-5 h-5 text-primary" />
-              <h2 className="font-display font-bold text-xl">Send Us a Message</h2>
+              <h2 className="font-display font-bold text-xl">
+                Send Us a Message
+              </h2>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
               <input
@@ -65,9 +72,10 @@ const Contact = () => {
                 required
                 className={inputClasses}
                 value={form.subject}
-                onChange={(e) => setForm({ ...form, subject: e.target.value })}
-              >
-                <option value="" disabled>Select a topic...</option>
+                onChange={(e) => setForm({ ...form, subject: e.target.value })}>
+                <option value="" disabled>
+                  Select a topic...
+                </option>
                 <option value="general">General Question</option>
                 <option value="partnership">Partnership Inquiry</option>
                 <option value="branch">Start a Branch at My School</option>
@@ -85,8 +93,7 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity disabled:opacity-50"
-              >
+                className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity disabled:opacity-50">
                 {submitting ? "Sending..." : "Send Message"}
               </button>
             </form>
