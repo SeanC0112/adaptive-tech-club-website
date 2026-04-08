@@ -13,13 +13,21 @@ const ToyRequest = () => {
             child. All requests are free!
           </p>
         </div>
-        <div>
-          <iframe
-            src="https://docs.google.com/forms/d/e/1FAIpQLSewCOc-BnLSU9s2GjQs0npHwu6RxR2HXP5me6e0jycRlr0c7A/viewform?embedded=true"
-            width="640"
-            height="1803">
-            Loading…
-          </iframe>
+        <div className="max-w-2xl mx-auto">
+          <div
+            className="bg-card rounded-2xl overflow-hidden"
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSewCOc-BnLSU9s2GjQs0npHwu6RxR2HXP5me6e0jycRlr0c7A/viewform?embedded=true"
+              width="100%"
+              height="800"
+              frameBorder="0"
+              marginHeight={0}
+              marginWidth={0}
+              className="block">
+              Loading…
+            </iframe>
+          </div>
         </div>
       </section>
     </Layout>
