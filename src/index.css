@@ -6,42 +6,42 @@
 
 @layer base {
   :root {
-    --background: 20 12% 11%;
-    --foreground: 42 66% 81%;
+    --background: 38 52% 81%;
+    --foreground: 20 12% 11%;
 
-    --card: 20 12% 16%;
-    --card-foreground: 42 66% 81%;
+    --card: 38 52% 75%;
+    --card-foreground: 20 12% 11%;
 
-    --popover: 20 12% 16%;
-    --popover-foreground: 42 66% 81%;
+    --popover: 38 52% 75%;
+    --popover-foreground: 20 12% 11%;
 
-    --primary: 354 43% 36%;
-    --primary-foreground: 42 66% 81%;
+    --primary: 221 63% 28%;
+    --primary-foreground: 38 52% 81%;
 
-    --secondary: 221 63% 28%;
-    --secondary-foreground: 42 66% 81%;
+    --secondary: 354 43% 36%;
+    --secondary-foreground: 38 52% 81%;
 
-    --muted: 20 12% 23%;
-    --muted-foreground: 42 66% 81%;
+    --muted: 38 52% 70%;
+    --muted-foreground: 20 12% 23%;
 
-    --accent: 354 43% 36%;
-    --accent-foreground: 42 66% 81%;
+    --accent: 221 63% 28%;
+    --accent-foreground: 38 52% 81%;
 
     --destructive: 354 43% 36%;
-    --destructive-foreground: 42 66% 81%;
+    --destructive-foreground: 38 52% 81%;
 
-    --border: 20 12% 23%;
-    --input: 20 12% 23%;
+    --border: 38 52% 70%;
+    --input: 42 66% 70%;
     --ring: 354 43% 36%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 20 12% 11%;
-    --sidebar-foreground: 42 66% 81%;
-    --sidebar-primary: 354 43% 36%;
-    --sidebar-primary-foreground: 42 66% 81%;
-    --sidebar-accent: 221 63% 28%;
-    --sidebar-accent-foreground: 42 66% 81%;
+    --sidebar-background: 38 52% 75%;
+    --sidebar-foreground: 20 12% 11%;
+    --sidebar-primary: 221 63% 28%;
+    --sidebar-primary-foreground: 38 52% 81%;
+    --sidebar-accent: 354 43% 36%;
+    --sidebar-accent-foreground: 38 52% 81%;
     --sidebar-border: 20 12% 23%;
     --sidebar-ring: 354 43% 36%;
 
@@ -50,7 +50,7 @@
       hsl(354 43% 36%),
       hsl(221 63% 28%)
     );
-    --warm-gradient: linear-gradient(135deg, hsl(42 66% 81%), hsl(42 66% 71%));
+    --warm-gradient: linear-gradient(135deg, hsl(38 52% 81%), hsl(38 52% 71%));
     --accent-gradient: linear-gradient(
       135deg,
       hsl(354 43% 36%),
