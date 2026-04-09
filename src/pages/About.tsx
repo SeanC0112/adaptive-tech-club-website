@@ -112,33 +112,51 @@ const About = () => (
               step: "1",
               title: "We Receive a Request",
               desc: "Families, schools, or organizations reach out with a specific need.",
+              primary: true,
             },
             {
               icon: Wrench,
               step: "2",
               title: "We Design & Build",
               desc: "Club members collaborate to adapt or create the device.",
+              primary: false,
             },
             {
               icon: Heart,
               step: "3",
               title: "We Deliver Joy",
               desc: "The finished device is given to the child or teacher at no cost.",
+              primary: true,
             },
-          ].map((item) => (
-            <div key={item.step} className="text-center">
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                <item.icon className="w-8 h-8 text-primary" />
+          ].map((item) =>
+            item.primary ? (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-primary" />
+                </div>
+                <div className="text-sm font-bold text-primary mb-2">
+                  Step {item.step}
+                </div>
+                <h3 className="font-display font-bold text-lg mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
-              <div className="text-sm font-bold text-primary mb-2">
-                Step {item.step}
+            ) : (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-secondary" />
+                </div>
+                <div className="text-sm font-bold text-secondary mb-2">
+                  Step {item.step}
+                </div>
+                <h3 className="font-display font-bold text-lg mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
-              <h3 className="font-display font-bold text-lg mb-2">
-                {item.title}
-              </h3>
-              <p className="text-muted-foreground text-sm">{item.desc}</p>
-            </div>
-          ))}
+            ),
+          )}
         </div>
       </div>
 
