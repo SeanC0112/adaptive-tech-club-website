@@ -42,14 +42,19 @@ const Footer = () => (
           <h4 className="font-display font-bold mb-4">Quick Links</h4>
           <div className="flex flex-col gap-2">
             <Link
-              to="/About"
+              to="/about"
               className="text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
               About Us
             </Link>
             <Link
-              to="/Why-It-Matters"
+              to="/why-it-matters"
               className="text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
               Why It Matters
+            </Link>
+            <Link
+              to="/projects"
+              className="text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
+              Projects
             </Link>
             <Link
               to="/request"
@@ -57,7 +62,7 @@ const Footer = () => (
               Request a Toy
             </Link>
             <Link
-              to="/Contact"
+              to="/contact"
               className="text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
               Contact
             </Link>
