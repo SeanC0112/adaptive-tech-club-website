@@ -64,8 +64,8 @@ const About = () => (
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
-          <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center mb-4">
-            <Handshake className="w-6 h-6 text-primary" />
+          <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center mb-4">
+            <Handshake className="w-6 h-6 text-secondary" />
           </div>
           <h3 className="font-display font-bold text-xl mb-3">
             How We Operate
@@ -83,8 +83,8 @@ const About = () => (
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
-          <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center mb-4">
-            <CircleDollarSign className="w-6 h-6 text-secondary" />
+          <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center mb-4">
+            <CircleDollarSign className="w-6 h-6 text-primary" />
           </div>
           <h3 className="font-display font-bold text-xl mb-3">
             Removing Financial Barriers
