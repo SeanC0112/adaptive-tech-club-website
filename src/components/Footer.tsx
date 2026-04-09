@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Wrench, Heart, Camera, Instagram } from "lucide-react";
+import { Wrench, Heart, Camera, Instagram, Mail } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-card text-card-foreground py-12 mt-20">
@@ -18,13 +18,23 @@ const Footer = () => (
             Modifying toys and devices to make play accessible for every child.
           </p>
           <div className="flex items-center gap-2 mb-4 text-card-foreground/60 hover:text-card-foreground transition-colors">
-            <Instagram className="w-6 h-6" />
+            <Instagram className="w-4 h-4" />
             <a
               href="https://www.instagram.com/adaptivetechclub_lwhs"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-display font-bold text-lg">
+              className="font-display font-bold text-sm">
               @adaptivetechclub_lwhs
+            </a>
+          </div>
+          <div className="flex items-center gap-2 mb-4 text-card-foreground/60 hover:text-card-foreground transition-colors">
+            <Mail className="w-4 h-4" />
+            <a
+              href="mailto:adaptivetechclub.lwhs@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display font-bold text-sm">
+              adaptivetechclub.lwhs@gmail.com
             </a>
           </div>
         </div>
