@@ -17,10 +17,8 @@ const Footer = () => (
           <p className="text-card-foreground/60 text-sm leading-relaxed mb-4">
             Modifying toys and devices to make play accessible for every child.
           </p>
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Instagram className="w-4 h-4 text-primary-foreground" />
-            </div>
+          <div className="flex items-center gap-2 mb-4 text-card-foreground/60 hover:text-card-foreground transition-colors">
+            <Instagram className="w-6 h-6" />
             <a
               href="https://www.instagram.com/adaptivetechclub_lwhs"
               target="_blank"
