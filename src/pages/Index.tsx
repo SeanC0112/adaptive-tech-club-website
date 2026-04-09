@@ -64,9 +64,9 @@ const Index = () => (
             <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
           <Link
-            to="/request"
+            to="/contact"
             className="inline-flex items-center px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity group">
-            Request a Device
+            Contact Us
             <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
         </div>
@@ -131,7 +131,7 @@ const Index = () => (
           we'll work to make it happen.
         </p>
         <Link
-          to="/contact"
+          to="/request"
           className="inline-flex items-center px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity group">
           Submit a Request
           <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
