@@ -17,7 +17,7 @@ const Footer = () => (
           <p className="text-card-foreground/60 text-sm leading-relaxed mb-4">
             Modifying toys and devices to make play accessible for every child.
           </p>
-          <div className="flex items-center gap-2 mb-4 text-card-foreground/60 hover:text-card-foreground transition-colors">
+          <div className="flex items-center gap-2 mb-4 text-secondary hover:text-secondary/80 transition-colors">
             <Instagram className="w-6 h-6" />
             <a
               href="https://www.instagram.com/adaptivetechclub_lwhs"
@@ -75,7 +75,7 @@ const Footer = () => (
       </div>
       <div className="border-t border-card-foreground/10 mt-8 pt-8 text-center text-sm text-card-foreground/40">
         <p className="flex items-center justify-center gap-1">
-          Made with <Heart className="w-4 h-4 text-primary fill-primary" /> by
+          Made with <Heart className="w-4 h-4 text-secondary fill-secondary" /> by
           the Adaptive Tech Club
         </p>
       </div>
