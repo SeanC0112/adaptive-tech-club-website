@@ -48,9 +48,9 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <AppContent />
+          <Analytics />
         </BrowserRouter>
       </TooltipProvider>
-      <Analytics />
     </QueryClientProvider>
   );
 };
