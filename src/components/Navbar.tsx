@@ -21,7 +21,7 @@ const Navbar = () => {
       <div className="container mx-auto flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2 group ">
           <div
-            className={`px-4 py-1 flex items-center rounded-lg text-sm font-medium transition-colors ${
+            className={`px-2 py-1 flex items-center rounded-lg text-sm font-medium transition-colors ${
               location.pathname === "/"
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
