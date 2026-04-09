@@ -5,7 +5,7 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const stats = [
   { icon: Wrench, value: "300+", label: "Devices Adapted" },
-  { icon: Users, value: "30+", label: "Club Members" },
+  { icon: Users, value: "60+", label: "Club Members" },
   { icon: Heart, value: "100+", label: "Kids Helped" },
 ];
 
