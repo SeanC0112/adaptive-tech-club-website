@@ -1,6 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Wrench } from "lucide-react";
+import Logo from "@/components/logo";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -19,8 +20,8 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4">
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-            <Wrench className="w-5 h-5 text-primary-foreground" />
+          <div className="w-[73px] h-[60px] rounded-xl bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
+            <Logo className="w-20 h-20 text-primary-foreground" />
           </div>
           <span className="font-display font-extrabold text-xl text-foreground">
             Adaptive Tech Club
