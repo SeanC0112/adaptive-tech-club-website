@@ -158,13 +158,15 @@ const WhyItMatters = () => (
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/request"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold hover:opacity-90 transition-opacity">
-            Request a Toy <ArrowRight className="w-4 h-4" />
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold hover:opacity-90 transition-opacity group">
+            Request a Toy
+            <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity">
-            Contact Us <ArrowRight className="w-4 h-4" />
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity group">
+            Contact Us
+            <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { useState, FormEvent } from "react";
-import { Send } from "lucide-react";
+import { Send, ArrowRight } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
@@ -118,8 +118,9 @@ const Contact = () => {
               <button
                 type="submit"
                 disabled={submitting}
-                className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity disabled:opacity-50">
+                className="w-full py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center group">
                 {submitting ? "Sending..." : "Send Message"}
+                <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
               </button>
             </form>
           </div>
