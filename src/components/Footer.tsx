@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Wrench, Heart, Camera } from "lucide-react";
+import { Wrench, Heart, Camera, Instagram } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-card text-card-foreground py-12 mt-20">
@@ -19,14 +19,14 @@ const Footer = () => (
           </p>
           <div className="flex items-center gap-2 mb-4">
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <Camera className="w-4 h-4 text-primary-foreground" />
+              <Instagram className="w-4 h-4 text-primary-foreground" />
             </div>
             <a
               href="https://www.instagram.com/adaptivetechclub_lwhs"
               target="_blank"
               rel="noopener noreferrer"
               className="font-display font-bold text-lg">
-              Insta: @adaptivetechclub_lwhs
+              @adaptivetechclub_lwhs
             </a>
           </div>
         </div>
