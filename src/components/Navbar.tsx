@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, Wrench } from "lucide-react";
-import Logo from "@/components/logo";
+import Logo from "@/components/ui/logo";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -19,13 +19,18 @@ const Navbar = () => {
   return (
     <nav className="sticky top-0 z-50 bg-card/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-[73px] h-[60px] rounded-xl bg-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-            <Logo className="w-20 h-20 text-primary-foreground" />
+        <Link to="/" className="flex items-center gap-2 group ">
+          <div
+            className={`px-4 py-1 flex items-center rounded-lg text-sm font-medium transition-colors ${
+              location.pathname === "/"
+                ? "bg-primary text-primary-foreground"
+                : "text-muted-foreground hover:text-foreground hover:bg-muted"
+            }`}>
+            <Logo className="w-10 h-10" />
+            <span className="font-display font-extrabold text-xl">
+              Adaptive Tech Club
+            </span>
           </div>
-          <span className="font-display font-extrabold text-xl text-foreground">
-            Adaptive Tech Club
-          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -38,8 +43,7 @@ const Navbar = () => {
                 location.pathname === link.to
                   ? "bg-primary text-primary-foreground"
                   : "text-muted-foreground hover:text-foreground hover:bg-muted"
-              }`}
-            >
+              }`}>
               {link.label}
             </Link>
           ))}
@@ -48,8 +52,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden p-2 rounded-lg hover:bg-muted text-foreground"
-        >
+          className="md:hidden p-2 rounded-lg hover:bg-muted text-foreground">
           {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
         </button>
       </div>
@@ -67,8 +70,7 @@ const Navbar = () => {
                   location.pathname === link.to
                     ? "bg-primary text-primary-foreground"
                     : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                }`}
-              >
+                }`}>
                 {link.label}
               </Link>
             ))}
