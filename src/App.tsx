@@ -12,7 +12,6 @@ import Contact from "./pages/Contact";
 import ToyRequest from "./pages/ToyRequest";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react";
 
 const queryClient = new QueryClient();
 
@@ -48,7 +47,6 @@ const App = () => {
         <Sonner />
         <BrowserRouter>
           <AppContent />
-          <Analytics />
         </BrowserRouter>
       </TooltipProvider>
     </QueryClientProvider>
