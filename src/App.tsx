@@ -12,6 +12,7 @@ import Contact from "./pages/Contact";
 import ToyRequest from "./pages/ToyRequest";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
+import { Analytics } from "@vercel/analytics/next";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +50,7 @@ const App = () => {
           <AppContent />
         </BrowserRouter>
       </TooltipProvider>
+      <Analytics />
     </QueryClientProvider>
   );
 };
