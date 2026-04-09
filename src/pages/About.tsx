@@ -59,8 +59,8 @@ const About = () => (
             <h3 className="font-display font-bold text-xl">What We Learn</h3>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            Members develop skills in soldering, 3D printing, circuit design,
-            and human centered design allowing club members to benefit from
+            Members develop skills in soldering, 3D printing, circuit creation,
+            and human-centered design allowing club members to benefit from
             hands-on technological experience designing and creating genuinely
             impactful technologies, all while working in a welcoming community.
           </p>
@@ -75,13 +75,12 @@ const About = () => (
             <h3 className="font-display font-bold text-xl">How We Operate</h3>
           </div>
           <p className="text-muted-foreground leading-relaxed">
-            ATC meets weekly for 1.5 hour weekly work sessions at
-            Lick-Wilmerding High School. During these meetings, members gather
-            to adapt toys and create assistive technologies, communicating with
-            experts to learn the specific needs of children in our communities.
-            In addition to designing and implementing solutions to address these
-            challenges, we adapt toys to be accessible for kids with physical
-            disabilities.
+            ATC meets weekly for 1.5 hour work sessions at Lick-Wilmerding High
+            School. During these meetings, members gather to adapt toys and
+            create assistive technologies, communicating with experts to learn
+            the specific needs of children in our communities. In addition to
+            designing and implementing solutions to address these challenges, we
+            adapt toys to be accessible for kids with physical disabilities.
           </p>
         </div>
         <div
