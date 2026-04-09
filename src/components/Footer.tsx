@@ -19,7 +19,7 @@ const Footer = () => (
             <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
               <Camera className="w-4 h-4 text-primary-foreground" />
             </div>
-            <span className="font-display font-bold text-lg">@adaptivetechclub_lwhs</span>
+            <span className="font-display font-bold text-lg">Insta: @adaptivetechclub_lwhs</span>
           </div>
         </div>
         <div>
