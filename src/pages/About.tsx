@@ -1,10 +1,10 @@
 import Layout from "@/components/Layout";
-import { Users, GraduationCap, Wrench, Heart } from "lucide-react";
+import { Users, GraduationCap, Handshake, Wrench, NotebookPen, CircleDollarSign, Heart } from "lucide-react";
 
 const teamMembers = [
-  { name: "Avery Belenson", role: "Co-lead", emoji: "🔧" },
-  { name: "Sean Coleman", role: "Co-lead", emoji: "⚡" },
-  { name: "Ilana Zimmerman", role: "Co-lead", emoji: "🛠️" },
+  { name: "Avery Belenson", role: "Co-lead", emoji: "🧩" },
+  { name: "Sean Coleman", role: "Co-lead", emoji: "⚙️" },
+  { name: "Ilana Zimmerman", role: "Founder & Co-lead", emoji: "💡" },
   { name: "Andrew Kleindolph", role: "Faculty Advisor", emoji: "🎓" },
 ];
 
@@ -19,7 +19,7 @@ const About = () => (
           The Adaptive Tech Club is a student-led organization dedicated to
           modifying toys and building assistive devices for children with
           disabilities. We believe that every child deserves access to play,
-          creativity, and independence.
+          education, and independence.
         </p>
       </div>
 
@@ -33,22 +33,54 @@ const About = () => (
           </div>
           <h3 className="font-display font-bold text-xl mb-3">Our Mission</h3>
           <p className="text-muted-foreground leading-relaxed">
-            To make play and daily activities more accessible by adapting toys
-            and devices, while giving students hands-on experience in
-            engineering, problem-solving, and community service.
+            The Adaptive Tech Club adapts technology for kids with disabilities.
+            Our free toys and other adapted technologies negate the costs of expensive
+            products, providing access to education and fun for children with disabilities.
           </p>
         </div>
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
           <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-4">
-            <GraduationCap className="w-6 h-6 text-secondary" />
+            <NotebookPen className="w-6 h-6 text-secondary" />
           </div>
           <h3 className="font-display font-bold text-xl mb-3">What We Learn</h3>
           <p className="text-muted-foreground leading-relaxed">
             Members develop skills in soldering, 3D printing, circuit design,
-            woodworking, and assistive technology — all while making a real
-            impact in our community.
+            and human centered design allowing club members to benefit from hands-on
+            technological experience designing and creating genuinely impactful
+            technologies, all while working in a welcoming community.
+          </p>
+        </div>
+        <div
+          className="bg-card rounded-2xl p-8"
+          style={{ boxShadow: "var(--card-shadow)" }}>
+          <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center mb-4">
+            <Handshake className="w-6 h-6 text-primary" />
+          </div>
+          <h3 className="font-display font-bold text-xl mb-3">How We Operate</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            ATC meets weekly for 1.5 hour weekly work sessions at Lick-Wilmerding High
+            School. During these meetings, members gather to adapt toys and create
+            assistive technologies, communicating with experts to learn the specific
+            needs of children in our communities. In addition to designing and implementing
+            solutions to address these challenges, we adapt toys to be accessible for kids
+            with physical disabilities.
+          </p>
+        </div>
+        <div
+          className="bg-card rounded-2xl p-8"
+          style={{ boxShadow: "var(--card-shadow)" }}>
+          <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center mb-4">
+            <CircleDollarSign className="w-6 h-6 text-secondary" />
+          </div>
+          <h3 className="font-display font-bold text-xl mb-3">Removing Financial Barriers</h3>
+          <p className="text-muted-foreground leading-relaxed">
+            Kids with disabilities—especially from low-income families—often cannot
+            access expensive assistive technology and accessible toys. Public schools
+            also lack funding, and play is frequently overlooked as unnecessary. Our
+            club addresses this inequality by providing free assistive technology to
+            children with disabilities to improve their joy and quality of life.
           </p>
         </div>
       </div>
@@ -64,7 +96,7 @@ const About = () => (
               icon: Users,
               step: "1",
               title: "We Receive a Request",
-              desc: "Families, therapists, or schools reach out with a specific need.",
+              desc: "Families, schools, or organizations reach out with a specific need.",
             },
             {
               icon: Wrench,
@@ -76,7 +108,7 @@ const About = () => (
               icon: Heart,
               step: "3",
               title: "We Deliver Joy",
-              desc: "The finished device is given to the child at no cost.",
+              desc: "The finished device is given to the child or teacher at no cost.",
             },
           ].map((item) => (
             <div key={item.step} className="text-center">
