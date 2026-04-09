@@ -36,10 +36,12 @@ const About = () => (
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-            <Heart className="w-6 h-6 text-primary" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+              <Heart className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="font-display font-bold text-xl">Our Mission</h3>
           </div>
-          <h3 className="font-display font-bold text-xl mb-3">Our Mission</h3>
           <p className="text-muted-foreground leading-relaxed">
             The Adaptive Tech Club adapts technology for kids with disabilities.
             Our free toys and other adapted technologies negate the costs of
@@ -50,10 +52,12 @@ const About = () => (
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
-          <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center mb-4">
-            <NotebookPen className="w-6 h-6 text-secondary" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl bg-secondary/20 flex items-center justify-center shrink-0">
+              <NotebookPen className="w-6 h-6 text-secondary" />
+            </div>
+            <h3 className="font-display font-bold text-xl">What We Learn</h3>
           </div>
-          <h3 className="font-display font-bold text-xl mb-3">What We Learn</h3>
           <p className="text-muted-foreground leading-relaxed">
             Members develop skills in soldering, 3D printing, circuit design,
             and human centered design allowing club members to benefit from
@@ -64,12 +68,12 @@ const About = () => (
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
-          <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center mb-4">
-            <Handshake className="w-6 h-6 text-secondary" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl bg-secondary/30 flex items-center justify-center shrink-0">
+              <Handshake className="w-6 h-6 text-secondary" />
+            </div>
+            <h3 className="font-display font-bold text-xl">How We Operate</h3>
           </div>
-          <h3 className="font-display font-bold text-xl mb-3">
-            How We Operate
-          </h3>
           <p className="text-muted-foreground leading-relaxed">
             ATC meets weekly for 1.5 hour weekly work sessions at
             Lick-Wilmerding High School. During these meetings, members gather
@@ -83,12 +87,14 @@ const About = () => (
         <div
           className="bg-card rounded-2xl p-8"
           style={{ boxShadow: "var(--card-shadow)" }}>
-          <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center mb-4">
-            <CircleDollarSign className="w-6 h-6 text-primary" />
+          <div className="flex items-center gap-3 mb-3">
+            <div className="w-12 h-12 rounded-xl bg-primary/30 flex items-center justify-center mb-4">
+              <CircleDollarSign className="w-6 h-6 text-primary" />
+            </div>
+            <h3 className="font-display font-bold text-xl mb-3">
+              Removing Financial Barriers
+            </h3>
           </div>
-          <h3 className="font-display font-bold text-xl mb-3">
-            Removing Financial Barriers
-          </h3>
           <p className="text-muted-foreground leading-relaxed">
             Kids with disabilities—especially from low-income families—often
             cannot access expensive assistive technology and accessible toys.
