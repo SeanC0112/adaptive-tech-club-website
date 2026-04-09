@@ -4,7 +4,7 @@ import { ArrowRight, Heart, Users, Lightbulb, Wrench } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const stats = [
-  { icon: Wrench, value: "50+", label: "Devices Adapted" },
+  { icon: Wrench, value: "300+", label: "Devices Adapted" },
   { icon: Users, value: "30+", label: "Club Members" },
   { icon: Heart, value: "100+", label: "Kids Helped" },
 ];
@@ -59,13 +59,15 @@ const Index = () => (
           style={{ animationDelay: "0.3s" }}>
           <Link
             to="/projects"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-primary text-primary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity">
+            className="inline-flex items-center px-8 py-4 rounded-xl bg-primary text-primary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity group">
             See Our Work
+            <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
           <Link
             to="/request"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity">
+            className="inline-flex items-center px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity group">
             Request a Device
+            <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
         </div>
       </div>
@@ -130,8 +132,9 @@ const Index = () => (
         </p>
         <Link
           to="/contact"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity">
-          Submit a Request <ArrowRight className="w-5 h-5" />
+          className="inline-flex items-center px-8 py-4 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity group">
+          Submit a Request
+          <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
         </Link>
       </div>
     </section>

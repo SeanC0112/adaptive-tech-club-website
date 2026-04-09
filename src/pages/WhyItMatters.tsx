@@ -8,24 +8,28 @@ const reasons = [
     title: "Play Is a Right, Not a Privilege",
     description:
       "The UN Convention on the Rights of the Child recognizes play as a fundamental right. Yet many commercial toys aren't accessible to children with motor, sensory, or cognitive disabilities. Adapting toys removes those barriers so every child can experience the joy of play.",
+    primary: true,
   },
   {
     icon: Brain,
     title: "Play Drives Development",
     description:
       "Play isn't just fun — it's how children develop motor skills, language, social abilities, and problem-solving. When a child can't interact with toys independently, they miss out on critical developmental milestones. An adapted switch or modified grip can unlock that growth.",
+    primary: false,
   },
   {
     icon: HandHeart,
     title: "Independence & Confidence",
     description:
       "Being able to activate a toy on their own — even with a simple switch press — gives a child agency. That moment of cause and effect ('I did that!') builds self-esteem and a sense of control that carries into every part of their life.",
+    primary: false,
   },
   {
     icon: Lightbulb,
     title: "Inclusion Starts Early",
     description:
       "When children with disabilities can play alongside their peers with the same toys, it fosters empathy, friendship, and belonging. Adapted toys aren't just tools — they're bridges between kids who might otherwise be separated by ability.",
+    primary: true,
   },
 ];
 
@@ -80,22 +84,43 @@ const WhyItMatters = () => (
 
       {/* Reasons */}
       <div className="grid md:grid-cols-2 gap-8 mb-20">
-        {reasons.map((reason) => (
-          <div
-            key={reason.title}
-            className="bg-card rounded-2xl p-8"
-            style={{ boxShadow: "var(--card-shadow)" }}>
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-              <reason.icon className="w-6 h-6 text-primary" />
+        {reasons.map((reason) =>
+          reason.primary ? (
+            <div
+              key={reason.title}
+              className="bg-card rounded-2xl p-8"
+              style={{ boxShadow: "var(--card-shadow)" }}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <reason.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-display font-bold text-xl mb-3">
+                  {reason.title}
+                </h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                {reason.description}
+              </p>
             </div>
-            <h3 className="font-display font-bold text-xl mb-3">
-              {reason.title}
-            </h3>
-            <p className="text-muted-foreground leading-relaxed">
-              {reason.description}
-            </p>
-          </div>
-        ))}
+          ) : (
+            <div
+              key={reason.title}
+              className="bg-card rounded-2xl p-8"
+              style={{ boxShadow: "var(--card-shadow)" }}>
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
+                  <reason.icon className="w-6 h-6 text-secondary" />
+                </div>
+                <h3 className="font-display font-bold text-xl mb-3">
+                  {reason.title}
+                </h3>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                {reason.description}
+              </p>
+            </div>
+          ),
+        )}
       </div>
 
       {/* What is switch adaptation */}
@@ -137,13 +162,15 @@ const WhyItMatters = () => (
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/request"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold hover:opacity-90 transition-opacity">
-            Request a Toy <ArrowRight className="w-4 h-4" />
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold hover:opacity-90 transition-opacity group">
+            Request a Toy
+            <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
           <Link
             to="/contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity">
-            Contact Us <ArrowRight className="w-4 h-4" />
+            className="inline-flex items-center px-6 py-3 rounded-xl bg-primary text-primary-foreground font-display font-bold hover:opacity-90 transition-opacity group">
+            Contact Us
+            <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
         </div>
       </div>
