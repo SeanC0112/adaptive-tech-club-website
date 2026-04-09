@@ -90,12 +90,14 @@ const WhyItMatters = () => (
               key={reason.title}
               className="bg-card rounded-2xl p-8"
               style={{ boxShadow: "var(--card-shadow)" }}>
-              <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                <reason.icon className="w-6 h-6 text-primary" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                  <reason.icon className="w-6 h-6 text-primary" />
+                </div>
+                <h3 className="font-display font-bold text-xl mb-3">
+                  {reason.title}
+                </h3>
               </div>
-              <h3 className="font-display font-bold text-xl mb-3">
-                {reason.title}
-              </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {reason.description}
               </p>
@@ -105,12 +107,14 @@ const WhyItMatters = () => (
               key={reason.title}
               className="bg-card rounded-2xl p-8"
               style={{ boxShadow: "var(--card-shadow)" }}>
-              <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
-                <reason.icon className="w-6 h-6 text-secondary" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center mb-4">
+                  <reason.icon className="w-6 h-6 text-secondary" />
+                </div>
+                <h3 className="font-display font-bold text-xl mb-3">
+                  {reason.title}
+                </h3>
               </div>
-              <h3 className="font-display font-bold text-xl mb-3">
-                {reason.title}
-              </h3>
               <p className="text-muted-foreground leading-relaxed">
                 {reason.description}
               </p>
