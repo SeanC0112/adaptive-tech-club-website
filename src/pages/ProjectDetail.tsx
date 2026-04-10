@@ -40,27 +40,27 @@ const ProjectDetail = () => {
           {project.title}
         </h1>
         <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-          {project.summary}
+          {project.description}
         </p>
 
-        {/* Materials */}
-        {project.materials && (
+        {/* Features */}
+        {project.features && (
           <div
             className="bg-card rounded-2xl p-8 mb-8"
             style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="flex items-center gap-2 mb-4">
               <Package className="w-5 h-5 text-primary" />
               <h2 className="font-display font-bold text-xl">
-                Materials Needed
+                Features
               </h2>
             </div>
             <ul className="space-y-2">
-              {project.materials.map((material, i) => (
+              {project.features.map((feature, i) => (
                 <li
                   key={i}
                   className="flex items-start gap-2 text-sm text-muted-foreground">
                   <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
-                  {material}
+                  {feature}
                 </li>
               ))}
             </ul>

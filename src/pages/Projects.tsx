@@ -38,7 +38,14 @@ const Projects = () => {
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Browse everything we've built and adapted. Click on projects with
-            documentation to see build guides.
+            documentation to see more details. Please{" "}
+            <Link
+              to="/Contact"
+              className="text-muted-foreground text-primary/60 hover:text-primary transition-colors hover:underline">
+              contact us
+            </Link>{" "}
+            for information
+            on building your own.
           </p>
         </div>
 
