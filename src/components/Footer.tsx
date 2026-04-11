@@ -88,10 +88,9 @@ const Footer = () => (
           </p>
           <div>
             <h4 className="font-display font-bold mb-2">Website Info</h4>
-            <p className="text-sm font-display font-bold text-card-foreground/60 leading-relaxed mb-1">
+            <p className="text-sm text-card-foreground/60 leading-relaxed mb-4">
               This website is best viewed on a computer.
-            </p>
-            <p className="text-sm font-display font-bold text-card-foreground/60 leading-relaxed">
+              <br />
               Website built by Sean Coleman and Ilana Zimmerman.
             </p>
           </div>
