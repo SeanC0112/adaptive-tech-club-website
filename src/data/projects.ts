@@ -2,34 +2,29 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  image: string;
-  category: "toy" | "device" | "tool";
-  complexity: "simple" | "intermediate" | "advanced";
+  category: "toy" | "device" ;
   hasDocumentation: boolean;
-  summary?: string;
-  materials?: string[];
+  features?: string[];
   steps?: { title: string; description: string }[];
+  image?: string; // optional — falls back to icon if not set
 }
 
 export const projects: Project[] = [
   {
-    id: "switch-adapted-bubble-machine",
-    title: "Switch-Adapted Bubble Machine",
+    id: "Switch-MP3-Player",
+    title: "Switch MP3 Player",
     description:
-      "A battery-powered bubble machine modified with an external switch jack so kids who can't press small buttons can activate it with accessible switches.",
-    image: "",
-    category: "toy",
-    complexity: "simple",
+      "A custom built switch accessible battery powered MP3 Player that can play any audio on its included speakers or via headphones.",
+    image: "/project-images/cover-images/mp3-player.png",
+    category: "device",
     hasDocumentation: true,
-    summary:
-      "This project adds a 3.5mm switch jack to a standard battery-operated bubble machine, allowing children to use adaptive switches to activate it independently.",
-    materials: [
-      "Battery-operated bubble machine",
-      "3.5mm mono jack socket",
-      "Wire (22 AWG)",
-      "Soldering iron & solder",
-      "Drill with appropriate bit",
-      "Heat shrink tubing",
+    features: [
+      "Built-in speakers",
+      "Accepts any MP3 audio file",
+      "Headphone capability",
+      "Switch adapted Pause/Play button",
+      "Switch adapted Next button",
+      "Rechargable batteries",
     ],
     steps: [
       {
@@ -71,11 +66,8 @@ export const projects: Project[] = [
       "A spin-art machine modified for switch access, letting kids create colorful artwork by pressing an adaptive switch.",
     image: "",
     category: "toy",
-    complexity: "simple",
     hasDocumentation: true,
-    summary:
-      "Modification of a battery-operated spin art toy to accept an external adaptive switch for independent creative play.",
-    materials: [
+    features: [
       "Battery-operated spin art toy",
       "3.5mm mono jack socket",
       "Wire (22 AWG)",
@@ -110,11 +102,8 @@ export const projects: Project[] = [
       "A durable, printed communication board with symbols and words to help non-verbal kids express their needs.",
     image: "",
     category: "device",
-    complexity: "intermediate",
     hasDocumentation: true,
-    summary:
-      "A laminated picture-based communication board designed for children who are non-verbal or have limited speech.",
-    materials: [
+    features: [
       "Printed symbol sheets (PCS or custom)",
       "Laminating pouches & laminator",
       "Velcro dots",
@@ -156,7 +145,6 @@ export const projects: Project[] = [
       "A remote-controlled car modified so the controller buttons work with accessible switches.",
     image: "",
     category: "toy",
-    complexity: "intermediate",
     hasDocumentation: false,
   },
   {
@@ -166,7 +154,6 @@ export const projects: Project[] = [
       "A custom-built LED light box for sensory stimulation and exploration, with switch control.",
     image: "",
     category: "device",
-    complexity: "advanced",
     hasDocumentation: false,
   },
   {
@@ -175,8 +162,7 @@ export const projects: Project[] = [
     description:
       "A paint roller with an ergonomic grip modification for children with limited hand strength.",
     image: "",
-    category: "tool",
-    complexity: "simple",
+    category: "toy",
     hasDocumentation: false,
   },
 ];
