@@ -71,11 +71,10 @@ const ProjectDetail = () => {
         <h1 className="font-display font-extrabold text-3xl md:text-4xl mb-8 text-center">
           Documentation
         </h1>
-
         {project.photos && (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+          <div className={`mb-8 ${project.photos.length < 3 ? "flex justify-center gap-4" : "grid grid-cols-3 gap-4"}`}>
             {project.photos.map((photo, i) => (
-              <div key={i} className="rounded-xl overflow-hidden aspect-square">
+              <div key={i} className="rounded-xl overflow-hidden h-48">
                 <img
                   src={photo}
                   alt={`${project.title} photo ${i + 1}`}

@@ -34,24 +34,22 @@ export const projects: Project[] = [
     ]
   },
   {
-    id: "adapted-art-spinner",
-    title: "Adapted Art Spinner",
+    id: "dinosaur-toy",
+    title: "Switch Adapted Inflatable RC Dinosaur",
     description:
-      "A spin-art machine modified for switch access, letting kids create colorful artwork by pressing an adaptive switch.",
+      "A large dinosaur toy on wheels that self-inflates and can be driven via remote control.",
     image: "",
     category: "toy",
     hasDocumentation: true,
     features: [
-      "Battery-operated spin art toy",
-      "3.5mm mono jack socket",
-      "Wire (22 AWG)",
-      "Soldering iron & solder",
-      "Drill",
+      "Battery-powered",
+      "Can be switch adapted or joystick adapted",
+      "Slow speed promotes tracking accross room",
+      "Self-inlates",
     ],
     photos: [
-      "/project-images/mp3-player/photo1.jpg",
-      "/project-images/mp3-player/photo2.jpg",
-      "/project-images/mp3-player/photo3.jpg",
+      "/project-images/dinosaur-toy/photo1.jpg",
+      "/project-images/dinosaur-toy/photo2.jpg",
     ]
   },
   {

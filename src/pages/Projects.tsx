@@ -30,8 +30,8 @@ const Projects = () => {
             Our Projects
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Browse everything we've built and adapted. Click on projects with
-            documentation to see more details. Please{" "}
+            Browse a selection of items we've built or adapted.
+            Please{" "} <br />
             <Link
               to="/Contact"
               className="text-muted-foreground text-primary/60 hover:text-primary transition-colors hover:underline">
