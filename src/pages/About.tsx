@@ -8,16 +8,29 @@ import {
   NotebookPen,
   CircleDollarSign,
   Heart,
+  Cog,
+  Lightbulb,
+  Puzzle,
 } from "lucide-react";
 
 const STEM = 32;
 const DOT_R = 7;
 
 const teamMembers = [
-  { name: "Ilana Zimmerman", role: "Founder & Co-lead", emoji: "💡" },
-  { name: "Avery Belenson", role: "Co-lead", emoji: "🧩" },
-  { name: "Sean Coleman", role: "Co-lead", emoji: "⚙️" },
-  { name: "Andrew Kleindolph", role: "Faculty Advisor", emoji: "🎓" },
+  {
+    name: "Ilana Zimmerman",
+    role: "Founder & Co-lead",
+    icon: Lightbulb,
+    color: "primary",
+  },
+  { name: "Avery Belenson", role: "Co-lead", icon: Puzzle, color: "secondary" },
+  { name: "Sean Coleman", role: "Co-lead", icon: Cog, color: "secondary" },
+  {
+    name: "Andrew Kleindolph",
+    role: "Faculty Advisor",
+    icon: GraduationCap,
+    color: "primary",
+  },
 ];
 
 const links: Record<string, string> = {
@@ -353,7 +366,10 @@ const About = () => (
               key={member.name}
               className="bg-card rounded-2xl p-6 text-center hover:scale-[1.03] transition-transform"
               style={{ boxShadow: "var(--card-shadow)" }}>
-              <div className="text-4xl mb-3">{member.emoji}</div>
+              <div
+                className={`w-16 h-16 rounded-2xl bg-${member.color}/10 flex items-center justify-center mx-auto mb-4`}>
+                <member.icon className={`w-8 h-8 text-${member.color}`} />
+              </div>
               <h3 className="font-display font-bold">{member.name}</h3>
               <p className="text-sm text-muted-foreground">{member.role}</p>
             </div>
