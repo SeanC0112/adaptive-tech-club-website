@@ -75,13 +75,13 @@ const Footer = () => (
             through our{" "}
             <Link
               to="/Contact"
-              className="text-sm text-primary/60 hover:text-primary transition-colors hover:underline">
+              className="text-sm text-primary hover:underline">
               contact page
             </Link>{" "}
             or{" "}
             <Link
               to="/request"
-              className="text-sm text-primary/60 hover:text-primary transition-colors hover:underline">
+              className="text-sm text-primary hover:underline">
               request a device
             </Link>
             !
