@@ -1,50 +1,52 @@
 import Layout from "@/components/Layout";
-import { Lightbulb, Smile, Brain, HandHeart, ArrowRight } from "lucide-react";
+import { Lightbulb, Smile, Brain, HandHeart, ArrowRight, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const reasons = [
-  {
-    icon: Smile,
-    title: "Play Is a Right, Not a Privilege",
+    {
+    icon: HandHeart,
+    title: "Independence & Developement",
     description:
-      "The UN Convention on the Rights of the Child recognizes play as a fundamental right. Yet many commercial toys aren't accessible to children with motor, sensory, or cognitive disabilities. Adapting toys removes those barriers so every child can experience the joy of play.",
+      "Being able to activate a toy on their own gives a child a powerful sense of agency. That “I did that!” moment builds confidence and self-esteem. At the same time, play is how children naturally develop motor skills, language, social abilities, and problem-solving.",
+    primary: false,
+  },
+    {
+    icon: Brain,
+    title: "Learning Life Skills",
+    description:
+      "Switch and joystick adapted toys provide motivation for children to learn to interact with the world in ways that they will use every day for the rest of their lives. Joysticks and switches are often used to operate computers, control powered wheelchairs, and communicate with assistive devices.",
+    primary: false,
+  },
+  {
+    icon: DollarSign,
+    title: "Removing Financial Barriers",
+    description:
+      "An average adapted toy that costs $15 unadapted will be sold for $70 comercially and accessible switches cost a minimum of $75. Due to the immense costs of other assistive technologies, many families and schools lack funding for expensive adapted toys, switches, or custom devices. Our club addresses this inequality by providing free assistive technology to any child with a disability.",
     primary: true,
   },
-  {
-    icon: Brain,
-    title: "Play Drives Development",
+    {
+    icon: Smile,
+    title: "What Members Learn",
     description:
-      "Play isn't just fun — it's how children develop motor skills, language, social abilities, and problem-solving. When a child can't interact with toys independently, they miss out on critical developmental milestones. An adapted switch or modified grip can unlock that growth.",
-    primary: false,
-  },
-  {
-    icon: HandHeart,
-    title: "Independence & Confidence",
-    description:
-      "Being able to activate a toy on their own — even with a simple switch press — gives a child agency. That moment of cause and effect ('I did that!') builds self-esteem and a sense of control that carries into every part of their life.",
-    primary: false,
-  },
-  {
-    icon: Lightbulb,
-    title: "Inclusion Starts Early",
-    description:
-      "When children with disabilities can play alongside their peers with the same toys, it fosters empathy, friendship, and belonging. Adapted toys aren't just tools — they're bridges between kids who might otherwise be separated by ability.",
+      "Members build skills in soldering, 3D modeling, 3D printing, circuitry, and human-centered design—channeling their energy away from low-impact personal projects and into work that truly matters. By collaborating with occupational therapists, they create technology with real-world impact while gaining empathy and meaningful, hands-on experience in a supportive community.",
     primary: true,
   },
 ];
 
+
+
 const stats = [
-  {
-    number: "1 in 6",
-    label: "children in the U.S. have a developmental disability",
-  },
-  {
-    number: "93%",
-    label: "of commercial toys are inaccessible without modification",
-  },
   {
     number: "$0",
     label: "is what families pay for our adapted devices",
+  },
+  {
+    number: "$70 vs $20",
+    label: "is the price of a comercial adapted toy versus an ATC adapted toy",
+  },
+  {
+    number: "$75 vs $4",
+    label: "is the cost of a comercial accessible button versus one made by ATC",
   },
   {
     number: "15 min",
@@ -58,16 +60,19 @@ const WhyItMatters = () => (
       {/* Hero */}
       <div className="max-w-3xl mx-auto text-center mb-20">
         <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-6">
-          Why Adapting Toys Matters
+          Why Our Work Matters
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed">
-          A simple modification — a bigger button, an adaptive switch, a custom
-          grip — can transform a child's world. Here's why this work is so
-          important.
+          A simple modification can transform a child's world, not only
+          in the momentary joy of accessible play, but in the life-long
+          learning it develops.
         </p>
       </div>
 
       {/* Stats */}
+      <h2 className="font-display font-extrabold text-3xl text-center mb-8">
+          Quick Look
+        </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-20">
         {stats.map((stat) => (
           <div
@@ -83,6 +88,9 @@ const WhyItMatters = () => (
       </div>
 
       {/* Reasons */}
+      <h2 className="font-display font-extrabold text-3xl text-center mb-8">
+          Detailed Overview
+        </h2>
       <div className="grid md:grid-cols-2 gap-8 mb-20">
         {reasons.map((reason) =>
           reason.primary ? (
@@ -144,8 +152,8 @@ const WhyItMatters = () => (
             whatever switch a child already uses.
           </p>
           <p className="text-muted-foreground leading-relaxed">
-            The process typically takes 15–30 minutes and costs under $1 in
-            parts. It's a small change with a massive impact.
+            The process typically takes 15–30 minutes and costs only $2 in
+            parts, in addition to the cost of the toy itself. It's a small change with a massive impact.
           </p>
         </div>
       </div>
