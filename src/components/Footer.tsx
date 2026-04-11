@@ -70,7 +70,7 @@ const Footer = () => (
         </div>
         <div>
           <h4 className="font-display font-bold mb-4">Get Involved</h4>
-          <p className="text-sm text-card-foreground/60 leading-relaxed">
+          <p className="text-sm text-card-foreground/60 leading-relaxed mb-4">
             Want to join, donate, or request an adapted device? Reach out
             through our{" "}
             <Link
@@ -86,6 +86,15 @@ const Footer = () => (
             </Link>
             !
           </p>
+          <div>
+            <h4 className="font-display font-bold mb-2">Website Info</h4>
+            <p className="text-sm font-display font-bold text-card-foreground/60 leading-relaxed mb-1">
+              This website is best viewed on a computer.
+            </p>
+            <p className="text-sm font-display font-bold text-card-foreground/60 leading-relaxed">
+              Website built by Sean Coleman and Ilana Zimmerman.
+            </p>
+          </div>
         </div>
       </div>
       <div className="border-t border-card-foreground/10 mt-8 pt-8 text-center text-sm text-card-foreground/40">
