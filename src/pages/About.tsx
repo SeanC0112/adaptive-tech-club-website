@@ -42,10 +42,9 @@ function renderLinkedText(text: string) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-primary/60 hover:text-primary transition-colors hover:underline"
-        >
+          className="text-sm text-primary/60 hover:text-primary transition-colors hover:underline">
           {phrase}
-        </a>
+        </a>,
       );
 
       remaining = split.slice(1).join(phrase);
@@ -132,7 +131,7 @@ function HorizontalTimeline() {
             ? d
             : `<a href="${d.props.href}" target="_blank" style="color:inherit;text-decoration:underline;">
                 ${d.props.children}
-              </a>`
+              </a>`,
         )
         .join("");
 
@@ -156,10 +155,10 @@ function HorizontalTimeline() {
       const wrappedHeights = cards.map((c) => c.offsetHeight);
 
       const maxAboveH = Math.max(
-        ...events.map((e, i) => (e.above ? wrappedHeights[i] : 0))
+        ...events.map((e, i) => (e.above ? wrappedHeights[i] : 0)),
       );
       const maxBelowH = Math.max(
-        ...events.map((e, i) => (!e.above ? wrappedHeights[i] : 0))
+        ...events.map((e, i) => (!e.above ? wrappedHeights[i] : 0)),
       );
 
       const totalH = maxAboveH + STEM + DOT_R * 2 + STEM + maxBelowH + 8;
@@ -180,20 +179,16 @@ function HorizontalTimeline() {
           : lineY + DOT_R + STEM + "px";
       });
 
-      const svg = document.createElementNS(
-        "http://www.w3.org/2000/svg",
-        "svg"
-      );
+      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
       svg.setAttribute("width", String(totalW));
       svg.setAttribute("height", String(totalH));
-      svg.style.cssText =
-        "position:absolute;top:0;left:0;pointer-events:none;";
+      svg.style.cssText = "position:absolute;top:0;left:0;pointer-events:none;";
 
       const makeLine = (x1: number, y1: number, x2: number, y2: number) => {
         const l = document.createElementNS(
           "http://www.w3.org/2000/svg",
-          "line"
+          "line",
         );
         l.setAttribute("x1", String(x1));
         l.setAttribute("y1", String(y1));
@@ -205,7 +200,7 @@ function HorizontalTimeline() {
       };
 
       const lineX1 = positions[0] - offsetX;
-      const lineX2 = positions[n - 1] + 2*offsetX;
+      const lineX2 = positions[n - 1] + 2 * offsetX;
 
       svg.appendChild(makeLine(lineX1, lineY, lineX2, lineY));
 
@@ -219,7 +214,7 @@ function HorizontalTimeline() {
 
         const dot = document.createElementNS(
           "http://www.w3.org/2000/svg",
-          "circle"
+          "circle",
         );
         dot.setAttribute("cx", String(cx));
         dot.setAttribute("cy", String(lineY));
@@ -256,7 +251,10 @@ const About = () => (
           About Our Club
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed">
-          The Adaptive Tech Club is a student-led organization that adapts technology and modifies toys for children with disabilities. Our free toys and tech eliminate cost barriers while ensuring every child has access to play, education, and independence.
+          The Adaptive Tech Club is a student-led organization that adapts
+          technology and modifies toys for children with disabilities. Our free
+          toys and tech eliminate cost barriers while ensuring every child has
+          access to play, education, and independence.
         </p>
       </div>
 
@@ -265,102 +263,103 @@ const About = () => (
           Our Story
         </h2>
         <HorizontalTimeline />
-        <h2 className="font-display font-extrabold text-3xl text-center mb-20"></h2> {/* idk how to do a space so this is just a spacer */}
+        <h2 className="font-display font-extrabold text-3xl text-center mb-20"></h2>{" "}
+        {/* idk how to do a space so this is just a spacer */}
       </div>
 
-{/* How it works */}
-            <div className="mb-20">
-              <h2 className="font-display font-extrabold text-3xl text-center mb-10">
-                How It Works
-              </h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  {
-                    icon: Users,
-                    step: "1",
-                    title: "We Receive a Request",
-                    desc: "Families, schools, or organizations reach out with a specific need.",
-                    primary: true,
-                  },
-                  {
-                    icon: Wrench,
-                    step: "2",
-                    title: "We Design & Build",
-                    desc: "Club members collaborate to adapt or create the device.",
-                    primary: false,
-                  },
-                  {
-                    icon: Heart,
-                    step: "3",
-                    title: "We Deliver Joy",
-                    desc: "The finished device is given to the child or teacher at no cost.",
-                    primary: true,
-                  },
-                ].map((item) =>
-                  item.primary ? (
-                    <div key={item.step} className="text-center">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                        <item.icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <div className="text-sm font-bold text-primary mb-2">
-                        Step {item.step}
-                      </div>
-                      <h3 className="font-display font-bold text-lg mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
-                    </div>
-                  ) : (
-                    <div key={item.step} className="text-center">
-                      <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-4">
-                        <item.icon className="w-8 h-8 text-secondary" />
-                      </div>
-                      <div className="text-sm font-bold text-secondary mb-2">
-                        Step {item.step}
-                      </div>
-                      <h3 className="font-display font-bold text-lg mb-2">
-                        {item.title}
-                      </h3>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
-                    </div>
-                  ),
-                )}
+      {/* How it works */}
+      <div className="mb-20">
+        <h2 className="font-display font-extrabold text-3xl text-center mb-10">
+          How It Works
+        </h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              icon: Users,
+              step: "1",
+              title: "We Receive a Request",
+              desc: "Families, schools, or organizations reach out with a specific need.",
+              primary: true,
+            },
+            {
+              icon: Wrench,
+              step: "2",
+              title: "We Design & Build",
+              desc: "Club members collaborate to adapt or create the device.",
+              primary: false,
+            },
+            {
+              icon: Heart,
+              step: "3",
+              title: "We Deliver Joy",
+              desc: "The finished device is given to the child or teacher at no cost.",
+              primary: true,
+            },
+          ].map((item) =>
+            item.primary ? (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-primary" />
+                </div>
+                <div className="text-sm font-bold text-primary mb-2">
+                  Step {item.step}
+                </div>
+                <h3 className="font-display font-bold text-lg mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
-            </div>
+            ) : (
+              <div key={item.step} className="text-center">
+                <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-4">
+                  <item.icon className="w-8 h-8 text-secondary" />
+                </div>
+                <div className="text-sm font-bold text-secondary mb-2">
+                  Step {item.step}
+                </div>
+                <h3 className="font-display font-bold text-lg mb-2">
+                  {item.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">{item.desc}</p>
+              </div>
+            ),
+          )}
+        </div>
+      </div>
 
       {/* Mission Cards */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="font-display font-extrabold text-4xl md:text-3xl mb-5">
-          How We Opperate
+          How We Operate
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed">
           ATC meets weekly for 1.5 hour work sessions at Lick-Wilmerding High
-            School. During these meetings, members gather to adapt toys and
-            create assistive technologies, communicating with experts to learn
-            the specific needs of children in our communities. In addition to
-            designing and implementing solutions to address these challenges, we
-            adapt toys to be accessible for kids with physical disabilities.
+          School. During these meetings, members gather to adapt toys and create
+          assistive technologies, communicating with experts to learn the
+          specific needs of children in our communities. In addition to
+          designing and implementing solutions to address these challenges, we
+          adapt toys to be accessible for kids with physical disabilities.
         </p>
       </div>
 
-            {/* Team */}
-            <div>
-              <h2 className="font-display font-extrabold text-3xl text-center mb-10">
-                Meet the Team
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
-                {teamMembers.map((member) => (
-                  <div
-                    key={member.name}
-                    className="bg-card rounded-2xl p-6 text-center hover:scale-[1.03] transition-transform"
-                    style={{ boxShadow: "var(--card-shadow)" }}>
-                    <div className="text-4xl mb-3">{member.emoji}</div>
-                    <h3 className="font-display font-bold">{member.name}</h3>
-                    <p className="text-sm text-muted-foreground">{member.role}</p>
-                  </div>
-                ))}
-              </div>
+      {/* Team */}
+      <div>
+        <h2 className="font-display font-extrabold text-3xl text-center mb-10">
+          Meet the Team
+        </h2>
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+          {teamMembers.map((member) => (
+            <div
+              key={member.name}
+              className="bg-card rounded-2xl p-6 text-center hover:scale-[1.03] transition-transform"
+              style={{ boxShadow: "var(--card-shadow)" }}>
+              <div className="text-4xl mb-3">{member.emoji}</div>
+              <h3 className="font-display font-bold">{member.name}</h3>
+              <p className="text-sm text-muted-foreground">{member.role}</p>
             </div>
+          ))}
+        </div>
+      </div>
     </section>
   </Layout>
 );
