@@ -129,7 +129,7 @@ function HorizontalTimeline() {
         .map((d) =>
           typeof d === "string"
             ? d
-            : `<a href="${d.props.href}" target="_blank" rel="noopener noreferrer" style="color:hsl(var(--primary) / 0.6);transition:color 0.3s ease;cursor:pointer;" onmouseover="this.style.color='hsl(var(--primary))'; this.style.textDecoration='underline';" onmouseout="this.style.color='hsl(var(--primary) / 0.6)'; this.style.textDecoration='none';">
+            : `<a href="${d.props.href}" target="_blank" rel="noopener noreferrer" style="color:hsl(var(--primary));transition:color 0.3s ease;cursor:pointer;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
                 ${d.props.children}
               </a>`,
         )
