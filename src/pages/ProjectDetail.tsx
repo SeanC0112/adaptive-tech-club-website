@@ -36,7 +36,7 @@ const ProjectDetail = () => {
           <ArrowLeft className="w-4 h-4" /> Back to Projects
         </Link>
 
-        <h1 className="font-display font-extrabold text-3xl md:text-4xl mb-4">
+        <h1 className="font-display font-extrabold text-3xl md:text-4xl mb-4 text-center">
           {project.title}
         </h1>
         <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
@@ -67,32 +67,22 @@ const ProjectDetail = () => {
           </div>
         )}
 
-        {/* Steps */}
-        {project.steps && (
-          <div
-            className="bg-card rounded-2xl p-8"
-            style={{ boxShadow: "var(--card-shadow)" }}>
-            <div className="flex items-center gap-2 mb-6">
-              <ListOrdered className="w-5 h-5 text-primary" />
-              <h2 className="font-display font-bold text-xl">Build Steps</h2>
-            </div>
-            <div className="space-y-6">
-              {project.steps.map((step, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold shrink-0">
-                    {i + 1}
-                  </div>
-                  <div>
-                    <h3 className="font-display font-bold mb-1">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/*Documentation*/}
+        <h1 className="font-display font-extrabold text-3xl md:text-4xl mb-8 text-center">
+          Documentation
+        </h1>
+
+        {project.photos && (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+            {project.photos.map((photo, i) => (
+              <div key={i} className="rounded-xl overflow-hidden aspect-square">
+                <img
+                  src={photo}
+                  alt={`${project.title} photo ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
           </div>
         )}
       </section>

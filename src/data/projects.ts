@@ -7,6 +7,7 @@ export interface Project {
   features?: string[];
   steps?: { title: string; description: string }[];
   image?: string; // optional — falls back to icon if not set
+  photos?: string[];
 }
 
 export const projects: Project[] = [
@@ -26,38 +27,11 @@ export const projects: Project[] = [
       "Switch adapted Next button",
       "Rechargable batteries",
     ],
-    steps: [
-      {
-        title: "Open the toy",
-        description:
-          "Remove screws from the battery compartment and carefully open the housing to expose the circuit board.",
-      },
-      {
-        title: "Locate the switch contacts",
-        description:
-          "Find the ON/OFF switch and identify the two solder points that connect when the switch is pressed.",
-      },
-      {
-        title: "Solder wires to contacts",
-        description:
-          "Solder two lengths of 22 AWG wire to the switch contact points. Use heat shrink tubing to insulate connections.",
-      },
-      {
-        title: "Drill mounting hole",
-        description:
-          "Choose a location on the housing and drill a hole sized for the 3.5mm jack socket.",
-      },
-      {
-        title: "Install the jack",
-        description:
-          "Mount the 3.5mm jack socket in the drilled hole and solder the two wires to the jack terminals.",
-      },
-      {
-        title: "Test and reassemble",
-        description:
-          "Insert batteries, plug in an adaptive switch, and test. Once working, reassemble the housing.",
-      },
-    ],
+    photos: [
+      "/project-images/mp3-player/photo1.png",
+      "/project-images/mp3-player/photo2.png",
+      "/project-images/mp3-player/photo3.png",
+    ]
   },
   {
     id: "adapted-art-spinner",
@@ -74,26 +48,11 @@ export const projects: Project[] = [
       "Soldering iron & solder",
       "Drill",
     ],
-    steps: [
-      {
-        title: "Disassemble the toy",
-        description: "Open the spin art machine to access the motor circuit.",
-      },
-      {
-        title: "Identify motor switch",
-        description: "Find the power switch contacts on the PCB.",
-      },
-      {
-        title: "Wire the jack",
-        description:
-          "Solder wires from the switch contacts to a 3.5mm jack socket.",
-      },
-      {
-        title: "Mount and test",
-        description:
-          "Drill a hole, mount the jack, test with an adaptive switch, and reassemble.",
-      },
-    ],
+    photos: [
+      "/project-images/mp3-player/photo1.jpg",
+      "/project-images/mp3-player/photo2.jpg",
+      "/project-images/mp3-player/photo3.jpg",
+    ]
   },
   {
     id: "communication-board",
@@ -110,33 +69,11 @@ export const projects: Project[] = [
       "Foam board or sturdy backing",
       "Binder rings (optional)",
     ],
-    steps: [
-      {
-        title: "Design the layout",
-        description:
-          "Create a grid of commonly used symbols, words, and phrases appropriate for the child's needs.",
-      },
-      {
-        title: "Print and laminate",
-        description:
-          "Print symbols at appropriate sizes and laminate individual cards and the base board.",
-      },
-      {
-        title: "Attach Velcro",
-        description:
-          "Apply Velcro dots to the back of each symbol card and corresponding spots on the board.",
-      },
-      {
-        title: "Organize by category",
-        description:
-          "Group symbols into categories (needs, feelings, activities) for intuitive navigation.",
-      },
-      {
-        title: "Customize and iterate",
-        description:
-          "Work with the child and caregivers to refine the symbol selection and layout.",
-      },
-    ],
+    photos: [
+      "/project-images/mp3-player/photo1.jpg",
+      "/project-images/mp3-player/photo2.jpg",
+      "/project-images/mp3-player/photo3.jpg",
+    ]
   },
   {
     id: "adapted-rc-car",
