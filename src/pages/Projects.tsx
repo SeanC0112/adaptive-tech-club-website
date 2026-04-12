@@ -52,10 +52,10 @@ const Projects = () => {
             Our Projects
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Browse a selection of items we've built or adapted. Please <br />
+            Catalogue of items we've built or adapted. Please{" "}
             <Link
               to="/Contact"
-              className="text-muted-foreground text-primary hover:underline">
+              className="text-foreground text-primary hover:underline">
               contact us
             </Link>{" "}
             for information on building your own.
