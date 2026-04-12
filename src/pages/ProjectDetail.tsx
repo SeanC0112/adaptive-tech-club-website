@@ -50,9 +50,7 @@ const ProjectDetail = () => {
             style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="flex items-center gap-2 mb-4">
               <Package className="w-5 h-5 text-primary" />
-              <h2 className="font-display font-bold text-xl">
-                Features
-              </h2>
+              <h2 className="font-display font-bold text-xl">Features</h2>
             </div>
             <ul className="space-y-2">
               {project.features.map((feature, i) => (
@@ -72,9 +70,9 @@ const ProjectDetail = () => {
           Documentation
         </h1>
         {project.photos && (
-          <div className={`mb-8 ${project.photos.length < 3 ? "flex justify-center gap-4" : "grid grid-cols-3 gap-4"}`}>
+          <div className="flex justify-center justify-items-center flex-wrap gap-4">
             {project.photos.map((photo, i) => (
-              <div key={i} className="rounded-xl overflow-hidden h-52">
+              <div key={i} className="rounded-xl overflow-hidden h-60">
                 <img
                   src={photo}
                   alt={`${project.title} photo ${i + 1}`}
