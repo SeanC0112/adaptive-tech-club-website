@@ -146,7 +146,7 @@ export const projects: Project[] = [
   },
   {
     id: "RC Shark Toy",
-    title: "Rolling Duck Toy",
+    title: "RC Shark Toy",
     description:
       "Joystick adapted remote-controlled shark toy that swims when submerged in water.",
     image: "/project-images/shark/shark2.jpg",
