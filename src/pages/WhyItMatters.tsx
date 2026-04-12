@@ -142,14 +142,17 @@ const WhyItMatters = () => (
       <h2 className="font-display font-extrabold text-3xl text-center mb-8">
         Toy Adaptation
       </h2>
-      <div className="w-full h-screen mb-20">
-        <video
-          src={videoATC}
-          autoPlay
-          muted
-          loop
-          className="w-full h-full object-cover"
-        />
+      <div className="flex justify-center">
+        <div className="w-[600px] h-[700px] mb-20 ">
+          <video
+            src={videoATC}
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center 35%" }}
+          />
+        </div>
       </div>
       <div className="max-w-6xl mx-auto mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
