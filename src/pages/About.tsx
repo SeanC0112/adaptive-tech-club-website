@@ -13,9 +13,9 @@ import {
   Puzzle,
 } from "lucide-react";
 
-import ilana from "@/assets/team/ilana.jpg";
-import avery from "@/assets/team/avery.jpg";
-import sean from "@/assets/team/sean.jpg";
+import ilana from "@/assets/team/Ilana.jpg";
+import avery from "@/assets/team/Avery.jpg";
+import sean from "@/assets/team/Sean.jpg";
 import kleindolph from "@/assets/team/Kleindolph.jpg";
 
 const STEM = 32;
