@@ -1,7 +1,14 @@
 import { useParams, Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { projects } from "@/data/projects";
-import { ArrowLeft, CheckCircle2, Package, ListOrdered } from "lucide-react";
+import {
+  ArrowLeft,
+  CheckCircle2,
+  Package,
+  ListOrdered,
+  List,
+  ArrowRight,
+} from "lucide-react";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -57,8 +64,30 @@ const ProjectDetail = () => {
                 <li
                   key={i}
                   className="flex items-start gap-2 text-sm text-muted-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                  <ArrowRight className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                   {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Materials */}
+        {project.materials && (
+          <div
+            className="bg-card rounded-2xl p-8 mb-8"
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <div className="flex items-center gap-2 mb-4">
+              <List className="w-5 h-5 text-primary" />
+              <h2 className="font-display font-bold text-xl">Materials</h2>
+            </div>
+            <ul className="space-y-2">
+              {project.materials.map((material, i) => (
+                <li
+                  key={i}
+                  className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                  {material}
                 </li>
               ))}
             </ul>
