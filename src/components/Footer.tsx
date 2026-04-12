@@ -75,23 +75,22 @@ const Footer = () => (
             through our{" "}
             <Link
               to="/Contact"
-              className="text-sm text-primary/60 hover:text-primary transition-colors hover:underline">
+              className="text-sm text-primary hover:underline">
               contact page
             </Link>{" "}
             or{" "}
             <Link
               to="/request"
-              className="text-sm text-primary/60 hover:text-primary transition-colors hover:underline">
+              className="text-sm text-primary hover:underline">
               request a device
             </Link>
             !
           </p>
           <div>
             <h4 className="font-display font-bold mb-2">Website Info</h4>
-            <p className="text-sm font-display font-bold text-card-foreground/60 leading-relaxed mb-1">
+            <p className="text-sm text-card-foreground/60 leading-relaxed mb-4">
               This website is best viewed on a computer.
-            </p>
-            <p className="text-sm font-display font-bold text-card-foreground/60 leading-relaxed">
+              <br />
               Website built by Sean Coleman and Ilana Zimmerman.
             </p>
           </div>
