@@ -69,7 +69,7 @@ const Projects = () => {
                   adapted, as essentially any electric toy can be adapted. Please{" "}
                   <Link
                     to="/Contact"
-                    className="text-foreground text-[#3b82f6] hover:underline">
+                    className="text-[#3b82f6] hover:underline">
                     contact us
                   </Link>{" "}
                   for information on building your own.
