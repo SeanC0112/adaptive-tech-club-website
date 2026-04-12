@@ -16,9 +16,7 @@ const categoryLabel = {
 
 const Projects = () => {
   const navigate = useNavigate();
-  const [filter, setFilter] = useState<"all" | "toy" | "device" >(
-    "all",
-  );
+  const [filter, setFilter] = useState<"all" | "toy" | "device">("all");
   const filtered =
     filter === "all" ? projects : projects.filter((p) => p.category === filter);
 
@@ -30,15 +28,13 @@ const Projects = () => {
             Our Projects
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Browse a selection of items we've built or adapted.
-            Please{" "} <br />
+            Browse a selection of items we've built or adapted. Please <br />
             <Link
               to="/Contact"
-              className="text-muted-foreground text-primary/60 hover:text-primary transition-colors hover:underline">
+              className="text-muted-foreground text-primary hover:underline">
               contact us
             </Link>{" "}
-            for information
-            on building your own.
+            for information on building your own.
           </p>
         </div>
 
@@ -67,7 +63,10 @@ const Projects = () => {
                 key={project.id}
                 className="bg-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer"
                 style={{ boxShadow: "var(--card-shadow)" }}
-                onClick={() => project.hasDocumentation && navigate(`/projects/${project.id}`)}>
+                onClick={() =>
+                  project.hasDocumentation &&
+                  navigate(`/projects/${project.id}`)
+                }>
                 <div className="h-52 bg-muted flex items-center justify-center overflow-hidden">
                   {project.image ? (
                     <img
