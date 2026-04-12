@@ -518,7 +518,7 @@ const About = () => (
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-card rounded-2xl p-6 text-center hover:scale-[1.03] transition-transform w-64"
+              className="bg-card rounded-2xl p-6 text-center transition-transform w-64"
               style={{ boxShadow: "var(--card-shadow)" }}>
             {member.photo ? (
               <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4">
