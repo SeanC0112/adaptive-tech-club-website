@@ -54,7 +54,7 @@ export const projects: Project[] = [
       "PLA",
       "PETG",
       "3D Printer",
-      "Button (TBA: Exact Model)",
+      "Limit Switch (Model: V-156-1C25)",
       "Male Jack",
       "Solder + Iron",
     ],
