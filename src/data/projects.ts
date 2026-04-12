@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   category: "toy" | "device" ;
   hasDocumentation: boolean;
+  inProgress?: boolean;
   features?: string[];
   steps?: { title: string; description: string }[];
   image?: string; // optional — falls back to icon if not set
@@ -67,6 +68,7 @@ export const projects: Project[] = [
       "Foam board or sturdy backing",
       "Binder rings (optional)",
     ],
+    inProgress: true,
     photos: [
       "/project-images/mp3-player/photo1.jpg",
       "/project-images/mp3-player/photo2.jpg",

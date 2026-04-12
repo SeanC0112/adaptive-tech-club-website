@@ -1,6 +1,6 @@
 import Layout from "@/components/Layout";
 import { projects } from "@/data/projects";
-import { ArrowRight, Wrench, Cpu, Paintbrush } from "lucide-react";
+import { ArrowRight, Wrench, Cpu } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
@@ -16,9 +16,30 @@ const categoryLabel = {
 
 const Projects = () => {
   const navigate = useNavigate();
-  const [filter, setFilter] = useState<"all" | "toy" | "device">("all");
-  const filtered =
-    filter === "all" ? projects : projects.filter((p) => p.category === filter);
+
+  const [filters, setFilters] = useState<Set<string>>(new Set());
+
+  const toggleFilter = (cat: string) => {
+    setFilters((prev) => {
+      const next = new Set(prev);
+      if (next.has(cat)) {
+        next.delete(cat);
+      } else {
+        next.add(cat);
+      }
+      return next;
+    });
+  };
+
+  const filtered = projects.filter((p) => {
+    if (filters.size === 0) return true;
+    const categoryMatch = filters.has(p.category);
+    const completedMatch = filters.has("completed") && !p.inProgress;
+    if (filters.has("completed") && (filters.has("toy") || filters.has("device"))) {
+      return categoryMatch && !p.inProgress;
+    }
+    return categoryMatch || completedMatch;
+  });
 
   return (
     <Layout>
@@ -38,23 +59,21 @@ const Projects = () => {
           </p>
         </div>
 
-        {/* Filters */}
         <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
-          {(["all", "toy", "device"] as const).map((cat) => (
+          {(["toy", "device", "completed"] as const).map((cat) => (
             <button
               key={cat}
-              onClick={() => setFilter(cat)}
+              onClick={() => toggleFilter(cat)}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                filter === cat
+                filters.has(cat)
                   ? "bg-primary text-primary-foreground"
                   : "bg-muted text-muted-foreground hover:text-foreground"
               }`}>
-              {cat === "all" ? "All" : categoryLabel[cat] + "s"}
+              {cat === "completed" ? "Completed" : categoryLabel[cat] + "s"}
             </button>
           ))}
         </div>
 
-        {/* Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project) => {
             const Icon = categoryIcon[project.category];
@@ -86,9 +105,16 @@ const Projects = () => {
                     {project.description}
                   </p>
                   <div className="flex items-center justify-between gap-2">
-                    <span className="px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground">
-                      {categoryLabel[project.category]}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground">
+                        {categoryLabel[project.category]}
+                      </span>
+                      {project.inProgress && (
+                        <span className="px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground">
+                          In Progress
+                        </span>
+                      )}
+                    </div>
                     {project.hasDocumentation ? (
                       <span className="inline-flex items-center gap-3 text-sm font-medium text-primary">
                         View Details <ArrowRight className="w-4 h-4" />
