@@ -28,7 +28,7 @@ export const projects: Project[] = [
       "Plays music",
       "Rechargeable (90 minute use)",
     ],
-    materials: ["Remote control duck toy", "Solder + Iron", "Female jack"],
+    materials: ["Remote Control Duck Toy", "Solder + Iron", "Female Jack"],
     inProgress: false,
     photos: [
       "/project-images/flapping-duck/photo1.jpg",
@@ -50,6 +50,14 @@ export const projects: Project[] = [
       "Customizable colors",
       "Only 3 printed parts, no screws required",
     ],
+    materials: [
+      "PLA",
+      "PETG",
+      "3D Printer",
+      "Button (TBA: Exact Model)",
+      "Male Jack",
+      "Solder + Iron",
+    ],
     inProgress: false,
     photos: [
       "/project-images/button/photo1.png",
@@ -57,8 +65,8 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: "Mini Power Chair",
-    title: "Mini Power Chair",
+    id: "Mini Powered Chair",
+    title: "Mini Powered Chair",
     description:
       "An adapted remote-controlled ride-on car that enables safe, independent movement.",
     image: "/project-images/car/cover.jpg",
