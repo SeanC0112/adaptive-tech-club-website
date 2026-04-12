@@ -8,7 +8,6 @@ import {
   DollarSign,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import videoATC from "@/assets/atcvid.mp4";
 import mattersImage from "@/assets/matters2.jpeg";
 
 const reasons = [
@@ -152,21 +151,6 @@ const WhyItMatters = () => (
       </div>
 
       {/* What is switch adaptation/joystick adaptation */}
-      <h2 className="font-display font-extrabold text-3xl text-center mb-8">
-        Toy Adaptation
-      </h2>
-      <div className="flex justify-center">
-        <div className="w-[600px] h-[700px] mb-20 ">
-          <video
-            src={videoATC}
-            autoPlay
-            muted
-            loop
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "center 35%" }}
-          />
-        </div>
-      </div>
       <div className="max-w-6xl mx-auto mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Switch Adaptation */}

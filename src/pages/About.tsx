@@ -1,6 +1,7 @@
 import Layout from "@/components/Layout";
 import { useRef, useEffect } from "react";
 import aboutImage from "@/assets/about.jpg";
+import videoATC from "@/assets/atcvid.mp4";
 import {
   Users,
   GraduationCap,
@@ -459,7 +460,7 @@ const About = () => (
         <h2 className="font-display font-extrabold text-3xl text-center mb-10">
           How It Works
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3">
           {[
             {
               icon: Users,
@@ -515,11 +516,11 @@ const About = () => (
       </div>
 
       {/* Mission Cards */}
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-3xl mx-auto text-center mb-[50px]">
         <h1 className="font-display font-extrabold text-4xl md:text-3xl mb-5">
           How We Operate
         </h1>
-        <p className="text-muted-foreground text-lg leading-relaxed">
+        <p className="text-muted-foreground text-lg leading-relaxed mb-8">
           ATC meets weekly for 1.5 hour work sessions at Lick-Wilmerding High
           School. During these meetings, members gather to adapt toys and create
           assistive technologies, communicating with experts to learn the
@@ -527,8 +528,19 @@ const About = () => (
           designing and implementing solutions to address these challenges, we
           adapt toys to be accessible for kids with physical disabilities.
         </p>
+      <div className="flex justify-center">
+        <div className="w-[600px] h-[700px] rounded-2xl overflow-hidden">
+          <video
+            src={videoATC}
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center 35%" }}
+          />
+        </div>
       </div>
-
+      </div>
       {/* Team */}
       <div>
         <h2 className="font-display font-extrabold text-3xl text-center mb-10">
