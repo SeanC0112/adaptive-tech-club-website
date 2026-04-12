@@ -3,6 +3,7 @@ import { projects } from "@/data/projects";
 import { ArrowRight, Wrench, Cpu } from "lucide-react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import projectsImage from "@/assets/projects4.jpeg";
 
 const categoryIcon = {
   toy: Wrench,
@@ -46,24 +47,38 @@ const Projects = () => {
 
   return (
     <Layout>
-      <section className="container mx-auto py-16">
-        <div className="text-center mb-12">
-          <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">
-            Our Projects
-          </h1>
-          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Catalogue of select items we've built or adapted. This shows
-            a small sampling of the hundreds of types of toys that we have
-            adapted, as essentially any electric toy can be adapted. Please{" "}
-            <Link
-              to="/Contact"
-              className="text-foreground text-primary hover:underline">
-              contact us
-            </Link>{" "}
-            for information on building your own.
-          </p>
-        </div>
+    {/* Hero */}
+            <section className="relative overflow-hidden">
+              <div className="absolute inset-0">
+                <img
+                  src={projectsImage}
+                  alt="Children playing with adapted toys"
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "100% center" }}
+                />
+                <div className="absolute inset-0 bg-foreground/60" />
+              </div>
+              <div className="relative container mx-auto pt-[10px] md:py-[40px] text-center">
+                <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-52 animate-fade-in-up">
+                  Our Projects
+                </h1>
+                <p className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto animate-fade-in-up"
+                  style={{ animationDelay: "0.15s" }}>
+                  Catalogue of select items we've built or adapted. This shows
+                  a small sampling of the hundreds of types of toys that we have
+                  adapted, as essentially any electric toy can be adapted. Please{" "}
+                  <Link
+                    to="/Contact"
+                    className="text-foreground text-[#3b82f6] hover:underline">
+                    contact us
+                  </Link>{" "}
+                  for information on building your own.
+                </p>
+              </div>
+            </section>
 
+
+      <section className="container mx-auto py-8">
         <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
           {(["toy", "device", "completed"] as const).map((cat) => (
             <button
