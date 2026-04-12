@@ -52,7 +52,9 @@ const Projects = () => {
             Our Projects
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
-            Catalogue of items we've built or adapted. Please{" "}
+            Catalogue of select items we've built or adapted. This shows
+            a small sampling of the hundreds of types of toys that we have
+            adapted, as essentially any electric toy can be adapted. Please{" "}
             <Link
               to="/Contact"
               className="text-foreground text-primary hover:underline">
