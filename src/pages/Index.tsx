@@ -106,7 +106,7 @@ const Index = () => (
         {values.map((v) => (
           <div
             key={v.title}
-            className="bg-card rounded-2xl p-8 hover:scale-[1.02] transition-transform"
+            className="bg-card rounded-2xl p-8 transition-transform"
             style={{ boxShadow: "var(--card-shadow)" }}>
             <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
               <v.icon className="w-6 h-6 text-primary" />

@@ -90,7 +90,7 @@ const WhyItMatters = () => (
       {/* Reasons */}
       <h2 className="font-display font-extrabold text-3xl text-center mb-8">
           Detailed Overview
-        </h2>
+      </h2>
       <div className="grid md:grid-cols-2 gap-8 mb-20">
         {reasons.map((reason) =>
           reason.primary ? (
@@ -131,30 +131,59 @@ const WhyItMatters = () => (
         )}
       </div>
 
-      {/* What is switch adaptation */}
-      <div className="max-w-3xl mx-auto mb-20">
-        <h2 className="font-display font-extrabold text-3xl text-center mb-8">
-          What Is Switch Adaptation?
-        </h2>
-        <div
-          className="bg-card rounded-2xl p-8"
-          style={{ boxShadow: "var(--card-shadow)" }}>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            Switch adaptation is the most common modification we perform. It
-            involves soldering a standard 3.5mm audio jack onto a
-            battery-operated toy so that it can be activated by an external
-            adaptive switch instead of (or in addition to) its built-in button.
-          </p>
-          <p className="text-muted-foreground leading-relaxed mb-4">
-            Adaptive switches come in many forms — big buttons, sip-and-puff
-            devices, head switches, and more — each designed for different
-            abilities. By adding a jack, we make any toy compatible with
-            whatever switch a child already uses.
-          </p>
-          <p className="text-muted-foreground leading-relaxed">
-            The process typically takes 15–30 minutes and costs only $2 in
-            parts, in addition to the cost of the toy itself. It's a small change with a massive impact.
-          </p>
+      {/* What is switch adaptation/joystick adaptation */}
+      <h2 className="font-display font-extrabold text-3xl text-center mb-8">
+        Toy Adaptation
+      </h2>
+      <div className="max-w-6xl mx-auto mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Switch Adaptation */}
+          <div>
+            <div
+              className="bg-card rounded-2xl p-8"
+              style={{ boxShadow: "var(--card-shadow)" }}>
+              <h2 className="font-display font-extrabold text-3xl text-center mb-4">
+              What Is Switch Adaptation?
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Switch adaptation is the most common modification we perform. It
+                involves soldering a standard 3.5mm audio jack onto a
+                battery-operated toy so that it can be activated by an external
+                adaptive switch instead of (or in addition to) its built-in button.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Adaptive switches come in many forms — big buttons, sip-and-puff
+                devices, head switches, and more — each designed for different
+                abilities. By adding a jack, we make any toy compatible with
+                whatever switch a child already uses.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                The process typically takes 15–30 minutes and costs only $2 in
+                parts, in addition to the cost of the toy itself. It's a small change with a massive impact.
+              </p>
+            </div>
+          </div>
+
+          {/* Joystick Adaptation */}
+          <div>
+            <div
+              className="bg-card rounded-2xl p-8"
+              style={{ boxShadow: "var(--card-shadow)" }}>
+              <h2 className="font-display font-extrabold text-3xl text-center mb-4">
+              What Is Joystick Adaptation?
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                Joystick adaptation involves wiring a joystick interface to multiple inputs on a toy so that it can be controlled in four directions—forward, backward, left, and right—rather than activated by a single button.
+              </p>
+              <p className="text-muted-foreground leading-relaxed mb-4">
+                These inputs reflect how both cars and powered wheelchairs are controlled, letting kids handle more complex toys like RC vehicles while developing a crucial skill in a fun, low stakes setting.
+              </p>
+              <p className="text-muted-foreground leading-relaxed">
+                While slightly more involved than a standard switch adaptation, joystick adaptation transforms toys into tools for independence, exploration, and growth.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
 

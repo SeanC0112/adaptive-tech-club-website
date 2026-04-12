@@ -73,13 +73,13 @@ const TIMELINE_EVENTS = [
   {
     date: "Fall 2023",
     title: "It all begins",
-    desc: "Club founder Ilana starts working Oakland Unified School District occupational therapist Chantal Guité",
+    desc: "Club founder Ilana starts working with Oakland Unified School District occupational therapist Chantal Guité",
     above: true,
   },
   {
     date: "Fall 2024",
     title: "Club founded",
-    desc: "The ATC officially is officially created at Lick-Wilmerding High School",
+    desc: "ATC is officially created at Lick-Wilmerding High School",
     above: false,
   },
   {
@@ -90,14 +90,14 @@ const TIMELINE_EVENTS = [
   },
   {
     date: "Fall 2025",
-    title: "Grant received",
-    desc: "Youth Empowerment Fund grant from the SF YMCA funds more projects",
+    title: "Important grant received",
+    desc: "The Youth Empowerment Fund from the SF YMCA enables expansion of tech and outreach",
     above: false,
   },
   {
     date: "Winter 2026",
     title: "Expanding reach",
-    desc: "Working with the Special Olympics, we expanded our impact to the San Francisco Unified School District as well as schools in the Peninsula",
+    desc: "Working with the Special Olympics, we expanded our impact to the San Francisco Unified School District as well as schools on the Peninsula",
     above: true,
   },
 ];
