@@ -61,13 +61,13 @@ const TIMELINE_EVENTS = [
   {
     date: "Fall 2023",
     title: "It all begins",
-    desc: "Club founder Ilana starts working Oakland Unified School District occupational therapist Chantal Guité",
+    desc: "Club founder Ilana starts working with Oakland Unified School District occupational therapist Chantal Guité",
     above: true,
   },
   {
     date: "Fall 2024",
     title: "Club founded",
-    desc: "The ATC officially is officially created at Lick-Wilmerding High School",
+    desc: "ATC is officially created at Lick-Wilmerding High School",
     above: false,
   },
   {
@@ -78,14 +78,14 @@ const TIMELINE_EVENTS = [
   },
   {
     date: "Fall 2025",
-    title: "Grant received",
-    desc: "Youth Empowerment Fund grant from the SF YMCA funds more projects",
+    title: "Important grant received",
+    desc: "The Youth Empowerment Fund from the SF YMCA enables expansion of tech and outreach",
     above: false,
   },
   {
     date: "Winter 2026",
     title: "Expanding reach",
-    desc: "Working with the Special Olympics, we expanded our impact to the San Francisco Unified School District as well as schools in the Peninsula",
+    desc: "Working with the Special Olympics, we expanded our impact to the San Francisco Unified School District as well as schools on the Peninsula",
     above: true,
   },
 ];
@@ -331,7 +331,7 @@ const About = () => (
       {/* Mission Cards */}
       <div className="max-w-3xl mx-auto text-center mb-16">
         <h1 className="font-display font-extrabold text-4xl md:text-3xl mb-5">
-          How We Opperate
+          How We Operate
         </h1>
         <p className="text-muted-foreground text-lg leading-relaxed">
           ATC meets weekly for 1.5 hour work sessions at Lick-Wilmerding High
@@ -352,7 +352,7 @@ const About = () => (
                 {teamMembers.map((member) => (
                   <div
                     key={member.name}
-                    className="bg-card rounded-2xl p-6 text-center hover:scale-[1.03] transition-transform"
+                    className="bg-card rounded-2xl p-6 text-center transition-transform"
                     style={{ boxShadow: "var(--card-shadow)" }}>
                     <div className="text-4xl mb-3">{member.emoji}</div>
                     <h3 className="font-display font-bold">{member.name}</h3>
