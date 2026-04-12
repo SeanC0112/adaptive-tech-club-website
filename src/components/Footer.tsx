@@ -59,7 +59,7 @@ const Footer = () => (
             <Link
               to="/request"
               className="text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
-              Request a Toy
+              Request an Item
             </Link>
             <Link
               to="/contact"
@@ -82,7 +82,7 @@ const Footer = () => (
             <Link
               to="/request"
               className="text-sm text-primary hover:underline">
-              request a device
+              request an item
             </Link>
             !
           </p>

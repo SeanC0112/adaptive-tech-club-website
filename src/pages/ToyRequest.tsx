@@ -6,7 +6,7 @@ const ToyRequest = () => {
       <section className="container mx-auto py-16">
         <div className="text-center mb-16">
           <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-4">
-            Request a Device
+            Request a Toy or Device
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Tell us about the toy or device you'd like us to adapt for your
