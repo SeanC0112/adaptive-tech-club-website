@@ -2,10 +2,11 @@ export interface Project {
   id: string;
   title: string;
   description: string;
-  category: "toy" | "device" ;
+  category: "toy" | "device";
   hasDocumentation: boolean;
   inProgress?: boolean;
   features?: string[];
+  materials?: string[];
   steps?: { title: string; description: string }[];
   image?: string; // this is the cover image
   photos?: string[]; // this is a list of images in the details grid
@@ -27,11 +28,12 @@ export const projects: Project[] = [
       "Plays music",
       "Rechargeable (90 minute use)",
     ],
+    materials: ["Remote control duck toy", "Solder + Iron", "Female jack"],
     inProgress: false,
     photos: [
       "/project-images/flapping-duck/photo1.jpg",
       "/project-images/flapping-duck/photo2.jpg",
-    ]
+    ],
   },
   {
     id: "3D Printed Buttons",
@@ -52,7 +54,7 @@ export const projects: Project[] = [
     photos: [
       "/project-images/button/photo1.png",
       "/project-images/button/photo2.png",
-    ]
+    ],
   },
   {
     id: "Mini Power Chair",
@@ -77,7 +79,7 @@ export const projects: Project[] = [
       "/project-images/car/photo4.jpg",
       "/project-images/car/photo5.JPG",
       "/project-images/car/photo6.jpeg",
-    ]
+    ],
   },
   {
     id: "dinosaur-toy",
@@ -96,7 +98,7 @@ export const projects: Project[] = [
     photos: [
       "/project-images/dinosaur-toy/photo1.jpg",
       "/project-images/dinosaur-toy/photo2.jpg",
-    ]
+    ],
   },
   {
     id: "Switch-Adapted Bidet",
@@ -118,7 +120,7 @@ export const projects: Project[] = [
       "/project-images/bidet/photo1.png",
       "/project-images/bidet/photo2.jpeg",
       "/project-images/bidet/photo3.jpeg",
-    ]
+    ],
   },
   {
     id: "Moving Gear Dino",
@@ -140,7 +142,7 @@ export const projects: Project[] = [
       "/project-images/gear-dino/photo1.jpg",
       "/project-images/gear-dino/photo2.jpg",
       "/project-images/gear-dino/photo3.jpg",
-    ]
+    ],
   },
   {
     id: "RC Shark Toy",
@@ -160,7 +162,7 @@ export const projects: Project[] = [
     photos: [
       "/project-images/shark/shark1.png",
       "/project-images/shark/shark2.jpg",
-    ]
+    ],
   },
   {
     id: "Switch-MP3-Player",
@@ -182,7 +184,7 @@ export const projects: Project[] = [
       "/project-images/mp3-player/photo1.png",
       "/project-images/mp3-player/photo2.png",
       "/project-images/mp3-player/photo3.png",
-    ]
+    ],
   },
   {
     id: "Dancing Space Duck",
@@ -204,7 +206,7 @@ export const projects: Project[] = [
       "/project-images/dancing-duck/photo2.jpg",
       "/project-images/dancing-duck/photo3.jpg",
       "/project-images/dancing-duck/photo4.jpg",
-    ]
+    ],
   },
   {
     id: "Pouring Cup",
@@ -221,8 +223,6 @@ export const projects: Project[] = [
       "Pours cup with continual button press",
     ],
     inProgress: true,
-    photos: [
-      "/project-images/pouring-cup/photo1.png",
-    ]
+    photos: ["/project-images/pouring-cup/photo1.png"],
   },
 ];
