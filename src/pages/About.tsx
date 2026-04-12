@@ -105,142 +105,282 @@ const TIMELINE_EVENTS = [
 function HorizontalTimeline() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const renderTimeline = () => {
     const container = containerRef.current;
     if (!container) return;
 
     container.innerHTML = "";
+    // Reset container width before measuring
+    container.style.width = "100%";
+    container.style.height = "auto";
 
+    const isMobile = window.innerWidth < 768;
     const events = TIMELINE_EVENTS;
     const n = events.length;
-    const totalW = container.getBoundingClientRect().width;
-    const COMPRESSION = 0.75;
 
-    const spacing = (totalW / (n - 1)) * COMPRESSION;
-    const offsetX = (totalW - spacing * (n - 1)) / 2;
-
-    const positions = events.map((_, i) => i * spacing);
-
-    const cards = events.map((e) => {
-      const card = document.createElement("div");
-
-      card.style.cssText = `
-        background: var(--card);
-        border: 1px solid hsl(var(--border));
-        border-radius: 12px;
-        padding: 12px 16px;
-        text-align: center;
-        position: absolute;
-        width: ${spacing - 8}px;
-        box-shadow: var(--card-shadow);
-        white-space: normal;
+    if (isMobile) {
+      // Vertical timeline for mobile
+      const verticalContainer = document.createElement("div");
+      verticalContainer.style.cssText = `
+        position: relative;
+        margin: 20px 0;
       `;
 
-      const desc = renderLinkedText(e.desc);
-
-      const descHTML = desc
-        .map((d) =>
-          typeof d === "string"
-            ? d
-            : `<a href="${d.props.href}" target="_blank" rel="noopener noreferrer" style="color:hsl(var(--primary));transition:color 0.3s ease;cursor:pointer;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
-                ${d.props.children}
-              </a>`,
-        )
-        .join("");
-
-      card.innerHTML = `
-        <div style="font-size:11px;font-weight:600;color:hsl(var(--primary));text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">
-          ${e.date}
-        </div>
-        <div style="font-size:13px;font-weight:600;color:hsl(var(--foreground));margin-bottom:4px;">
-          ${e.title}
-        </div>
-        <div style="font-size:11px;color:hsl(var(--muted-foreground));line-height:1.5;">
-          ${descHTML}
-        </div>
-      `;
-
-      container.appendChild(card);
-      return card;
-    });
-
-    requestAnimationFrame(() => {
-      const wrappedHeights = cards.map((c) => c.offsetHeight);
-
-      const maxAboveH = Math.max(
-        ...events.map((e, i) => (e.above ? wrappedHeights[i] : 0)),
+      // Vertical line
+      const verticalLine = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg",
       );
-      const maxBelowH = Math.max(
-        ...events.map((e, i) => (!e.above ? wrappedHeights[i] : 0)),
-      );
-
-      const totalH = maxAboveH + STEM + DOT_R * 2 + STEM + maxBelowH + 8;
-
-      container.style.width = totalW + "px";
-      container.style.height = totalH + "px";
-
-      const lineY = maxAboveH + STEM + DOT_R;
+      verticalLine.setAttribute("width", "40");
+      verticalLine.setAttribute("height", "100%");
+      verticalLine.style.cssText =
+        "position: absolute; left: 12px; top: 0; pointer-events: none;";
 
       events.forEach((e, i) => {
-        const cx = positions[i] + offsetX;
-        const cw = spacing - 8;
-        const ch = wrappedHeights[i];
+        const card = document.createElement("div");
+        card.style.cssText = `
+          background: var(--card);
+          border: 1px solid hsl(var(--border));
+          border-radius: 12px;
+          padding: 12px 16px;
+          margin-left: 60px;
+          margin-bottom: 40px;
+          box-shadow: var(--card-shadow);
+          position: relative;
+        `;
 
-        cards[i].style.left = cx - cw / 2 + "px";
-        cards[i].style.top = e.above
-          ? maxAboveH - ch + "px"
-          : lineY + DOT_R + STEM + "px";
+        const desc = renderLinkedText(e.desc);
+        const descHTML = desc
+          .map((d) =>
+            typeof d === "string"
+              ? d
+              : `<a href="${d.props.href}" target="_blank" rel="noopener noreferrer" style="color:hsl(var(--primary));transition:color 0.3s ease;cursor:pointer;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+                  ${d.props.children}
+                </a>`,
+          )
+          .join("");
+
+        card.innerHTML = `
+          <div style="font-size:11px;font-weight:600;color:hsl(var(--primary));text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">
+            ${e.date}
+          </div>
+          <div style="font-size:13px;font-weight:600;color:hsl(var(--foreground));margin-bottom:4px;">
+            ${e.title}
+          </div>
+          <div style="font-size:11px;color:hsl(var(--muted-foreground));line-height:1.5;">
+            ${descHTML}
+          </div>
+        `;
+
+        // Add dot before card
+        const dot = document.createElement("div");
+        dot.style.cssText = `
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          border: 2px solid hsl(var(--primary));
+          border-radius: 50%;
+          background: hsl(var(--primary) / 0.15);
+          left: -42px;
+          top: 12px;
+          z-index: 10;
+        `;
+
+        card.appendChild(dot);
+        verticalContainer.appendChild(card);
       });
 
-      const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      // Add vertical line
+      const totalHeight = events.length * 120;
+      const line = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "line",
+      );
+      line.setAttribute("x1", "20");
+      line.setAttribute("y1", "0");
+      line.setAttribute("x2", "20");
+      line.setAttribute("y2", String(totalHeight));
+      line.setAttribute("stroke", "hsl(var(--border))");
+      line.setAttribute("stroke-width", "2");
+      verticalLine.appendChild(line);
+      verticalLine.setAttribute("height", String(totalHeight));
 
-      svg.setAttribute("width", String(totalW));
-      svg.setAttribute("height", String(totalH));
-      svg.style.cssText = "position:absolute;top:0;left:0;pointer-events:none;";
+      verticalContainer.appendChild(verticalLine);
+      container.appendChild(verticalContainer);
+    } else {
+      // Horizontal timeline for desktop
+      const parentWidth =
+        container.parentElement?.clientWidth || window.innerWidth;
+      const totalW = Math.min(
+        parentWidth,
+        container.getBoundingClientRect().width || parentWidth,
+      );
+      const COMPRESSION = 0.75;
 
-      const makeLine = (x1: number, y1: number, x2: number, y2: number) => {
-        const l = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "line",
-        );
-        l.setAttribute("x1", String(x1));
-        l.setAttribute("y1", String(y1));
-        l.setAttribute("x2", String(x2));
-        l.setAttribute("y2", String(y2));
-        l.setAttribute("stroke", "hsl(var(--border))");
-        l.setAttribute("stroke-width", "2");
-        return l;
-      };
+      const spacing = (totalW / (n - 1)) * COMPRESSION;
+      const offsetX = (totalW - spacing * (n - 1)) / 2;
 
-      const lineX1 = positions[0] - offsetX;
-      const lineX2 = positions[n - 1] + 2 * offsetX;
+      const positions = events.map((_, i) => i * spacing);
 
-      svg.appendChild(makeLine(lineX1, lineY, lineX2, lineY));
+      const cards = events.map((e) => {
+        const card = document.createElement("div");
 
-      events.forEach((e, i) => {
-        const cx = positions[i] + offsetX;
+        card.style.cssText = `
+          background: var(--card);
+          border: 1px solid hsl(var(--border));
+          border-radius: 12px;
+          padding: 12px 16px;
+          text-align: center;
+          position: absolute;
+          width: ${spacing - 8}px;
+          box-shadow: var(--card-shadow);
+          white-space: normal;
+        `;
 
-        const stemY1 = e.above ? maxAboveH : lineY + DOT_R;
-        const stemY2 = e.above ? lineY - DOT_R : lineY + DOT_R + STEM;
+        const desc = renderLinkedText(e.desc);
 
-        svg.appendChild(makeLine(cx, stemY1, cx, stemY2));
+        const descHTML = desc
+          .map((d) =>
+            typeof d === "string"
+              ? d
+              : `<a href="${d.props.href}" target="_blank" rel="noopener noreferrer" style="color:hsl(var(--primary));transition:color 0.3s ease;cursor:pointer;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+                  ${d.props.children}
+                </a>`,
+          )
+          .join("");
 
-        const dot = document.createElementNS(
-          "http://www.w3.org/2000/svg",
-          "circle",
-        );
-        dot.setAttribute("cx", String(cx));
-        dot.setAttribute("cy", String(lineY));
-        dot.setAttribute("r", String(DOT_R));
-        dot.setAttribute("fill", "hsl(var(--primary) / 0.15)");
-        dot.setAttribute("stroke", "hsl(var(--primary))");
-        dot.setAttribute("stroke-width", "2");
+        card.innerHTML = `
+          <div style="font-size:11px;font-weight:600;color:hsl(var(--primary));text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px;">
+            ${e.date}
+          </div>
+          <div style="font-size:13px;font-weight:600;color:hsl(var(--foreground));margin-bottom:4px;">
+            ${e.title}
+          </div>
+          <div style="font-size:11px;color:hsl(var(--muted-foreground));line-height:1.5;">
+            ${descHTML}
+          </div>
+        `;
 
-        svg.appendChild(dot);
+        container.appendChild(card);
+        return card;
       });
 
-      container.appendChild(svg);
-    });
+      requestAnimationFrame(() => {
+        const wrappedHeights = cards.map((c) => c.offsetHeight);
+
+        const maxAboveH = Math.max(
+          ...events.map((e, i) => (e.above ? wrappedHeights[i] : 0)),
+        );
+        const maxBelowH = Math.max(
+          ...events.map((e, i) => (!e.above ? wrappedHeights[i] : 0)),
+        );
+
+        const totalH = maxAboveH + STEM + DOT_R * 2 + STEM + maxBelowH + 8;
+
+        container.style.width = totalW + "px";
+        container.style.height = totalH + "px";
+
+        const lineY = maxAboveH + STEM + DOT_R;
+
+        events.forEach((e, i) => {
+          const cx = positions[i] + offsetX;
+          const cw = spacing - 8;
+          const ch = wrappedHeights[i];
+
+          cards[i].style.left = cx - cw / 2 + "px";
+          cards[i].style.top = e.above
+            ? maxAboveH - ch + "px"
+            : lineY + DOT_R + STEM + "px";
+        });
+
+        const svg = document.createElementNS(
+          "http://www.w3.org/2000/svg",
+          "svg",
+        );
+
+        svg.setAttribute("width", String(totalW));
+        svg.setAttribute("height", String(totalH));
+        svg.style.cssText =
+          "position:absolute;top:0;left:0;pointer-events:none;";
+
+        const makeLine = (x1: number, y1: number, x2: number, y2: number) => {
+          const l = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "line",
+          );
+          l.setAttribute("x1", String(x1));
+          l.setAttribute("y1", String(y1));
+          l.setAttribute("x2", String(x2));
+          l.setAttribute("y2", String(y2));
+          l.setAttribute("stroke", "hsl(var(--border))");
+          l.setAttribute("stroke-width", "2");
+          return l;
+        };
+
+        const lineX1 = positions[0] - offsetX;
+        const lineX2 = positions[n - 1] + 2 * offsetX;
+
+        svg.appendChild(makeLine(lineX1, lineY, lineX2, lineY));
+
+        events.forEach((e, i) => {
+          const cx = positions[i] + offsetX;
+
+          const stemY1 = e.above ? maxAboveH : lineY + DOT_R;
+          const stemY2 = e.above ? lineY - DOT_R : lineY + DOT_R + STEM;
+
+          svg.appendChild(makeLine(cx, stemY1, cx, stemY2));
+
+          const dot = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle",
+          );
+          dot.setAttribute("cx", String(cx));
+          dot.setAttribute("cy", String(lineY));
+          dot.setAttribute("r", String(DOT_R));
+          dot.setAttribute("fill", "hsl(var(--primary) / 0.15)");
+          dot.setAttribute("stroke", "hsl(var(--primary))");
+          dot.setAttribute("stroke-width", "2");
+
+          svg.appendChild(dot);
+        });
+
+        container.appendChild(svg);
+      });
+    }
+  };
+
+  useEffect(() => {
+    renderTimeline();
+
+    // Handle window resize with debounce
+    let resizeTimeout: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        requestAnimationFrame(() => {
+          renderTimeline();
+        });
+      }, 150);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Handle visibility changes when navigating
+    const handleVisibilityChange = () => {
+      if (!document.hidden) {
+        requestAnimationFrame(() => {
+          renderTimeline();
+        });
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      clearTimeout(resizeTimeout);
+    };
   }, []);
 
   return (
