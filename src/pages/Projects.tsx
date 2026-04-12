@@ -65,7 +65,7 @@ const Projects = () => {
                 <p className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto animate-fade-in-up"
                   style={{ animationDelay: "0.15s" }}>
                   Catalogue of select items we've built or adapted. This shows
-                  a small sampling of the hundreds of types of toys that we have
+                  a small sampling of the hundreds of types of toys we have
                   adapted, as essentially any electric toy can be adapted. Please{" "}
                   <Link
                     to="/Contact"
