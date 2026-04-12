@@ -74,7 +74,7 @@ const ProjectDetail = () => {
         {project.photos && (
           <div className={`mb-8 ${project.photos.length < 3 ? "flex justify-center gap-4" : "grid grid-cols-3 gap-4"}`}>
             {project.photos.map((photo, i) => (
-              <div key={i} className="rounded-xl overflow-hidden h-48">
+              <div key={i} className="rounded-xl overflow-hidden h-52">
                 <img
                   src={photo}
                   alt={`${project.title} photo ${i + 1}`}

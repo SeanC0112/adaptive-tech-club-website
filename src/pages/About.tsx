@@ -22,14 +22,28 @@ const teamMembers = [
     role: "Founder & Co-lead",
     icon: Lightbulb,
     color: "primary",
+    photo: "/src/assets/team/ilana.jpg",
   },
-  { name: "Avery Belenson", role: "Co-lead", icon: Puzzle, color: "secondary" },
-  { name: "Sean Coleman", role: "Co-lead", icon: Cog, color: "secondary" },
+  {
+    name: "Avery Belenson",
+    role: "Co-lead",
+    icon: Puzzle,
+    color: "secondary",
+    photo: "/src/assets/team//avery.jpg",
+  },
+  {
+    name: "Sean Coleman",
+    role: "Co-lead",
+    icon: Cog,
+    color: "secondary",
+    photo: "/src/assets/team/sean.jpg",
+  },
   {
     name: "Andrew Kleindolph",
     role: "Faculty Advisor",
     icon: GraduationCap,
     color: "primary",
+    photo: "/src/assets/team/Kleindolph.jpg",
   },
 ];
 
@@ -500,19 +514,28 @@ const About = () => (
         <h2 className="font-display font-extrabold text-3xl text-center mb-10">
           Meet the Team
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-2 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {teamMembers.map((member) => (
             <div
               key={member.name}
-              className="bg-card rounded-2xl p-6 text-center hover:scale-[1.03] transition-transform"
+              className="bg-card rounded-2xl p-6 text-center transition-transform w-64"
               style={{ boxShadow: "var(--card-shadow)" }}>
-              <div
-                className={`w-16 h-16 rounded-2xl bg-${member.color}/10 flex items-center justify-center mx-auto mb-4`}>
+            {member.photo ? (
+              <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4">
+                <img
+                  src={member.photo}
+                  alt={member.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ) : (
+              <div className={`w-16 h-16 rounded-2xl bg-${member.color}/10 flex items-center justify-center mx-auto mb-4`}>
                 <member.icon className={`w-8 h-8 text-${member.color}`} />
               </div>
-              <h3 className="font-display font-bold">{member.name}</h3>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
-            </div>
+            )}
+            <h3 className="font-display font-bold">{member.name}</h3>
+            <p className="text-sm text-muted-foreground">{member.role}</p>
+          </div>
           ))}
         </div>
       </div>
