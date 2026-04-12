@@ -35,7 +35,10 @@ const Projects = () => {
     if (filters.size === 0) return true;
     const categoryMatch = filters.has(p.category);
     const completedMatch = filters.has("completed") && !p.inProgress;
-    if (filters.has("completed") && (filters.has("toy") || filters.has("device"))) {
+    if (
+      filters.has("completed") &&
+      (filters.has("toy") || filters.has("device"))
+    ) {
       return categoryMatch && !p.inProgress;
     }
     return categoryMatch || completedMatch;
@@ -74,19 +77,23 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-6">
           {filtered.map((project) => {
             const Icon = categoryIcon[project.category];
             return (
               <div
                 key={project.id}
-                className="bg-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer"
-                style={{ boxShadow: "var(--card-shadow)" }}
+                className="bg-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer w-[30%]"
+                style={{
+                  minWidth: "350px",
+                  maxWidth: "400",
+                  boxShadow: "var(--card-shadow)",
+                }}
                 onClick={() =>
                   project.hasDocumentation &&
                   navigate(`/projects/${project.id}`)
                 }>
-                <div className="h-52 bg-muted flex items-center justify-center overflow-hidden">
+                <div className="h-52 bg-muted flex items-center justify-center overflow-hidden ">
                   {project.image ? (
                     <img
                       src={project.image}
