@@ -13,6 +13,11 @@ import {
   Puzzle,
 } from "lucide-react";
 
+import ilana from "@/assets/team/ilana.jpg";
+import avery from "@/assets/team/avery.jpg";
+import sean from "@/assets/team/sean.jpg";
+import kleindolph from "@/assets/team/Kleindolph.jpg";
+
 const STEM = 32;
 const DOT_R = 7;
 
@@ -22,28 +27,28 @@ const teamMembers = [
     role: "Founder & Co-lead",
     icon: Lightbulb,
     color: "primary",
-    photo: "/src/assets/team/ilana.jpg",
+    photo: ilana,
   },
   {
     name: "Avery Belenson",
     role: "Co-lead",
     icon: Puzzle,
     color: "secondary",
-    photo: "/src/assets/team//avery.jpg",
+    photo: avery,
   },
   {
     name: "Sean Coleman",
     role: "Co-lead",
     icon: Cog,
     color: "secondary",
-    photo: "/src/assets/team/sean.jpg",
+    photo: sean,
   },
   {
     name: "Andrew Kleindolph",
     role: "Faculty Advisor",
     icon: GraduationCap,
     color: "primary",
-    photo: "/src/assets/team/Kleindolph.jpg",
+    photo: kleindolph,
   },
 ];
 
@@ -520,22 +525,23 @@ const About = () => (
               key={member.name}
               className="bg-card rounded-2xl p-6 text-center transition-transform w-64"
               style={{ boxShadow: "var(--card-shadow)" }}>
-            {member.photo ? (
-              <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4">
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ) : (
-              <div className={`w-16 h-16 rounded-2xl bg-${member.color}/10 flex items-center justify-center mx-auto mb-4`}>
-                <member.icon className={`w-8 h-8 text-${member.color}`} />
-              </div>
-            )}
-            <h3 className="font-display font-bold">{member.name}</h3>
-            <p className="text-sm text-muted-foreground">{member.role}</p>
-          </div>
+              {member.photo ? (
+                <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4">
+                  <img
+                    src={member.photo}
+                    alt={member.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ) : (
+                <div
+                  className={`w-16 h-16 rounded-2xl bg-${member.color}/10 flex items-center justify-center mx-auto mb-4`}>
+                  <member.icon className={`w-8 h-8 text-${member.color}`} />
+                </div>
+              )}
+              <h3 className="font-display font-bold">{member.name}</h3>
+              <p className="text-sm text-muted-foreground">{member.role}</p>
+            </div>
           ))}
         </div>
       </div>
