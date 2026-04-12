@@ -10,7 +10,7 @@ const ToyRequest = () => {
           </h1>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Tell us about the toy or device you'd like us to adapt for your
-            child. All requests are free!
+            child. All products are free!
           </p>
         </div>
         <div className="max-w-2xl mx-auto">
