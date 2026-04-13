@@ -421,30 +421,31 @@ function HorizontalTimeline() {
 
 const About = () => (
   <Layout>
-  {/* Image */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src={aboutImage}
-            alt="Children playing with adapted toys"
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "0% center" }}
-          />
-          <div className="absolute inset-0 bg-foreground/60" />
-        </div>
-        <div className="relative container mx-auto pt-[20px] py-[40px] text-center">
-          <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-36 animate-fade-in-up mt-[0px]">
+    {/* Image */}
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src={aboutImage}
+          alt="Children playing with adapted toys"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: "0% center" }}
+        />
+        <div className="absolute inset-0 bg-foreground/60" />
+      </div>
+      <div className="relative container mx-auto pt-[20px] py-[40px] text-center">
+        <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-36 animate-fade-in-up mt-[0px]">
           About Our Club
-          </h1>
-          <p
-            className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto animate-fade-in-up"
-            style={{ animationDelay: "0.15s" }}>
-            The Adaptive Tech Club is a student-led organization that adapts technology
-            and modifies toys for children with disabilities. Our free toys and tech eliminate
-            cost barriers while ensuring every child has access to play, education, and independence.
-          </p>
-        </div>
-      </section>
+        </h1>
+        <p
+          className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto animate-fade-in-up"
+          style={{ animationDelay: "0.15s" }}>
+          The Adaptive Tech Club is a student-led organization that adapts
+          technology and modifies toys for children with disabilities. Our free
+          toys and tech eliminate cost barriers while ensuring every child has
+          access to play, education, and independence.
+        </p>
+      </div>
+    </section>
     <section className="container mx-auto py-6">
       <div>
         <h2 className="font-display font-extrabold text-3xl text-center">
@@ -528,18 +529,19 @@ const About = () => (
           designing and implementing solutions to address these challenges, we
           adapt toys to be accessible for kids with physical disabilities.
         </p>
-      <div className="flex justify-center">
-        <div className="w-[600px] h-[700px] rounded-2xl overflow-hidden">
-          <video
-            src={videoATC}
-            autoPlay
-            muted
-            loop
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "center 35%" }}
-          />
+        <div className="flex justify-center">
+          <div className="w-full max-w-[600px] h-auto rounded-2xl overflow-hidden">
+            <video
+              src={videoATC}
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-auto object-cover"
+              style={{ objectPosition: "center 35%" }}
+            />
+          </div>
         </div>
-      </div>
       </div>
       {/* Team */}
       <div>
