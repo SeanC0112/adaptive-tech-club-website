@@ -8,7 +8,7 @@ import {
   DollarSign,
 } from "lucide-react";
 import { Link } from "react-router-dom";
-import videoATC from "@/assets/atcvid.mp4";
+import mattersImage from "@/assets/matters2.jpeg";
 
 const reasons = [
   {
@@ -63,18 +63,30 @@ const stats = [
 
 const WhyItMatters = () => (
   <Layout>
-    <section className="container mx-auto py-16">
-      {/* Hero */}
-      <div className="max-w-3xl mx-auto text-center mb-20">
-        <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-6">
-          Why Our Work Matters
-        </h1>
-        <p className="text-muted-foreground text-lg leading-relaxed">
-          A simple modification can transform a child's world, not only in the
-          momentary joy of accessible play, but in the life-long learning it
-          develops.
-        </p>
-      </div>
+    {/* Hero */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src={mattersImage}
+              alt="Children playing with adapted toys"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-foreground/60" />
+          </div>
+          <div className="relative container mx-auto py-24 md:py-16 text-center">
+            <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-6 animate-fade-in-up">
+              Why Our Work Matters
+            </h1>
+            <p
+              className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in-up"
+              style={{ animationDelay: "0.15s" }}>
+              A simple modification can transform a child's world, not only in the
+              momentary joy of accessible play, but in the life-long learning it
+              develops.
+            </p>
+          </div>
+        </section>
+    <section className="container mx-auto py-8">
 
       {/* Stats */}
       <h2 className="font-display font-extrabold text-3xl text-center mb-8">
@@ -139,21 +151,6 @@ const WhyItMatters = () => (
       </div>
 
       {/* What is switch adaptation/joystick adaptation */}
-      <h2 className="font-display font-extrabold text-3xl text-center mb-8">
-        Toy Adaptation
-      </h2>
-      <div className="flex justify-center">
-        <div className="w-[600px] h-[700px] mb-20 ">
-          <video
-            src={videoATC}
-            autoPlay
-            muted
-            loop
-            className="w-full h-full object-cover"
-            style={{ objectPosition: "center 35%" }}
-          />
-        </div>
-      </div>
       <div className="max-w-6xl mx-auto mb-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Switch Adaptation */}

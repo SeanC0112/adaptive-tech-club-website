@@ -1,5 +1,7 @@
 import Layout from "@/components/Layout";
 import { useRef, useEffect } from "react";
+import aboutImage from "@/assets/about.jpg";
+import videoATC from "@/assets/atcvid.mp4";
 import {
   Users,
   GraduationCap,
@@ -132,6 +134,7 @@ function HorizontalTimeline() {
     // Reset container width before measuring
     container.style.width = "100%";
     container.style.height = "auto";
+    container.style.minHeight = "0";
 
     const isMobile = window.innerWidth < 768;
     const events = TIMELINE_EVENTS;
@@ -369,9 +372,11 @@ function HorizontalTimeline() {
   };
 
   useEffect(() => {
-    renderTimeline();
+    // Wait for fonts to load before first render
+    document.fonts.ready.then(() => {
+      renderTimeline();
+    });
 
-    // Handle window resize with debounce
     let resizeTimeout: NodeJS.Timeout;
     const handleResize = () => {
       clearTimeout(resizeTimeout);
@@ -384,10 +389,9 @@ function HorizontalTimeline() {
 
     window.addEventListener("resize", handleResize);
 
-    // Handle visibility changes when navigating
     const handleVisibilityChange = () => {
       if (!document.hidden) {
-        requestAnimationFrame(() => {
+        document.fonts.ready.then(() => {
           renderTimeline();
         });
       }
@@ -417,20 +421,32 @@ function HorizontalTimeline() {
 
 const About = () => (
   <Layout>
-    <section className="container mx-auto py-16">
-      <div className="max-w-3xl mx-auto text-center mb-16">
-        <h1 className="font-display font-extrabold text-4xl md:text-5xl mb-5">
+  {/* Image */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={aboutImage}
+            alt="Children playing with adapted toys"
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "0% center" }}
+          />
+          <div className="absolute inset-0 bg-foreground/60" />
+        </div>
+        <div className="relative container mx-auto pt-[20px] py-[40px] text-center">
+          <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-36 animate-fade-in-up mt-[0px]">
           About Our Club
-        </h1>
-        <p className="text-muted-foreground text-lg leading-relaxed">
-          The Adaptive Tech Club is a student-led organization that adapts
-          technology and modifies toys for children with disabilities. Our free
-          toys and tech eliminate cost barriers while ensuring every child has
-          access to play, education, and independence.
-        </p>
-      </div>
-
-      <div className="mb-1">
+          </h1>
+          <p
+            className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto animate-fade-in-up"
+            style={{ animationDelay: "0.15s" }}>
+            The Adaptive Tech Club is a student-led organization that adapts technology
+            and modifies toys for children with disabilities. Our free toys and tech eliminate
+            cost barriers while ensuring every child has access to play, education, and independence.
+          </p>
+        </div>
+      </section>
+    <section className="container mx-auto py-6">
+      <div>
         <h2 className="font-display font-extrabold text-3xl text-center">
           Our Story
         </h2>
@@ -444,7 +460,7 @@ const About = () => (
         <h2 className="font-display font-extrabold text-3xl text-center mb-10">
           How It Works
         </h2>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3">
           {[
             {
               icon: Users,
@@ -500,11 +516,11 @@ const About = () => (
       </div>
 
       {/* Mission Cards */}
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-3xl mx-auto text-center mb-[50px]">
         <h1 className="font-display font-extrabold text-4xl md:text-3xl mb-5">
           How We Operate
         </h1>
-        <p className="text-muted-foreground text-lg leading-relaxed">
+        <p className="text-muted-foreground text-lg leading-relaxed mb-8">
           ATC meets weekly for 1.5 hour work sessions at Lick-Wilmerding High
           School. During these meetings, members gather to adapt toys and create
           assistive technologies, communicating with experts to learn the
@@ -512,8 +528,19 @@ const About = () => (
           designing and implementing solutions to address these challenges, we
           adapt toys to be accessible for kids with physical disabilities.
         </p>
+      <div className="flex justify-center">
+        <div className="w-[600px] h-[700px] rounded-2xl overflow-hidden">
+          <video
+            src={videoATC}
+            autoPlay
+            muted
+            loop
+            className="w-full h-full object-cover"
+            style={{ objectPosition: "center 35%" }}
+          />
+        </div>
       </div>
-
+      </div>
       {/* Team */}
       <div>
         <h2 className="font-display font-extrabold text-3xl text-center mb-10">
