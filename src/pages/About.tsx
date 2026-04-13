@@ -486,7 +486,7 @@ const About = () => (
             },
           ].map((item) =>
             item.primary ? (
-              <div key={item.step} className="text-center mb-4 sm:mb-6">
+              <div key={item.step} className="text-center mb-6 sm:mb-10">
                 <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-8 h-8 text-primary" />
                 </div>
@@ -499,7 +499,7 @@ const About = () => (
                 <p className="text-muted-foreground text-sm">{item.desc}</p>
               </div>
             ) : (
-              <div key={item.step} className="text-center mb-4 sm:mb-6">
+              <div key={item.step} className="text-center mb-6 sm:mb-0">
                 <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mx-auto mb-4">
                   <item.icon className="w-8 h-8 text-secondary" />
                 </div>
