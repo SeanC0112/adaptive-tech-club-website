@@ -58,7 +58,7 @@ const Projects = () => {
           <div className="absolute inset-0 bg-foreground/80 sm:bg-foreground/60" />
         </div>
         <div className="relative container mx-auto pt-[10px] md:py-[40px] text-center">
-          <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight sm:mb-52 animate-fade-in-up">
+          <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-2 sm:mb-52 animate-fade-in-up">
             Our Projects
           </h1>
           <p
