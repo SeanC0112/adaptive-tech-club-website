@@ -55,14 +55,14 @@ const Projects = () => {
             alt="Children playing with adapted toys"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-foreground/60" />
+          <div className="absolute inset-0 bg-foreground/80 sm:bg-foreground/60" />
         </div>
         <div className="relative container mx-auto pt-[10px] md:py-[40px] text-center">
-          <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-52 animate-fade-in-up">
+          <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight sm:mb-52 animate-fade-in-up">
             Our Projects
           </h1>
           <p
-            className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto animate-fade-in-up"
+            className="text-background/80 text-lg mb-6 sm:mb-0 md:text-xl max-w-2xl mx-auto animate-fade-in-up"
             style={{ animationDelay: "0.15s" }}>
             Catalogue of select items we've built or adapted. This shows a small
             sampling of the hundreds of types of toys we have adapted, as
