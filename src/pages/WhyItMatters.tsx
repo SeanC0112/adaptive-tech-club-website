@@ -64,30 +64,29 @@ const stats = [
 const WhyItMatters = () => (
   <Layout>
     {/* Hero */}
-        <section className="relative overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src={mattersImage}
-              alt="Children playing with adapted toys"
-              className="w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-foreground/60" />
-          </div>
-          <div className="relative container mx-auto py-24 md:py-16 text-center">
-            <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-6 animate-fade-in-up">
-              Why Our Work Matters
-            </h1>
-            <p
-              className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 animate-fade-in-up"
-              style={{ animationDelay: "0.15s" }}>
-              A simple modification can transform a child's world, not only in the
-              momentary joy of accessible play, but in the life-long learning it
-              develops.
-            </p>
-          </div>
-        </section>
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0">
+        <img
+          src={mattersImage}
+          alt="Children playing with adapted toys"
+          className="sm:w-full h-full object-cover object-right"
+        />
+        <div className="absolute inset-0 bg-foreground/60" />
+      </div>
+      <div className="relative container mx-auto py-7 md:py-16 text-center">
+        <h1 className="font-display font-extrabold text-4xl md:text-6xl lg:text-7xl text-background leading-tight mb-6 animate-fade-in-up">
+          Why Our Work Matters
+        </h1>
+        <p
+          className="text-background/80 text-lg md:text-xl max-w-2xl mx-auto mb-4 sm:mb-10 animate-fade-in-up"
+          style={{ animationDelay: "0.15s" }}>
+          A simple modification can transform a child's world, not only in the
+          momentary joy of accessible play, but in the life-long learning it
+          develops.
+        </p>
+      </div>
+    </section>
     <section className="container mx-auto py-8">
-
       {/* Stats */}
       <h2 className="font-display font-extrabold text-3xl text-center mb-8">
         Quick Look
