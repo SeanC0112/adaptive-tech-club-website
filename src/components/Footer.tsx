@@ -15,7 +15,7 @@ const Footer = () => (
             </span>
           </div>
           <p className="text-card-foreground/60 text-sm leading-relaxed mb-4">
-            Modifying toys and devices to make play accessible for every child.
+            Modifying toys and devices to make play accessible for every child
           </p>
           <div className="flex items-center gap-2 mb-4 text-card-foreground/60 hover:text-card-foreground transition-colors">
             <Instagram className="w-4 h-4" />
@@ -89,9 +89,9 @@ const Footer = () => (
           <div>
             <h4 className="font-display font-bold mb-2">Website Info</h4>
             <p className="text-sm text-card-foreground/60 leading-relaxed mb-4">
-              This website is best viewed on a computer.
+              This website is best viewed on a computer
               <br />
-              Website built by Sean Coleman and Ilana Zimmerman.
+              Website built by Sean Coleman and Ilana Zimmerman
             </p>
           </div>
         </div>
