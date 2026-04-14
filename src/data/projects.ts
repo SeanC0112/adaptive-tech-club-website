@@ -155,8 +155,7 @@ export const projects: Project[] = [
   {
     id: "Accessible Game Controller",
     title: "Accessible Game Controller",
-    description:
-      "Allows kids to play computer games with accessible buttons.",
+    description: "Allows kids to play computer games with accessible buttons.",
     image: "/project-images/game-controller/photo3.jpeg",
     category: "device",
     hasDocumentation: true,
@@ -261,8 +260,7 @@ export const projects: Project[] = [
   {
     id: "Small Audio Communication Case",
     title: "Small Audio Communication Case",
-    description:
-      "Case for TalkingBrix 2 button that mounts to a wall.",
+    description: "Case for TalkingBrix 2 button that mounts to a wall.",
     image: "/project-images/audio-com-small/photo1.jpeg",
     category: "device",
     hasDocumentation: true,
@@ -301,7 +299,7 @@ export const projects: Project[] = [
     photos: ["/project-images/pouring-cup/photo1.png"],
   },
   */
-  
+
   {
     id: "Blue2 Case",
     title: "Blue2 Case",
@@ -462,6 +460,30 @@ export const projects: Project[] = [
     photos: [
       "/project-images/audio-com/comm1.jpg",
       "/project-images/audio-com/photo1.png",
+    ],
+  },
+  {
+    id: "Vibrating Turtle Toy",
+    title: "Vibrating Turtle Toy",
+    description:
+      "Switch-adapted turtle toy which vibrates when the button is pressed.",
+    image: "/project-images/turtle-stuffy/cover.jpeg",
+    category: "toy",
+    hasDocumentation: true,
+    inProgress: false,
+    features: [
+      "Switch-adapted",
+      "Vibrates when button is pressed",
+      "Battery-powered",
+    ],
+    materials: [
+      "Turtle Vibrating Stuffed Animal",
+      "Solder + Iron",
+      "Female Jack",
+    ],
+    photos: [
+      "/project-images/turtle-stuffy/1.jpeg",
+      "/project-images/turtle-stuffy/2.jpeg",
     ],
   },
 ];
