@@ -18,6 +18,7 @@ import {
 import ilana from "@/assets/team/Ilana.jpg";
 import avery from "@/assets/team/Avery.jpg";
 import sean from "@/assets/team/Sean.jpg";
+import emory from "@/assets/team/Emory.svg";
 import kleindolph from "@/assets/team/Kleindolph.jpg";
 
 const STEM = 32;
@@ -26,7 +27,7 @@ const DOT_R = 7;
 const teamMembers = [
   {
     name: "Ilana Zimmerman",
-    role: "Founder & Co-lead",
+    role: "Founder",
     icon: Lightbulb,
     color: "primary",
     photo: ilana,
@@ -44,6 +45,13 @@ const teamMembers = [
     icon: Cog,
     color: "secondary",
     photo: sean,
+  },
+  {
+    name: "Emory Temple-Asheim",
+    role: "Co-lead",
+    icon: Wrench,
+    color: "secondary",
+    photo: emory,
   },
   {
     name: "Andrew Kleindolph",

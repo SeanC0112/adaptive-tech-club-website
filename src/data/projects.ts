@@ -10,6 +10,10 @@ export interface Project {
   steps?: { title: string; description: string }[];
   image?: string; // this is the cover image
   photos?: string[]; // this is a list of images in the details grid
+  overview?: string; // longer write-up intro shown above the cards
+  parts?: { name: string; description: string }[]; // parts breakdown
+  printSettings?: { part: string; setting: string }[]; // 3D print settings
+  githubUrl?: string; // link to project files / source on GitHub
 }
 
 export const projects: Project[] = [
@@ -43,12 +47,15 @@ export const projects: Project[] = [
     image: "/project-images/button/photo2.png",
     category: "device",
     hasDocumentation: true,
+    overview:
+      "This adaptive button is a 3D-printed accessibility switch designed for use with adapted toys and assistive technology. It is intended to be easy to press for children and individuals who may have difficulty operating small or stiff buttons. The button is made up of three printed parts that assemble without tools (beyond an optional dab of glue) and a standard off-the-shelf switch. The design is open and easy to customize, reprint, or repair.",
+    githubUrl: "https://github.com/AdaptiveTechClub/button",
     features: [
-      "Large top surface",
-      "Easily pressable from any point",
-      "Compatible with all adapted toys",
-      "Customizable colors",
-      "Only 3 printed parts, no screws required",
+      "Large top surface, easy to press from any point",
+      "Living hinge mechanism transmits force to the switch reliably",
+      "Three-part modular design, easy to print, assemble, and service",
+      "Compatible with standard 3.5 mm mono jack wiring for adaptive toy switches",
+      "No supports required on most printers",
     ],
     materials: [
       "PLA",
@@ -57,6 +64,36 @@ export const projects: Project[] = [
       "Limit Switch (Model: V-156-1C25)",
       "Male Jack",
       "Solder + Iron",
+    ],
+    parts: [
+      {
+        name: "Top (top.stl)",
+        description:
+          "The large dome-shaped pressing surface. Snaps onto the body and can be glued permanently. Can be printed in any color.",
+      },
+      {
+        name: "Body (body.stl)",
+        description:
+          "The main structural piece. Contains a living hinge mechanism that flexes when the top is pressed, depressing the switch below. MUST be printed in PETG for flexibility — PLA is too brittle and will snap.",
+      },
+      {
+        name: "Base (base.stl)",
+        description:
+          "The bottom plate. Houses the switch and wiring. Screws onto the body. Can be printed in PLA or PETG.",
+      },
+      {
+        name: "Switch",
+        description: "An off-the-shelf momentary switch. Mounted in the base.",
+      },
+    ],
+    printSettings: [
+      { part: "Top", setting: "PLA or PETG, 20%+ infill, 0.2 mm layers" },
+      {
+        part: "Body",
+        setting:
+          "PETG only, 20% infill, 0.2 mm layers. Ironing of the surface below the hinge piece recommended — use modifier shapes in your preferred slicer.",
+      },
+      { part: "Base", setting: "PLA or PETG, 20%+ infill, 0.2 mm layers" },
     ],
     inProgress: false,
     photos: [

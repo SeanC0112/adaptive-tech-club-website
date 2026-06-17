@@ -8,6 +8,9 @@ import {
   ListOrdered,
   List,
   ArrowRight,
+  Boxes,
+  Printer,
+  Github,
 } from "lucide-react";
 
 const ProjectDetail = () => {
@@ -50,6 +53,24 @@ const ProjectDetail = () => {
           {project.description}
         </p>
 
+        {/* Overview */}
+        {project.overview && (
+          <p className="text-muted-foreground mb-8 leading-relaxed">
+            {project.overview}
+          </p>
+        )}
+
+        {/* GitHub link */}
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 mb-8">
+            <Github className="w-4 h-4" /> View files on GitHub
+          </a>
+        )}
+
         {/* Features */}
         {project.features && (
           <div
@@ -88,6 +109,54 @@ const ProjectDetail = () => {
                   className="flex items-start gap-2 text-sm text-muted-foreground">
                   <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 shrink-0" />
                   {material}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Parts */}
+        {project.parts && (
+          <div
+            className="bg-card rounded-2xl p-8 mb-8"
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <div className="flex items-center gap-2 mb-4">
+              <Boxes className="w-5 h-5 text-primary" />
+              <h2 className="font-display font-bold text-xl">Parts Overview</h2>
+            </div>
+            <ul className="space-y-4">
+              {project.parts.map((part, i) => (
+                <li key={i}>
+                  <h3 className="font-display font-bold text-sm mb-1">
+                    {part.name}
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {part.description}
+                  </p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Print Settings */}
+        {project.printSettings && (
+          <div
+            className="bg-card rounded-2xl p-8 mb-8"
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <div className="flex items-center gap-2 mb-4">
+              <Printer className="w-5 h-5 text-primary" />
+              <h2 className="font-display font-bold text-xl">Print Settings</h2>
+            </div>
+            <ul className="space-y-2">
+              {project.printSettings.map((setting, i) => (
+                <li
+                  key={i}
+                  className="text-sm text-muted-foreground leading-relaxed">
+                  <span className="font-medium text-foreground">
+                    {setting.part}:
+                  </span>{" "}
+                  {setting.setting}
                 </li>
               ))}
             </ul>
