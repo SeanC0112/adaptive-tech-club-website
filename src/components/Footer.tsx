@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Wrench, Heart, Camera, Instagram, Mail } from "lucide-react";
+import { Wrench, Heart, Camera, Instagram, Mail, Github } from "lucide-react";
 
 const Footer = () => (
   <footer className="bg-card text-card-foreground py-12 mt-20">
@@ -35,6 +35,16 @@ const Footer = () => (
               rel="noopener noreferrer"
               className="font-display font-bold text-sm">
               adaptivetechclub.lwhs@gmail.com
+            </a>
+          </div>
+          <div className="flex items-center gap-2 mb-4 text-card-foreground/60 hover:text-card-foreground transition-colors">
+            <Github className="w-4 h-4" />
+            <a
+              href="https://github.com/AdaptiveTechClub"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-display font-bold text-sm">
+              AdaptiveTechClub
             </a>
           </div>
         </div>
