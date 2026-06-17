@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320" role="img" aria-label="Placeholder portrait for Emory Temple-Asheim">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8eefc"/>
+      <stop offset="1" stop-color="#cdddf7"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="320" fill="url(#bg)"/>
+  <g fill="#3b82f6" opacity="0.85">
+    <circle cx="160" cy="126" r="54"/>
+    <path d="M160 196c-56 0-100 36-108 86a4 4 0 0 0 4 4h208a4 4 0 0 0 4-4c-8-50-52-86-108-86z"/>
+  </g>
+</svg>
