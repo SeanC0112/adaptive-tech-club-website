@@ -7,7 +7,7 @@ export interface Project {
   inProgress?: boolean;
   features?: string[];
   materials?: string[];
-  steps?: { title: string; description: string }[];
+  steps?: { title: string; description: string; image?: string }[];
   image?: string; // this is the cover image
   photos?: string[]; // this is a list of images in the details grid
   overview?: string; // longer write-up intro shown above the cards
@@ -106,6 +106,8 @@ export const projects: Project[] = [
     title: "Mini Powered Chair",
     description:
       "An adapted remote-controlled ride-on car that enables safe, independent movement.",
+    overview:
+      "This guide covers the electronics for turning an off-the-shelf ride-on car into a powered chair a child can drive themselves. The car keeps its original remote so an adult can always take over, while a small Arduino lets the child steer with a joystick or with accessible switches. The same wiring supports both input methods at once.",
     image: "/project-images/car/cover.jpg",
     category: "toy",
     hasDocumentation: true,
@@ -115,6 +117,66 @@ export const projects: Project[] = [
       "Remote control override for safety",
       "Holds one child",
       "Safety harness",
+    ],
+    materials: [
+      "Ride-on car with a 2.4 GHz remote control",
+      "Arduino Pro Micro",
+      "Perfboard",
+      "5-pin JST-XH joystick connector and joystick",
+      "Two panel-mount 3.5 mm switch jacks",
+      "Hookup wire in five colors, plus heat shrink",
+      "Soldering iron",
+      "Multimeter",
+      "Heat gun or lighter",
+    ],
+    steps: [
+      {
+        title: "Study the wiring schematic",
+        description:
+          "Before cutting or soldering anything, get familiar with the full schematic. The build ties together three systems: the car's original transmitter (pulled from its remote), an Arduino Pro Micro that reads the joystick and switches, and the car's onboard power. Every connection below maps to a point on this diagram.",
+        image: "/project-images/car-build/schematic.png",
+      },
+      {
+        title: "Adapt the remote",
+        description:
+          "Open the car's remote and expose its transmitter board. For each direction, solder a wire to that button's signal pad — the pad that is not tied to ground — and connect the transmitter's power and ground to the board. Solder every connection except the antenna. Then drill a small hole in the top of the case, route the antenna wire out through it, and close the remote back up.",
+        image: "/project-images/car-build/remote.jpg",
+      },
+      {
+        title: "Mount the Arduino on a perfboard",
+        description:
+          "Solder an Arduino Pro Micro onto a piece of perfboard. This is the brain of the build: it reads the joystick and switches and translates them into the same button presses the transmitter expects.",
+        image: "/project-images/car-build/arduino.jpg",
+      },
+      {
+        title: "Tap 5V from the car",
+        description:
+          "Use a multimeter to find a point in the car's electronics that supplies a steady 5V. Connect the transmitter's power and ground here so the whole system shares one power source.",
+        image: "/project-images/car-build/power.png",
+      },
+      {
+        title: "Wire the joystick connector",
+        description:
+          "Cut about two feet of wire in five colors — one each for Ground, Forward, Backward, Left, and Right — and solder them to the 5-pin JST-XH joystick connector. Keep the color code consistent; you'll match these same colors at the Arduino and the transmitter.",
+        image: "/project-images/car-build/joystick-colors.png",
+      },
+      {
+        title: "Connect the joystick to the transmitter and Arduino",
+        description:
+          "Run the Forward, Backward, Left, and Right signal wires to the matching button pads on the transmitter, and connect the shared ground. Then wire Backward to pin 3, Left to pin 2, and Right to pin 4 on the Arduino. Double-check Forward and Backward — they are easy to swap.",
+        image: "/project-images/car-build/wiring-overview.png",
+      },
+      {
+        title: "Add accessible switch jacks",
+        description:
+          "So the chair can also be driven with external switches, wire up two panel-mount 3.5 mm jacks. Cut three longer wires (two signal, one ground) and one short ground wire. Use the short wire to bridge ground between the two jacks, and run the long ground wire to the board's ground. Solder one signal wire to the transmitter's Forward button and the other to pin 5 on the Arduino.",
+        image: "/project-images/car-build/switch-jacks.jpg",
+      },
+      {
+        title: "Upload the firmware and test",
+        description:
+          "Upload the project's Arduino code to the Pro Micro, then power everything up and test each direction. If something doesn't respond, check that the Arduino is powered and running the correct code, that the joystick works on its own (cut power to the Arduino to isolate it), and that every connection reads continuous on a multimeter. Still stuck? Ask another ATC member for a second set of eyes.",
+      },
     ],
     inProgress: false,
     photos: [

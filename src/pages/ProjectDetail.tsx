@@ -46,30 +46,55 @@ const ProjectDetail = () => {
           <ArrowLeft className="w-4 h-4" /> Back to Projects
         </Link>
 
-        <h1 className="font-display font-extrabold text-3xl md:text-4xl mb-4 text-center">
+        <h1 className="font-display font-extrabold text-3xl md:text-4xl mb-8 text-center">
           {project.title}
         </h1>
-        <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-          {project.description}
-        </p>
 
-        {/* Overview */}
-        {project.overview && (
-          <p className="text-muted-foreground mb-8 leading-relaxed">
-            {project.overview}
-          </p>
-        )}
-
-        {/* GitHub link */}
-        {project.githubUrl && (
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90 mb-8">
-            <Github className="w-4 h-4" /> View files on GitHub
-          </a>
-        )}
+        {/* Description + pictures, side by side at the top */}
+        <div
+          className={
+            project.photos
+              ? "grid md:grid-cols-2 gap-8 mb-12 items-start"
+              : "mb-12"
+          }>
+          <div>
+            <p className="text-muted-foreground text-lg mb-6 leading-relaxed">
+              {project.description}
+            </p>
+            {project.overview && (
+              <p className="text-muted-foreground mb-6 leading-relaxed">
+                {project.overview}
+              </p>
+            )}
+            {project.githubUrl && (
+              <a
+                href={project.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90">
+                <Github className="w-4 h-4" /> View files on GitHub
+              </a>
+            )}
+          </div>
+          {project.photos && (
+            <div className="columns-2 gap-3">
+              {project.photos.map((photo, i) => (
+                <a
+                  key={i}
+                  href={photo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block mb-3 break-inside-avoid">
+                  <img
+                    src={photo}
+                    alt={`${project.title} photo ${i + 1}`}
+                    className="w-full rounded-xl"
+                  />
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
 
         {/* Features */}
         {project.features && (
@@ -163,21 +188,43 @@ const ProjectDetail = () => {
           </div>
         )}
 
-        {/*Documentation*/}
-        <h1 className="font-display font-extrabold text-3xl md:text-4xl mb-8 text-center">
-          Documentation
-        </h1>
-        {project.photos && (
-          <div className="flex justify-center justify-items-center flex-wrap gap-4">
-            {project.photos.map((photo, i) => (
-              <div key={i} className="rounded-xl overflow-hidden h-60">
-                <img
-                  src={photo}
-                  alt={`${project.title} photo ${i + 1}`}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            ))}
+        {/* Instructions */}
+        {project.steps && (
+          <div
+            className="bg-card rounded-2xl p-8 mb-8"
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <div className="flex items-center gap-2 mb-6">
+              <ListOrdered className="w-5 h-5 text-primary" />
+              <h2 className="font-display font-bold text-xl">Instructions</h2>
+            </div>
+            <ol className="space-y-8">
+              {project.steps.map((step, i) => (
+                <li key={i}>
+                  <div className="flex items-baseline gap-3 mb-2">
+                    <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+                      {i + 1}
+                    </span>
+                    <h3 className="font-display font-bold">{step.title}</h3>
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {step.description}
+                  </p>
+                  {step.image && (
+                    <a
+                      href={step.image}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-3 block">
+                      <img
+                        src={step.image}
+                        alt={`${step.title} illustration`}
+                        className="rounded-xl w-full max-w-md"
+                      />
+                    </a>
+                  )}
+                </li>
+              ))}
+            </ol>
           </div>
         )}
       </section>
