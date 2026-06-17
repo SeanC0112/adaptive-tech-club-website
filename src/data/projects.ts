@@ -7,7 +7,7 @@ export interface Project {
   inProgress?: boolean;
   features?: string[];
   materials?: string[];
-  steps?: { title: string; description: string }[];
+  steps?: { title: string; description: string; image?: string }[];
   image?: string; // this is the cover image
   photos?: string[]; // this is a list of images in the details grid
   overview?: string; // longer write-up intro shown above the cards
