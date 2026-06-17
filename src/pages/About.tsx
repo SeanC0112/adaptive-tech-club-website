@@ -18,7 +18,7 @@ import {
 import ilana from "@/assets/team/Ilana.jpg";
 import avery from "@/assets/team/Avery.jpg";
 import sean from "@/assets/team/Sean.jpg";
-import emory from "@/assets/team/Emory.svg";
+import emory from "@/assets/team/Emory.jpg";
 import kleindolph from "@/assets/team/Kleindolph.jpg";
 
 const STEM = 32;
