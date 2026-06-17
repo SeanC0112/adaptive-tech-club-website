@@ -13,28 +13,35 @@ import {
   Cog,
   Lightbulb,
   Puzzle,
+  type LucideIcon,
 } from "lucide-react";
 
 import ilana from "@/assets/team/Ilana.jpg";
 import avery from "@/assets/team/Avery.jpg";
 import sean from "@/assets/team/Sean.jpg";
 import emory from "@/assets/team/Emory.jpg";
+import atticus from "@/assets/team/Atticus.jpg";
 import kleindolph from "@/assets/team/Kleindolph.jpg";
 
 const STEM = 32;
 const DOT_R = 7;
 
-const teamMembers = [
-  {
-    name: "Ilana Zimmerman",
-    role: "Founder",
-    icon: Lightbulb,
-    color: "primary",
-    photo: ilana,
-  },
+type Member = {
+  name: string;
+  role: string;
+  school?: string;
+  gradYear?: string;
+  icon: LucideIcon;
+  color: string;
+  photo?: string;
+};
+
+const teamMembers: Member[] = [
   {
     name: "Avery Belenson",
     role: "Co-lead",
+    school: "LWHS",
+    gradYear: "’27",
     icon: Puzzle,
     color: "secondary",
     photo: avery,
@@ -42,6 +49,8 @@ const teamMembers = [
   {
     name: "Sean Coleman",
     role: "Co-lead",
+    school: "LWHS",
+    gradYear: "’27",
     icon: Cog,
     color: "secondary",
     photo: sean,
@@ -49,9 +58,20 @@ const teamMembers = [
   {
     name: "Emory Temple-Asheim",
     role: "Co-lead",
+    school: "LWHS",
+    gradYear: "’28",
     icon: Wrench,
     color: "secondary",
     photo: emory,
+  },
+  {
+    name: "Atticus Kilar",
+    role: "Co-lead",
+    school: "BHS",
+    gradYear: "’28",
+    icon: Lightbulb,
+    color: "secondary",
+    photo: atticus,
   },
   {
     name: "Andrew Kleindolph",
@@ -61,6 +81,46 @@ const teamMembers = [
     photo: kleindolph,
   },
 ];
+
+const formerMembers: Member[] = [
+  {
+    name: "Ilana Zimmerman",
+    role: "Founder",
+    school: "LWHS",
+    gradYear: "’26",
+    icon: Lightbulb,
+    color: "primary",
+    photo: ilana,
+  },
+];
+
+const MemberCard = ({ member }: { member: Member }) => (
+  <div
+    className="bg-card rounded-2xl p-6 text-center transition-transform w-64"
+    style={{ boxShadow: "var(--card-shadow)" }}>
+    {member.photo ? (
+      <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4">
+        <img
+          src={member.photo}
+          alt={member.name}
+          className="w-full h-full object-cover"
+        />
+      </div>
+    ) : (
+      <div
+        className={`w-16 h-16 rounded-2xl bg-${member.color}/10 flex items-center justify-center mx-auto mb-4`}>
+        <member.icon className={`w-8 h-8 text-${member.color}`} />
+      </div>
+    )}
+    <h3 className="font-display font-bold">{member.name}</h3>
+    <p className="text-sm text-muted-foreground">{member.role}</p>
+    {member.school && (
+      <p className="text-xs text-muted-foreground/70 mt-1">
+        {member.school} {member.gradYear}
+      </p>
+    )}
+  </div>
+);
 
 const links: Record<string, string> = {
   "toy lending library":
@@ -558,27 +618,17 @@ const About = () => (
         </h2>
         <div className="flex flex-wrap justify-center gap-6">
           {teamMembers.map((member) => (
-            <div
-              key={member.name}
-              className="bg-card rounded-2xl p-6 text-center transition-transform w-64"
-              style={{ boxShadow: "var(--card-shadow)" }}>
-              {member.photo ? (
-                <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4">
-                  <img
-                    src={member.photo}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              ) : (
-                <div
-                  className={`w-16 h-16 rounded-2xl bg-${member.color}/10 flex items-center justify-center mx-auto mb-4`}>
-                  <member.icon className={`w-8 h-8 text-${member.color}`} />
-                </div>
-              )}
-              <h3 className="font-display font-bold">{member.name}</h3>
-              <p className="text-sm text-muted-foreground">{member.role}</p>
-            </div>
+            <MemberCard key={member.name} member={member} />
+          ))}
+        </div>
+
+        {/* Former Leaders */}
+        <h3 className="font-display font-bold text-2xl text-center mt-16 mb-8">
+          Former Leaders
+        </h3>
+        <div className="flex flex-wrap justify-center gap-6">
+          {formerMembers.map((member) => (
+            <MemberCard key={member.name} member={member} />
           ))}
         </div>
       </div>
