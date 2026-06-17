@@ -38,6 +38,15 @@ type Member = {
 
 const teamMembers: Member[] = [
   {
+    name: "Ilana Zimmerman",
+    role: "Founder",
+    school: "LWHS",
+    gradYear: "’26",
+    icon: Lightbulb,
+    color: "primary",
+    photo: ilana,
+  },
+  {
     name: "Avery Belenson",
     role: "Co-lead",
     school: "LWHS",
@@ -79,18 +88,6 @@ const teamMembers: Member[] = [
     icon: GraduationCap,
     color: "primary",
     photo: kleindolph,
-  },
-];
-
-const formerMembers: Member[] = [
-  {
-    name: "Ilana Zimmerman",
-    role: "Founder",
-    school: "LWHS",
-    gradYear: "’26",
-    icon: Lightbulb,
-    color: "primary",
-    photo: ilana,
   },
 ];
 
@@ -618,16 +615,6 @@ const About = () => (
         </h2>
         <div className="flex flex-wrap justify-center gap-6">
           {teamMembers.map((member) => (
-            <MemberCard key={member.name} member={member} />
-          ))}
-        </div>
-
-        {/* Former Leaders */}
-        <h3 className="font-display font-bold text-2xl text-center mt-16 mb-8">
-          Former Leaders
-        </h3>
-        <div className="flex flex-wrap justify-center gap-6">
-          {formerMembers.map((member) => (
             <MemberCard key={member.name} member={member} />
           ))}
         </div>
