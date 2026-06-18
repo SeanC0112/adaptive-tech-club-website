@@ -93,13 +93,15 @@ const teamMembers: Member[] = [
 
 const MemberCard = ({ member }: { member: Member }) => (
   <div
-    className="bg-card rounded-2xl p-6 text-center transition-transform w-64"
+    className="bg-card rounded-2xl p-8 text-center transition-transform w-full"
     style={{ boxShadow: "var(--card-shadow)" }}>
     {member.photo ? (
-      <div className="w-40 h-40 rounded-full overflow-hidden mx-auto mb-4">
+      <div className="w-48 h-48 rounded-full overflow-hidden mx-auto mb-4">
         <img
           src={member.photo}
-          alt={member.name}
+          alt={`Portrait of ${member.name}`}
+          loading="lazy"
+          decoding="async"
           className="w-full h-full object-cover"
         />
       </div>
@@ -109,7 +111,7 @@ const MemberCard = ({ member }: { member: Member }) => (
         <member.icon className={`w-8 h-8 text-${member.color}`} />
       </div>
     )}
-    <h3 className="font-display font-bold">{member.name}</h3>
+    <h3 className="font-display font-bold text-lg">{member.name}</h3>
     <p className="text-sm text-muted-foreground">{member.role}</p>
     {member.school && (
       <p className="text-xs text-muted-foreground/70 mt-1">
@@ -141,7 +143,7 @@ function renderLinkedText(text: string) {
           href={url}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm text-primary/60 hover:text-primary transition-colors hover:underline">
+          className="text-sm text-primary underline hover:text-primary/80 transition-colors">
           {phrase}
         </a>,
       );
@@ -226,7 +228,7 @@ function HorizontalTimeline() {
       events.forEach((e, i) => {
         const card = document.createElement("div");
         card.style.cssText = `
-          background: var(--card);
+          background: hsl(var(--card));
           border: 1px solid hsl(var(--border));
           border-radius: 12px;
           padding: 12px 16px;
@@ -313,7 +315,7 @@ function HorizontalTimeline() {
         const card = document.createElement("div");
 
         card.style.cssText = `
-          background: var(--card);
+          background: hsl(var(--card));
           border: 1px solid hsl(var(--border));
           border-radius: 12px;
           padding: 12px 16px;
@@ -491,7 +493,7 @@ const About = () => (
       <div className="absolute inset-0">
         <img
           src={aboutImage}
-          alt="Children playing with adapted toys"
+          alt="A row of Adaptive Tech Club members each holding an adapted toy or device"
           className="w-full h-full object-cover"
           style={{ objectPosition: "0% center" }}
         />
@@ -595,14 +597,14 @@ const About = () => (
           adapt toys to be accessible for kids with physical disabilities.
         </p>
         <div className="flex justify-center">
-          <div className="w-full max-w-[600px] h-auto rounded-2xl overflow-hidden">
+          <div className="w-full max-w-3xl aspect-[16/9] rounded-2xl overflow-hidden">
             <video
               src={videoATC}
               autoPlay
               muted
               loop
               playsInline
-              className="w-full h-auto object-cover"
+              className="w-full h-full object-cover"
               style={{ objectPosition: "center 35%" }}
             />
           </div>
@@ -613,7 +615,7 @@ const About = () => (
         <h2 className="font-display font-extrabold text-3xl text-center mb-10">
           Meet the Team
         </h2>
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
           {teamMembers.map((member) => (
             <MemberCard key={member.name} member={member} />
           ))}

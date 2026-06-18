@@ -76,6 +76,11 @@ const Footer = () => (
               className="text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
               Contact
             </Link>
+            <Link
+              to="/newclub"
+              className="text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
+              New Club Kit
+            </Link>
           </div>
         </div>
         <div>
@@ -84,7 +89,7 @@ const Footer = () => (
             Want to join, donate, or request an adapted device? Reach out
             through our{" "}
             <Link
-              to="/Contact"
+              to="/contact"
               className="text-sm text-primary hover:underline">
               contact page
             </Link>{" "}

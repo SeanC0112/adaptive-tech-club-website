@@ -68,7 +68,7 @@ const WhyItMatters = () => (
       <div className="absolute inset-0">
         <img
           src={mattersImage}
-          alt="Children playing with adapted toys"
+          alt="A smiling child reaching up to play with a light-up adapted toy car"
           className="sm:w-full h-full object-cover object-right"
         />
         <div className="absolute inset-0 bg-foreground/60" />
