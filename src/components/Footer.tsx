@@ -15,16 +15,19 @@ const socials = [
   {
     href: "https://www.instagram.com/adaptivetechclub_lwhs",
     label: "Instagram (@adaptivetechclub_lwhs)",
+    text: "@adaptivetechclub_lwhs",
     icon: Instagram,
   },
   {
     href: "mailto:adaptivetechclub.lwhs@gmail.com",
     label: "Email us at adaptivetechclub.lwhs@gmail.com",
+    text: "adaptivetechclub.lwhs@gmail.com",
     icon: Mail,
   },
   {
     href: "https://github.com/AdaptiveTechClub",
     label: "GitHub (AdaptiveTechClub)",
+    text: "AdaptiveTechClub",
     icon: Github,
   },
 ];
@@ -44,19 +47,23 @@ const Footer = () => (
           <p className="text-card-foreground/60 text-sm leading-relaxed mb-5 max-w-xs">
             Modifying toys and devices to make play accessible for every child.
           </p>
-          <div className="flex items-center gap-3">
-            {socials.map(({ href, label, icon: Icon }) => (
-              <a
-                key={href}
-                href={href}
-                aria-label={label}
-                target={href.startsWith("mailto:") ? undefined : "_blank"}
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-card-foreground/5 text-card-foreground/70 hover:bg-primary hover:text-primary-foreground transition-colors">
-                <Icon className="w-5 h-5" aria-hidden="true" />
-              </a>
+          <ul className="flex flex-col gap-3">
+            {socials.map(({ href, label, text, icon: Icon }) => (
+              <li key={href}>
+                <a
+                  href={href}
+                  aria-label={label}
+                  target={href.startsWith("mailto:") ? undefined : "_blank"}
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-3 text-sm text-card-foreground/60 hover:text-card-foreground transition-colors">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-card-foreground/5 text-card-foreground/70 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Icon className="w-4 h-4" aria-hidden="true" />
+                  </span>
+                  <span className="break-all">{text}</span>
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         {/* Quick Links */}
@@ -108,6 +115,8 @@ const Footer = () => (
         </p>
         <p className="text-center sm:text-right text-xs">
           Built by Sean Coleman, Ilana Zimmerman, and Emory Temple-Asheim
+          <br />
+          with assistance from Claude and other AI technology
         </p>
       </div>
     </div>
