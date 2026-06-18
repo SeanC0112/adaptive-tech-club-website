@@ -1,14 +1,23 @@
 // Content for the "New Club Kit" wiki at /newclub.
 // Copy is transcribed verbatim from the source document — do not edit wording.
+// Inline bold and links mirror the source. Long source URLs live in
+// newClubKitLinks.ts to keep this file readable.
 // Sections marked as placeholders use lorem ipsum until the real copy is written.
 
-export type KitListItem = string | { text: string; items: string[] };
+import { kitLinks } from "./newClubKitLinks";
+
+// A single inline run of text: optionally bold and/or a link.
+export type InlineSpan = { text: string; bold?: boolean; href?: string };
+// Rich text is either a plain string or a sequence of inline runs.
+export type Rich = string | (string | InlineSpan)[];
+
+export type KitListItem = Rich | { text: Rich; items: Rich[] };
 
 export type KitBlock =
   | { type: "h2"; text: string }
   | { type: "h3"; text: string }
-  | { type: "p"; text: string }
-  | { type: "def"; term: string; text: string }
+  | { type: "p"; text: Rich }
+  | { type: "def"; term: Rich; text: Rich }
   | { type: "list"; items: KitListItem[] };
 
 export interface KitSection {
@@ -41,33 +50,83 @@ export const newClubKit: KitSection[] = [
       {
         type: "list",
         items: [
-          "Cost — Pre-adapted toys can be wildly expensive. A standard Pie Face game costs $35, but the adapted version runs $155 — more than 4x the price. Wheelchairs tell a similar story: costs range from $90 (low) to $4,455 (average) to $9,000 (high) — accessibility shouldn't come at a premium.",
-          "Need — Many children cannot access standard toys without modifications.",
-          "Fulfilling — Creating adaptations makes a real difference in a child's life.",
-          "Fun — It's genuinely enjoyable work because who doesn't like to play with toys!",
+          [
+            { text: "Cost", bold: true },
+            " — Pre-adapted toys can be wildly expensive. A standard Pie Face game costs ",
+            { text: "$35", bold: true },
+            ", but the adapted version runs ",
+            { text: "$155", bold: true },
+            " — more than 4x the price. Wheelchairs tell a similar story: costs range from ",
+            { text: "$90", bold: true },
+            " (low) to ",
+            { text: "$4,455", bold: true },
+            " (average) to ",
+            { text: "$9,000", bold: true },
+            " (high) — accessibility shouldn't come at a premium.",
+          ],
+          [
+            { text: "Need", bold: true },
+            " — Many children cannot access standard toys without modifications.",
+          ],
+          [
+            { text: "Fulfilling", bold: true },
+            " — Creating adaptations makes a real difference in a child's life.",
+          ],
+          [
+            { text: "Fun", bold: true },
+            " — It's genuinely enjoyable work because who doesn't like to play with toys!",
+          ],
         ],
       },
       { type: "h3", text: "Why Build Other Assistive Tech?" },
       {
         type: "p",
-        text: "The same logic applies to broader assistive technology. A commercial switch (like the Ablenet big red button) costs $265, while a DIY version built with a breadboard and basic components can be made for under $15 — a savings of over 90%.",
+        text: [
+          "The same logic applies to broader assistive technology. A commercial switch (like the Ablenet big red button) costs ",
+          { text: "$265", bold: true },
+          ", while a DIY version built with a breadboard and basic components can be made for ",
+          { text: "under $15", bold: true },
+          " — a savings of over 90%.",
+        ],
       },
       { type: "p", text: "Beyond cost, building your own tech is:" },
       {
         type: "list",
         items: [
-          "Cost-effective — Dramatic savings over commercial alternatives",
-          "Need-driven — Tailored exactly to the user's specific situation",
-          "Fulfilling — Real-world impact for real people",
-          "Fun — Hands-on making and tinkering",
-          "Challenging — Pushes your skills and problem-solving",
-          "Inventive — Encourages creative, original solutions",
+          [
+            { text: "Cost-effective", bold: true },
+            " — Dramatic savings over commercial alternatives",
+          ],
+          [
+            { text: "Need-driven", bold: true },
+            " — Tailored exactly to the user's specific situation",
+          ],
+          [
+            { text: "Fulfilling", bold: true },
+            " — Real-world impact for real people",
+          ],
+          [{ text: "Fun", bold: true }, " — Hands-on making and tinkering"],
+          [
+            { text: "Challenging", bold: true },
+            " — Pushes your skills and problem-solving",
+          ],
+          [
+            { text: "Inventive", bold: true },
+            " — Encourages creative, original solutions",
+          ],
         ],
       },
       { type: "h3", text: "The Bottom Line" },
       {
         type: "p",
-        text: "The Adaptive Tech Club exists because accessible technology is too expensive, too generic, and too hard to get — and we can fix that. By adapting toys and building custom tech, club members directly improve the lives of people with disabilities while gaining meaningful engineering and design experience.",
+        text: [
+          "The Adaptive Tech Club exists because ",
+          {
+            text: "accessible technology is too expensive, too generic, and too hard to get",
+            bold: true,
+          },
+          " — and we can fix that. By adapting toys and building custom tech, club members directly improve the lives of people with disabilities while gaining meaningful engineering and design experience.",
+        ],
       },
     ],
   },
@@ -82,7 +141,12 @@ export const newClubKit: KitSection[] = [
         type: "p",
         text: "Leaders are chosen by current leaders and must be approved by the club teacher. Before being officially approved, candidates must accept the responsibilities outlined below.",
       },
-      { type: "p", text: "A few rules for the selection process:" },
+      {
+        type: "p",
+        text: [
+          { text: "A few rules for the selection process:", bold: true },
+        ],
+      },
       {
         type: "list",
         items: [
@@ -95,7 +159,11 @@ export const newClubKit: KitSection[] = [
       { type: "h2", text: "Leader Balance" },
       {
         type: "p",
-        text: "There should be 2–4 leaders at all times. When selecting leaders, aim for the following balance:",
+        text: [
+          "There should be ",
+          { text: "2–4 leaders", bold: true },
+          " at all times. When selecting leaders, aim for the following balance:",
+        ],
       },
       { type: "h3", text: "Grade mix" },
       {
@@ -123,9 +191,18 @@ export const newClubKit: KitSection[] = [
       {
         type: "list",
         items: [
-          "Technical depth — Able to design a new complex device or figure out how to adapt a difficult toy with minimal outside help.",
-          "Organization — Comfortable with emails, finances, grant applications, ordering supplies on time, Google Suite, and making posters.",
-          "Outreach & warmth — Outgoing, charismatic, and good at making people feel welcome. Critical for club fairs, onboarding new members, and ensuring ATC remains inclusive and approachable.",
+          [
+            { text: "Technical depth", bold: true },
+            " — Able to design a new complex device or figure out how to adapt a difficult toy with minimal outside help.",
+          ],
+          [
+            { text: "Organization", bold: true },
+            " — Comfortable with emails, finances, grant applications, ordering supplies on time, Google Suite, and making posters.",
+          ],
+          [
+            { text: "Outreach & warmth", bold: true },
+            " — Outgoing, charismatic, and good at making people feel welcome. Critical for club fairs, onboarding new members, and ensuring ATC remains inclusive and approachable.",
+          ],
         ],
       },
       {
@@ -137,9 +214,13 @@ export const newClubKit: KitSection[] = [
       {
         type: "list",
         items: [
-          "Not be a freshman.",
+          [{ text: "Not be a freshman.", bold: true }],
           "Feel comfortable teaching someone else to adapt toys.",
-          "Meet at least one of the following tracks:",
+          [
+            "Meet ",
+            { text: "at least one", bold: true },
+            " of the following tracks:",
+          ],
         ],
       },
       { type: "h3", text: "Track A — Consistent long-term participation" },
@@ -302,26 +383,52 @@ export const newClubKit: KitSection[] = [
       { type: "h2", text: "Core Toolkit" },
       {
         type: "def",
-        term: "Flush Cutters",
+        term: [
+          { text: "Flush Cutters", bold: true, href: kitLinks.flushCutters },
+        ],
         text: "Used to trim wire leads cleanly and cut zip ties or excess wire. The flush cut leaves a flat edge, which matters when working in tight spaces inside toys.",
       },
       {
         type: "def",
-        term: "Soldering Iron",
+        term: [
+          { text: "Soldering Iron", bold: true, href: kitLinks.solderingIron },
+        ],
         text: "The primary tool for toy adaptation — used to make and break electrical connections. A temperature-controlled iron is strongly preferred. Many of the accessories listed below (flux, steel wool, solder sucker, etc.) can be purchased together as a kit, which is usually more economical than buying individually.",
       },
       {
         type: "list",
         items: [
-          "Solder — The filler metal that forms the electrical joint. Use rosin-core solder for electronics work. Lead-free solder is required for toys, since adapted toys go to children and maintaining a safe club space is vital.",
-          "Flux/Soldering Paste — Applied before soldering to clean the joint surface and help solder flow evenly. Especially useful on older or oxidized contacts.",
-          "Steel Wool — Used to clean the soldering iron tip between joints. Fine-grade (0000) works best.",
-          "Solder Sucker (Desoldering Pump) — Removes solder from a joint when desoldering a connection. Useful when correcting mistakes or salvaging components.",
+          [
+            { text: "Solder", bold: true, href: kitLinks.solder },
+            " — The filler metal that forms the electrical joint. Use rosin-core solder for electronics work. Lead-free solder is required for toys, since adapted toys go to children and maintaining a safe club space is vital.",
+          ],
+          [
+            { text: "Flux/Soldering Paste", bold: true, href: kitLinks.flux },
+            " — Applied before soldering to clean the joint surface and help solder flow evenly. Especially useful on older or oxidized contacts.",
+          ],
+          [
+            { text: "Steel Wool", bold: true, href: kitLinks.steelWool },
+            " — Used to clean the soldering iron tip between joints. Fine-grade (0000) works best.",
+          ],
+          [
+            {
+              text: "Solder Sucker (Desoldering Pump)",
+              bold: true,
+              href: kitLinks.solderSucker,
+            },
+            " — Removes solder from a joint when desoldering a connection. Useful when correcting mistakes or salvaging components.",
+          ],
         ],
       },
       {
         type: "def",
-        term: "Solid Core Wire",
+        term: [
+          {
+            text: "Solid Core Wire",
+            bold: true,
+            href: kitLinks.solidCoreWire,
+          },
+        ],
         text: "Used to make new connections between a toy's motor switch and the added jack. Solid core is easier to work with for most people; stranded wire is a fine alternative for those who prefer it.",
       },
       {
@@ -332,19 +439,37 @@ export const newClubKit: KitSection[] = [
       {
         type: "list",
         items: [
-          "Wired jacks — Come pre-attached to a short wire harness, which you then solder to the toy's circuit. Easier to work with in soft-shell toys (e.g. stuffed animals). Generally recommended for beginners.",
-          "Screw-terminal jacks — Just the jack itself; you solder wires directly to it. A better fit for hard-shell toys where the jack can be mounted cleanly into the housing.",
+          [
+            { text: "Wired jacks", bold: true, href: kitLinks.wiredJacks },
+            " — Come pre-attached to a short wire harness, which you then solder to the toy's circuit. Easier to work with in soft-shell toys (e.g. stuffed animals). Generally recommended for beginners.",
+          ],
+          [
+            {
+              text: "Screw-terminal jacks",
+              bold: true,
+              href: kitLinks.screwJacks,
+            },
+            " — Just the jack itself; you solder wires directly to it. A better fit for hard-shell toys where the jack can be mounted cleanly into the housing.",
+          ],
         ],
       },
       { type: "h2", text: "Optional / Situational" },
       {
         type: "def",
-        term: "Wire Strippers",
+        term: [
+          { text: "Wire Strippers", bold: true, href: kitLinks.wireStrippers },
+        ],
         text: "Removes insulation from wire ends before soldering. Flush cutters can do this job in a pinch, so wire strippers aren't strictly necessary — but they're faster and cleaner when available.",
       },
       {
         type: "def",
-        term: "Heat Shrink Tubing",
+        term: [
+          {
+            text: "Heat Shrink Tubing",
+            bold: true,
+            href: kitLinks.heatShrink,
+          },
+        ],
         text: "Slipped over a solder joint and shrunk with heat to insulate and protect it. Electrical tape works as a substitute and is more forgiving for beginners.",
       },
       {
@@ -354,7 +479,7 @@ export const newClubKit: KitSection[] = [
       },
       {
         type: "def",
-        term: "Superglue",
+        term: [{ text: "Superglue", bold: true, href: kitLinks.superglue }],
         text: "Occasionally useful for reattaching plastic housing or securing components that have come loose inside a toy.",
       },
       { type: "h2", text: "Testing" },
@@ -366,20 +491,33 @@ export const newClubKit: KitSection[] = [
       {
         type: "list",
         items: [
-          "3D-printed buttons — Printable files available at adaptivetechclub.org",
-          "A male 3.5mm jack — Bridging the two contacts will trigger the toy the same way a switch would.",
+          [
+            { text: "3D-printed buttons", bold: true },
+            " — Printable files available at ",
+            { text: "adaptivetechclub.org", href: kitLinks.atcButtons },
+          ],
+          [
+            { text: "A male 3.5mm jack", bold: true, href: kitLinks.maleJack },
+            " — Bridging the two contacts will trigger the toy the same way a switch would.",
+          ],
         ],
       },
       { type: "h2", text: "Other Equipment" },
       {
         type: "def",
         term: "3D Printer (Bambu, Prusa, etc.)",
-        text: "Used to fabricate custom adaptive switches, button housings, and other assistive components. Having access to a printer significantly expands what the club can build and is important for more advanced projects. ex",
+        text: [
+          "Used to fabricate custom adaptive switches, button housings, and other assistive components. Having access to a printer significantly expands what the club can build and is important for more advanced projects. ",
+          { text: "ex", href: kitLinks.bambuEx },
+        ],
       },
       {
         type: "list",
         items: [
-          "Filament — PLA is the standard choice for most ATC projects: easy to print, available in many colors, and rigid enough for switch housings.",
+          [
+            { text: "Filament", bold: true },
+            " — PLA is the standard choice for most ATC projects: easy to print, available in many colors, and rigid enough for switch housings.",
+          ],
         ],
       },
     ],
@@ -412,9 +550,18 @@ export const newClubKit: KitSection[] = [
       {
         type: "list",
         items: [
-          "(a) — Easiest. Best for a member's very first adaptation.",
-          "(b) — Moderate. Good for members who have completed one or two toys.",
-          "(c) — A step up. Still appropriate for newer members, but involves more complexity.",
+          [
+            { text: "(a)", bold: true },
+            " — Easiest. Best for a member's very first adaptation.",
+          ],
+          [
+            { text: "(b)", bold: true },
+            " — Moderate. Good for members who have completed one or two toys.",
+          ],
+          [
+            { text: "(c)", bold: true },
+            " — A step up. Still appropriate for newer members, but involves more complexity.",
+          ],
         ],
       },
       { type: "p", text: "These map loosely to the theory levels below." },
@@ -438,27 +585,67 @@ export const newClubKit: KitSection[] = [
       {
         type: "def",
         term: "Two-Button Remote Control Toy (a)",
-        text: "Examples: car, spider, mouse Involves unscrewing the remote housing and soldering to the circuit board. Two adaptation points (one per button), so members can adapt both and see how each maps to a function.",
+        text: [
+          "Examples: ",
+          { text: "car", href: kitLinks.rcCar },
+          ", ",
+          { text: "spider", href: kitLinks.rcSpider },
+          ", ",
+          { text: "mouse", href: kitLinks.rcMouse },
+          " Involves unscrewing the remote housing and soldering to the circuit board. Two adaptation points (one per button), so members can adapt both and see how each maps to a function.",
+        ],
       },
       {
         type: "def",
         term: "Singing/Light-Up/Moving Stuffy (a/b)",
-        text: "Examples: dino, elmo, cactus Difficulty varies by toy. Most involve opening the stuffed animal, locating the button, and soldering to it — generally intuitive. May require a small amount of sewing or hot glue to close the toy back up neatly afterward.",
+        text: [
+          "Examples: ",
+          { text: "dino", href: kitLinks.stuffyDino },
+          ", ",
+          { text: "elmo", href: kitLinks.stuffyElmo },
+          ", ",
+          { text: "cactus", href: kitLinks.stuffyCactus },
+          " Difficulty varies by toy. Most involve opening the stuffed animal, locating the button, and soldering to it — generally intuitive. May require a small amount of sewing or hot glue to close the toy back up neatly afterward.",
+        ],
       },
       {
         type: "def",
         term: "Stuffed Animal on a Leash with Push Button (b)",
-        text: "Examples: horse, bunny Similar process to the singing stuffy — locate the push button, solder to it, and close the toy back up. May involve a small amount of sewing or hot glue. The external leash button is a good conversation starter for teaching members what adaptation actually does for a user.",
+        text: [
+          "Examples: ",
+          { text: "horse", href: kitLinks.leashHorse },
+          ", ",
+          { text: "bunny", href: kitLinks.leashBunny },
+          " Similar process to the singing stuffy — locate the push button, solder to it, and close the toy back up. May involve a small amount of sewing or hot glue. The external leash button is a good conversation starter for teaching members what adaptation actually does for a user.",
+        ],
       },
       {
         type: "def",
         term: "Bubble Toy (b)",
-        text: "Examples: gun, dino Involves unscrewing the housing and soldering to a button with wires. Bubble toys tend to be crowd-pleasers when demonstrated — good for club fairs or PPP Day showcases.",
+        text: [
+          "Examples: ",
+          { text: "gun", href: kitLinks.bubbleGun },
+          ", ",
+          { text: "dino", href: kitLinks.bubbleDino },
+          " Involves unscrewing the housing and soldering to a button with wires. Bubble toys tend to be crowd-pleasers when demonstrated — good for club fairs or PPP Day showcases.",
+        ],
       },
       {
         type: "def",
         term: "Electric Gear Car Toy (c)",
-        text: "Examples: snail, car, train, police, dino The transparent housing makes these visually engaging and good for explaining how the toy works internally. Adaptation involves some disassembly and reassembly, and the soldering/wiring may be slightly more involved than earlier toys. A good next step once a member has a couple of simpler toys under their belt.",
+        text: [
+          "Examples: ",
+          { text: "snail", href: kitLinks.gearSnail },
+          ", ",
+          { text: "car", href: kitLinks.gearCar },
+          ", ",
+          { text: "train", href: kitLinks.gearTrain },
+          ", ",
+          { text: "police", href: kitLinks.gearPolice },
+          ", ",
+          { text: "dino", href: kitLinks.gearDino },
+          " The transparent housing makes these visually engaging and good for explaining how the toy works internally. Adaptation involves some disassembly and reassembly, and the soldering/wiring may be slightly more involved than earlier toys. A good next step once a member has a couple of simpler toys under their belt.",
+        ],
       },
     ],
   },
@@ -536,7 +723,7 @@ export const newClubKit: KitSection[] = [
         type: "p",
         text: "Remove the screws needed to access the toy's internals. Keep track of where each screw came from — toys often use different lengths in different spots.",
       },
-      { type: "p", text: "Tips:" },
+      { type: "p", text: [{ text: "Tips:", bold: true }] },
       {
         type: "list",
         items: [
@@ -552,19 +739,31 @@ export const newClubKit: KitSection[] = [
       },
       {
         type: "p",
-        text: "To confirm you've found the right spot: Briefly bridge the two contact points on the switch with a loose wire. If the toy activates, you've found it. This is especially useful on toys with multiple switches or complex boards where it's not obvious which contact does what.",
+        text: [
+          { text: "To confirm you've found the right spot:", bold: true },
+          " Briefly bridge the two contact points on the switch with a loose wire. If the toy activates, you've found it. This is especially useful on toys with multiple switches or complex boards where it's not obvious which contact does what.",
+        ],
       },
       { type: "h2", text: "Step 3: Solder the Jack" },
       {
         type: "p",
         text: "Solder the two leads of your 3.5mm jack onto the contact points of the switch.",
       },
-      { type: "p", text: "Key notes:" },
+      { type: "p", text: [{ text: "Key notes:", bold: true }] },
       {
         type: "list",
         items: [
-          "Wire color doesn't matter — the circuit is symmetric, so either lead can go to either contact.",
-          "The original button should still work after adaptation. You're adding a parallel connection, not replacing the switch. Double-check this before closing the toy.",
+          [
+            { text: "Wire color doesn't matter", bold: true },
+            " — the circuit is symmetric, so either lead can go to either contact.",
+          ],
+          [
+            {
+              text: "The original button should still work after adaptation.",
+              bold: true,
+            },
+            " You're adding a parallel connection, not replacing the switch. Double-check this before closing the toy.",
+          ],
           "Use flux on the contact points if solder isn't flowing well. Clean the iron tip with steel wool between joints.",
           "If you're using a wired jack, solder the jack's leads to the toy. If you're using a screw-terminal jack, solder wires to the jack first, then connect those wires to the toy.",
         ],
@@ -577,18 +776,30 @@ export const newClubKit: KitSection[] = [
       {
         type: "list",
         items: [
-          "Pull the jack leads together by hand — touching the two bare wire ends together should trigger the toy.",
-          "Plug in a test button — use a 3D-printed button or any male 3.5mm jack wired to a button to simulate a real switch press.",
-          "Use a multimeter — set to continuity mode, it will beep when the circuit is closed, confirming your connections are solid.",
+          [
+            { text: "Pull the jack leads together by hand", bold: true },
+            " — touching the two bare wire ends together should trigger the toy.",
+          ],
+          [
+            { text: "Plug in a test button", bold: true },
+            " — use a 3D-printed button or any male 3.5mm jack wired to a button to simulate a real switch press.",
+          ],
+          [
+            { text: "Use a multimeter", bold: true },
+            " — set to continuity mode, it will beep when the circuit is closed, confirming your connections are solid.",
+          ],
         ],
       },
-      { type: "p", text: "Also confirm the original button still works independently." },
+      {
+        type: "p",
+        text: "Also confirm the original button still works independently.",
+      },
       { type: "h2", text: "Step 5: Cut an Exit Hole for the Wire" },
       {
         type: "p",
         text: "The jack's wire needs to exit the toy housing. Use wire snips (or the tip of a screw) to make a small notch or hole in the plastic shell where the wire will pass through.",
       },
-      { type: "p", text: "Tips:" },
+      { type: "p", text: [{ text: "Tips:", bold: true }] },
       {
         type: "list",
         items: [

@@ -1,7 +1,37 @@
+import { Fragment, ReactNode } from "react";
 import { Link, useParams } from "react-router-dom";
 import Layout from "@/components/Layout";
-import { newClubKit, KitBlock, KitSection } from "@/data/newClubKit";
+import { newClubKit, KitBlock, KitSection, Rich } from "@/data/newClubKit";
 import { ArrowLeft, ArrowRight, BookOpen } from "lucide-react";
+
+// Render rich inline content: plain strings, bold spans, and links.
+const renderInline = (rich: Rich): ReactNode => {
+  if (typeof rich === "string") return rich;
+  return rich.map((span, i) => {
+    if (typeof span === "string") return <Fragment key={i}>{span}</Fragment>;
+    if (span.href) {
+      return (
+        <a
+          key={i}
+          href={span.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`text-primary underline underline-offset-2 hover:text-primary/80 transition-colors${
+            span.bold ? " font-semibold" : ""
+          }`}>
+          {span.text}
+        </a>
+      );
+    }
+    if (span.bold)
+      return (
+        <strong key={i} className="font-semibold text-foreground">
+          {span.text}
+        </strong>
+      );
+    return <Fragment key={i}>{span.text}</Fragment>;
+  });
+};
 
 const renderBlock = (block: KitBlock, i: number) => {
   switch (block.type) {
@@ -22,14 +52,16 @@ const renderBlock = (block: KitBlock, i: number) => {
     case "p":
       return (
         <p key={i} className="text-muted-foreground leading-relaxed mb-4">
-          {block.text}
+          {renderInline(block.text)}
         </p>
       );
     case "def":
       return (
         <p key={i} className="text-muted-foreground leading-relaxed mb-4">
-          <span className="font-semibold text-foreground">{block.term}</span>{" "}
-          {block.text}
+          <span className="font-semibold text-foreground">
+            {renderInline(block.term)}
+          </span>{" "}
+          {renderInline(block.text)}
         </p>
       );
     case "list":
@@ -38,14 +70,14 @@ const renderBlock = (block: KitBlock, i: number) => {
           key={i}
           className="list-disc pl-5 space-y-2 mb-4 text-muted-foreground leading-relaxed marker:text-primary">
           {block.items.map((item, j) =>
-            typeof item === "string" ? (
-              <li key={j}>{item}</li>
+            typeof item === "string" || Array.isArray(item) ? (
+              <li key={j}>{renderInline(item)}</li>
             ) : (
               <li key={j}>
-                {item.text}
+                {renderInline(item.text)}
                 <ul className="list-disc pl-5 space-y-2 mt-2 marker:text-primary">
                   {item.items.map((sub, k) => (
-                    <li key={k}>{sub}</li>
+                    <li key={k}>{renderInline(sub)}</li>
                   ))}
                 </ul>
               </li>
