@@ -18,13 +18,14 @@ const ToyRequest = () => {
             className="bg-card rounded-2xl overflow-hidden"
             style={{ boxShadow: "var(--card-shadow)" }}>
             <iframe
+              title="Request a toy or device form"
               src="https://docs.google.com/forms/d/e/1FAIpQLSewCOc-BnLSU9s2GjQs0npHwu6RxR2HXP5me6e0jycRlr0c7A/viewform?embedded=true"
               width="100%"
               height="800"
               frameBorder="0"
               marginHeight={0}
               marginWidth={0}
-              className="block">
+              className="block w-full">
               Loading…
             </iframe>
           </div>

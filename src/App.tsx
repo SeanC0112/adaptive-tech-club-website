@@ -10,6 +10,7 @@ import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
 import ToyRequest from "./pages/ToyRequest";
+import NewClub from "./pages/NewClub";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 
@@ -58,6 +59,9 @@ function AppContent() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // Move keyboard/screen-reader focus to the new page's main content
+    const main = document.getElementById("main-content");
+    if (main) main.focus({ preventScroll: true });
   }, [addr]);
 
   return (
@@ -69,6 +73,8 @@ function AppContent() {
       <Route path="/projects/:id" element={<ProjectDetail />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/request" element={<ToyRequest />} />
+      <Route path="/newclub" element={<NewClub />} />
+      <Route path="/newclub/:slug" element={<NewClub />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

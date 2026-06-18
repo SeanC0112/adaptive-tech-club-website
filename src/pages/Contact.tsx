@@ -32,16 +32,22 @@ const Contact = () => {
           mode: "no-cors",
         },
       );
+      toast({
+        title: "Message Sent!",
+        description: "Thanks for reaching out. We'll get back to you soon.",
+      });
+      setForm({ name: "", email: "", subject: "", message: "" });
     } catch (error) {
       console.error("Form submission error:", error);
+      toast({
+        title: "Something went wrong",
+        description:
+          "Your message couldn't be sent. Please try again or email us directly at adaptivetechclub.lwhs@gmail.com.",
+        variant: "destructive",
+      });
+    } finally {
+      setSubmitting(false);
     }
-
-    toast({
-      title: "Message Sent!",
-      description: "Thanks for reaching out. We'll get back to you soon.",
-    });
-    setForm({ name: "", email: "", subject: "", message: "" });
-    setSubmitting(false);
   };
 
   const inputClasses =
@@ -71,50 +77,82 @@ const Contact = () => {
               </h2>
             </div>
             <form onSubmit={handleSubmit} className="space-y-4">
-              <input
-                type="text"
-                placeholder="Your Name"
-                name="entry.1054715418"
-                required
-                className={inputClasses}
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-              />
-              <input
-                type="email"
-                placeholder="Your Email"
-                name="entry.14403666"
-                required
-                className={inputClasses}
-                value={form.email}
-                onChange={(e) => setForm({ ...form, email: e.target.value })}
-              />
-              <select
-                required
-                name="entry.647776707"
-                className={inputClasses}
-                value={form.subject}
-                onChange={(e) => setForm({ ...form, subject: e.target.value })}>
-                <option value="" disabled>
-                  Select a topic...
-                </option>
-                <option value="General Question">General Question</option>
-                <option value="Partnership Inquiry">Partnership Inquiry</option>
-                <option value="Branch Inquiry">
-                  Start a Branch at My School
-                </option>
-                <option value="Volunteer Inquiry">Volunteering</option>
-                <option value="Other">Other</option>
-              </select>
-              <textarea
-                placeholder="Your message..."
-                name="entry.586486080"
-                required
-                rows={6}
-                className={inputClasses + " resize-none"}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-              />
+              <div>
+                <label htmlFor="contact-name" className="sr-only">
+                  Your name
+                </label>
+                <input
+                  id="contact-name"
+                  type="text"
+                  placeholder="Your Name"
+                  name="entry.1054715418"
+                  autoComplete="name"
+                  required
+                  className={inputClasses}
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-email" className="sr-only">
+                  Your email
+                </label>
+                <input
+                  id="contact-email"
+                  type="email"
+                  placeholder="Your Email"
+                  name="entry.14403666"
+                  autoComplete="email"
+                  required
+                  className={inputClasses}
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                />
+              </div>
+              <div>
+                <label htmlFor="contact-subject" className="sr-only">
+                  Topic
+                </label>
+                <select
+                  id="contact-subject"
+                  required
+                  name="entry.647776707"
+                  className={inputClasses}
+                  value={form.subject}
+                  onChange={(e) =>
+                    setForm({ ...form, subject: e.target.value })
+                  }>
+                  <option value="" disabled>
+                    Select a topic...
+                  </option>
+                  <option value="General Question">General Question</option>
+                  <option value="Partnership Inquiry">
+                    Partnership Inquiry
+                  </option>
+                  <option value="Branch Inquiry">
+                    Start a Branch at My School
+                  </option>
+                  <option value="Volunteer Inquiry">Volunteering</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div>
+                <label htmlFor="contact-message" className="sr-only">
+                  Your message
+                </label>
+                <textarea
+                  id="contact-message"
+                  placeholder="Your message..."
+                  name="entry.586486080"
+                  required
+                  rows={6}
+                  className={inputClasses + " resize-none"}
+                  value={form.message}
+                  onChange={(e) =>
+                    setForm({ ...form, message: e.target.value })
+                  }
+                />
+              </div>
               <button
                 type="submit"
                 disabled={submitting}

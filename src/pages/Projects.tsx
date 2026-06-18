@@ -2,7 +2,7 @@ import Layout from "@/components/Layout";
 import { projects } from "@/data/projects";
 import { ArrowRight, Wrench, Cpu } from "lucide-react";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import projectsImage from "@/assets/projects4.jpeg";
 
 const categoryIcon = {
@@ -16,8 +16,6 @@ const categoryLabel = {
 };
 
 const Projects = () => {
-  const navigate = useNavigate();
-
   const [filters, setFilters] = useState<Set<string>>(new Set());
 
   const toggleFilter = (cat: string) => {
@@ -52,7 +50,7 @@ const Projects = () => {
         <div className="absolute inset-0">
           <img
             src={projectsImage}
-            alt="Children playing with adapted toys"
+            alt="A collection of adapted toys and devices lined up on the floor"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-foreground/80 sm:bg-foreground/60" />
@@ -67,7 +65,9 @@ const Projects = () => {
             Catalogue of select items we've built or adapted. This shows a small
             sampling of the hundreds of types of toys we have adapted, as
             essentially any electric toy can be adapted. Please{" "}
-            <Link to="/Contact" className="text-[#3b82f6] hover:underline">
+            <Link
+              to="/contact"
+              className="font-semibold text-background underline hover:text-background/80">
               contact us
             </Link>{" "}
             for information on building your own.
@@ -94,28 +94,24 @@ const Projects = () => {
         <div className="flex flex-wrap justify-center gap-6">
           {filtered.map((project) => {
             const Icon = categoryIcon[project.category];
-            return (
-              <div
-                key={project.id}
-                className="bg-card rounded-2xl overflow-hidden hover:scale-[1.02] transition-transform cursor-pointer w-[30%]"
-                style={{
-                  minWidth: "350px",
-                  maxWidth: "400",
-                  boxShadow: "var(--card-shadow)",
-                }}
-                onClick={() =>
-                  project.hasDocumentation &&
-                  navigate(`/projects/${project.id}`)
-                }>
+            const cardClasses =
+              "bg-card rounded-2xl overflow-hidden transition-transform w-full sm:w-[340px] max-w-[400px]";
+            const inner = (
+              <>
                 <div className="h-52 bg-muted flex items-center justify-center overflow-hidden ">
                   {project.image ? (
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`${project.title} — adapted ${categoryLabel[project.category].toLowerCase()}`}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <Icon className="w-12 h-12 text-muted-foreground/40" />
+                    <Icon
+                      className="w-12 h-12 text-muted-foreground/40"
+                      aria-hidden="true"
+                    />
                   )}
                 </div>
                 <div className="p-6">
@@ -147,6 +143,24 @@ const Projects = () => {
                     )}
                   </div>
                 </div>
+              </>
+            );
+
+            return project.hasDocumentation ? (
+              <Link
+                key={project.id}
+                to={`/projects/${project.id}`}
+                aria-label={`${project.title} — view details`}
+                className={`${cardClasses} block hover:scale-[1.02]`}
+                style={{ boxShadow: "var(--card-shadow)" }}>
+                {inner}
+              </Link>
+            ) : (
+              <div
+                key={project.id}
+                className={cardClasses}
+                style={{ boxShadow: "var(--card-shadow)" }}>
+                {inner}
               </div>
             );
           })}

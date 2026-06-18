@@ -37,7 +37,7 @@ const Index = () => (
       <div className="absolute inset-0">
         <img
           src={heroImage}
-          alt="Children playing with adapted toys"
+          alt="Adaptive Tech Club members holding adapted toys they built in their workshop"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-foreground/60" />

@@ -26,8 +26,8 @@ const Navbar = () => {
                 ? "bg-primary text-primary-foreground"
                 : "text-muted-foreground hover:text-foreground hover:bg-muted"
             }`}>
-            <Logo className="w-10 h-10" />
-            <span className="font-display font-extrabold text-xl">
+            <Logo className="w-10 h-10 shrink-0" />
+            <span className="font-display font-extrabold text-base sm:text-xl">
               Adaptive Tech Club
             </span>
           </div>
@@ -52,14 +52,23 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-nav"
           className="md:hidden p-2 rounded-lg hover:bg-muted text-foreground">
-          {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          {isOpen ? (
+            <X className="w-5 h-5" aria-hidden="true" />
+          ) : (
+            <Menu className="w-5 h-5" aria-hidden="true" />
+          )}
         </button>
       </div>
 
       {/* Mobile nav */}
       {isOpen && (
-        <div className="md:hidden border-t border-border bg-card animate-fade-in">
+        <div
+          id="mobile-nav"
+          className="md:hidden border-t border-border bg-card animate-fade-in">
           <div className="container mx-auto py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <Link

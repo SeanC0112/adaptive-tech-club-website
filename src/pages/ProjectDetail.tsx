@@ -88,6 +88,8 @@ const ProjectDetail = () => {
                   <img
                     src={photo}
                     alt={`${project.title} photo ${i + 1}`}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full rounded-xl"
                   />
                 </a>
@@ -217,7 +219,9 @@ const ProjectDetail = () => {
                       className="mt-3 block">
                       <img
                         src={step.image}
-                        alt={`${step.title} illustration`}
+                        alt={`Step ${i + 1}: ${step.title}`}
+                        loading="lazy"
+                        decoding="async"
                         className="rounded-xl w-full max-w-md"
                       />
                     </a>

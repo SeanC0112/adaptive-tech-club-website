@@ -68,7 +68,7 @@ const WhyItMatters = () => (
       <div className="absolute inset-0">
         <img
           src={mattersImage}
-          alt="Children playing with adapted toys"
+          alt="A smiling child reaching up to play with a light-up adapted toy car"
           className="sm:w-full h-full object-cover object-right"
         />
         <div className="absolute inset-0 bg-foreground/60" />
@@ -150,16 +150,15 @@ const WhyItMatters = () => (
       </div>
 
       {/* What is switch adaptation/joystick adaptation */}
-      <div className="max-w-6xl mx-auto mb-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
           {/* Switch Adaptation */}
-          <div>
-            <div
-              className="bg-card rounded-2xl p-8"
-              style={{ boxShadow: "var(--card-shadow)" }}>
-              <h2 className="font-display font-extrabold text-3xl text-center mb-4">
-                What Is Switch Adaptation?
-              </h2>
+          <div
+            className="bg-card rounded-2xl p-8"
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <h2 className="font-display font-extrabold text-3xl text-center mb-4">
+              What Is Switch Adaptation?
+            </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Switch adaptation is the most common modification we perform. It
                 involves soldering a standard 3.5mm audio jack onto a
@@ -173,22 +172,20 @@ const WhyItMatters = () => (
                 abilities. By adding a jack, we make any toy compatible with
                 whatever switch a child already uses.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                The process typically takes 15–30 minutes and costs only $2 in
-                parts, in addition to the cost of the toy itself. It's a small
-                change with a massive impact.
-              </p>
-            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              The process typically takes 15–30 minutes and costs only $2 in
+              parts, in addition to the cost of the toy itself. It's a small
+              change with a massive impact.
+            </p>
           </div>
 
           {/* Joystick Adaptation */}
-          <div>
-            <div
-              className="bg-card rounded-2xl p-8"
-              style={{ boxShadow: "var(--card-shadow)" }}>
-              <h2 className="font-display font-extrabold text-3xl text-center mb-4">
-                What Is Joystick Adaptation?
-              </h2>
+          <div
+            className="bg-card rounded-2xl p-8"
+            style={{ boxShadow: "var(--card-shadow)" }}>
+            <h2 className="font-display font-extrabold text-3xl text-center mb-4">
+              What Is Joystick Adaptation?
+            </h2>
               <p className="text-muted-foreground leading-relaxed mb-4">
                 Joystick adaptation involves wiring a joystick interface to
                 multiple inputs on a toy so that it can be controlled in four
@@ -201,12 +198,11 @@ const WhyItMatters = () => (
                 vehicles while developing a crucial skill in a fun, low stakes
                 setting.
               </p>
-              <p className="text-muted-foreground leading-relaxed">
-                While slightly more involved than a standard switch adaptation,
-                joystick adaptation transforms toys into tools for independence,
-                exploration, and growth.
-              </p>
-            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              While slightly more involved than a standard switch adaptation,
+              joystick adaptation transforms toys into tools for independence,
+              exploration, and growth.
+            </p>
           </div>
         </div>
       </div>
