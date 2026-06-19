@@ -95,10 +95,10 @@ const Projects = () => {
           {filtered.map((project) => {
             const Icon = categoryIcon[project.category];
             const cardClasses =
-              "bg-card rounded-2xl overflow-hidden transition-transform w-full sm:w-[340px] max-w-[400px]";
+              "bg-card rounded-2xl overflow-hidden transition-transform w-full sm:w-[340px] max-w-[400px] flex flex-col";
             const inner = (
               <>
-                <div className="h-52 bg-muted flex items-center justify-center overflow-hidden ">
+                <div className="h-52 bg-muted flex items-center justify-center overflow-hidden shrink-0">
                   {project.image ? (
                     <img
                       src={project.image}
@@ -114,18 +114,23 @@ const Projects = () => {
                     />
                   )}
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <h3 className="font-display font-bold text-lg mb-2">
                     {project.title}
                   </h3>
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
-                  <div className="flex items-center justify-between gap-2">
-                    <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-between gap-2 mt-auto pt-2">
+                    <div className="flex items-center gap-2 flex-wrap">
                       <span className="px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground">
                         {categoryLabel[project.category]}
                       </span>
+                      {project.hasInstructions && (
+                        <span className="px-2 py-1 rounded-md text-xs font-medium bg-primary/10 text-primary">
+                          Instructions
+                        </span>
+                      )}
                       {project.inProgress && (
                         <span className="px-2 py-1 rounded-md text-xs font-medium bg-muted text-muted-foreground">
                           In Progress
