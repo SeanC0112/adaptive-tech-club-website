@@ -4,6 +4,7 @@ export interface Project {
   description: string;
   category: "toy" | "device";
   hasDocumentation: boolean;
+  hasInstructions?: boolean; // shows an "Instructions" tag and step-by-step build guide
   inProgress?: boolean;
   features?: string[];
   materials?: string[];
@@ -47,6 +48,7 @@ export const projects: Project[] = [
     image: "/project-images/button/photo2.png",
     category: "device",
     hasDocumentation: true,
+    hasInstructions: true,
     overview:
       "This adaptive button is a 3D-printed accessibility switch designed for use with adapted toys and assistive technology. It is intended to be easy to press for children and individuals who may have difficulty operating small or stiff buttons. The button is made up of three printed parts that assemble without tools (beyond an optional dab of glue) and a standard off-the-shelf switch. The design is open and easy to customize, reprint, or repair.",
     githubUrl: "https://github.com/AdaptiveTechClub/button",
@@ -111,6 +113,7 @@ export const projects: Project[] = [
     image: "/project-images/car/cover.jpg",
     category: "toy",
     hasDocumentation: true,
+    hasInstructions: true,
     features: [
       "Allows a child to control their own movement",
       "Can be joystick or switch adapted",

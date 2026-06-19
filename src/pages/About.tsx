@@ -597,7 +597,7 @@ const About = () => (
           adapt toys to be accessible for kids with physical disabilities.
         </p>
         <div className="flex justify-center">
-          <div className="w-full max-w-3xl aspect-[16/9] rounded-2xl overflow-hidden">
+          <div className="w-full max-w-3xl aspect-[1/1] rounded-2xl overflow-hidden">
             <video
               src={videoATC}
               autoPlay
