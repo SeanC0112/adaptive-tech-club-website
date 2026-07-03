@@ -48,7 +48,7 @@ const teamMembers: Member[] = [
   },
   {
     name: "Avery Belenson",
-    role: "Co-lead",
+    role: "Co-leader",
     school: "LWHS",
     gradYear: "’27",
     icon: Puzzle,
@@ -57,7 +57,7 @@ const teamMembers: Member[] = [
   },
   {
     name: "Sean Coleman",
-    role: "Co-lead",
+    role: "Co-leader",
     school: "LWHS",
     gradYear: "’27",
     icon: Cog,
@@ -66,7 +66,7 @@ const teamMembers: Member[] = [
   },
   {
     name: "Emory Temple-Asheim",
-    role: "Co-lead",
+    role: "Co-leader",
     school: "LWHS",
     gradYear: "’28",
     icon: Wrench,
@@ -75,7 +75,7 @@ const teamMembers: Member[] = [
   },
   {
     name: "Atticus Kilar",
-    role: "Co-lead",
+    role: "Leader",
     school: "BHS",
     gradYear: "’28",
     icon: Lightbulb,
