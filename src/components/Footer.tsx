@@ -102,6 +102,12 @@ const Footer = () => (
               Contact Us
               <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
             </Link>
+            <a
+              href="https://www.gofundme.com/f/help-kids-with-special-needs-access-the-technology-they-need"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-sm hover:opacity-90 transition-opacity group">
+              Donate
+              <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
+            </a>
           </div>
         </div>
       </div>
@@ -115,8 +121,8 @@ const Footer = () => (
         </p>
         <p className="text-center sm:text-right text-xs">
           Built by Sean Coleman, Ilana Zimmerman, and Emory Temple-Asheim
-          <br />
-          with assistance from Claude and other AI technology
+          {/* <br />
+          with assistance from Claude and other AI technology */}
         </p>
       </div>
     </div>
