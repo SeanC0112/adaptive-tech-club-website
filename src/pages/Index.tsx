@@ -69,6 +69,12 @@ const Index = () => (
             Contact Us
             <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
           </Link>
+          <a
+            href="https://www.gofundme.com/f/help-kids-with-special-needs-access-the-technology-they-need"
+            className="inline-flex items-center px-8 py-4 rounded-xl bg-primary text-primary-foreground font-display font-bold text-lg hover:opacity-90 transition-opacity group">
+            Donate
+            <ArrowRight className="w-0 group-hover:w-5 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
+          </a>
         </div>
       </div>
     </section>
