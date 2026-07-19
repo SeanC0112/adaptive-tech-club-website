@@ -162,6 +162,12 @@ const Contact = () => {
               </button>
             </form>
           </div>
+          <a
+            href="https://www.gofundme.com/f/help-kids-with-special-needs-access-the-technology-they-need"
+            className="mt-8 inline-flex items-center justify-center w-full py-3 rounded-xl bg-secondary text-secondary-foreground font-display font-bold text-sm hover:opacity-90 transition-opacity group">
+            Donate
+            <ArrowRight className="w-0 group-hover:w-4 opacity-0 group-hover:opacity-100 transition-all ml-0 group-hover:ml-2 overflow-hidden" />
+          </a>
         </div>
       </section>
     </Layout>
