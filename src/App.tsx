@@ -12,7 +12,7 @@ import Contact from "./pages/Contact";
 import ToyRequest from "./pages/ToyRequest";
 import NewClub from "./pages/NewClub";
 import NotFound from "./pages/NotFound";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics } from "@vercel/analytics/react";
 import { useEffect } from "react";
 
 const queryClient = new QueryClient();
