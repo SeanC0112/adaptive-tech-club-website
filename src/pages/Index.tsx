@@ -4,7 +4,7 @@ import { ArrowRight, Heart, Users, Lightbulb, Wrench } from "lucide-react";
 import heroImage from "@/assets/hero-image.jpg";
 
 const stats = [
-  { icon: Wrench, value: "400+", label: "Devices Adapted" },
+  { icon: Wrench, value: "500+", label: "Devices Adapted" },
   { icon: Heart, value: "15+", label: "Schools and Organizations Served" },
   { icon: Users, value: "60+", label: "Club Members" },
 ];
